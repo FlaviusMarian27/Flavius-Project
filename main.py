@@ -1,2 +1,0 @@
-msg = "Python!"
-print(msg)
