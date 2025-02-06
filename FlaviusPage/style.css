@@ -59,9 +59,22 @@ header{
     margin: 24px 0; /* spatiu intre imagine profil si nume */
 }
 
+/* ANimatie*/
+@keyframes slideInFromLeft {
+    from {
+        transform: translateY(-100%); /* Pornește din afara ecranului */
+        opacity: 0; /* Invizibil la inceput */
+    }
+    to {
+        transform: translateY(0); /* Ajunge la poziția sa finală */
+        opacity: 1; /* Devine complet vizibil */
+    }
+}
+
 .profile-details h1{
     font-size: 32px;
     margin-bottom: 16px;
+    animation: slideInFromLeft 1s ease-out;
 }
 
 .tags span{ /* pentru taguri*/
@@ -235,6 +248,49 @@ footer{/* pentru copyright*/
    padding: 16px 0;
 }
 
+/* Scroll to top */
+@keyframes fadeOut {
+    from {
+        opacity: 1; /* Vizibil */
+        transform: translateY(0); /* La poziția sa normală */
+    }
+    to {
+        opacity: 0; /* Invizibil */
+        transform: translateY(50px); /* Se mută în jos */
+    }
+}
+
+.go-top-btn{
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 60px;
+    width: 60px;
+    background-color: #fca001;
+    border: 3px solid #fff;
+    display: none;
+    justify-content: center;
+    align-content: center;
+    animation: slideInFromLeft 1s ease-out;
+}
+
+.go-top-btn img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.go-top-btn:hover img {
+    filter: invert(1); /* Face imaginea neagra daca era alba */
+}
+
+.go-top-btn.hide {
+    animation: fadeOut 0.5s ease-out forwards; /* Aplică animația fadeOut */
+    display: flex; /* Menține vizibilitatea în timpul animației */
+}
+
 /*Media Query*/
 @media screen and (max-width: 768px) {
     .section-container {
@@ -247,3 +303,4 @@ footer{/* pentru copyright*/
         margin-bottom: 16px; /* Spatiere intre sectiuni */
     }
 }
+
