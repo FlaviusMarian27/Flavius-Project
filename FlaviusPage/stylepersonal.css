@@ -21,6 +21,134 @@ header{
     width: 100%;
 }
 
+
+/* Hero */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 270px; /* Reduce padding-ul lateral */
+    gap: 10px; /* Reduce spațiul dintre text și imagine */
+    background-color: linear-gradient(to right, #f0a339, #f2ce2f);
+}
+
+.hero-section .text {
+    flex: 1;
+    color: #000;
+}
+
+.hero-section .text h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hero-section .text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.hero-section .text .links {
+    display: flex;
+    gap: 15px; /* Reduce distanța dintre butoane */
+}
+
+.hero-section .text .links a {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #fca001; /* Fundal negru */
+    color: #000; /* Text alb */
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.hero-section .text .links a:hover {
+    background-color: #fca001; /* Fundal alb la hover */
+    color: #fff; /* Text negru la hover */
+}
+
+.hero-section .text .links .a i {
+    margin-right: 8px;
+}
+
+.hero-section .headshot {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-section .headshot img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #000;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+h1 {
+    font-family: 'Lato', sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.typewriter {
+    display: inline-block;
+    border-right: 3px solid black; /* Cursor */
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* Skills */
+#skills {
+    text-align: center;
+    padding: 50px 0;
+    color:#000;
+}
+
+#skills h2 {
+    font-weight: 900; /* Extra bold pentru titlu */
+    color:#000;
+}
+
+.skills-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.skill {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #000; /* Text negru */
+    transition: 0.3s;
+    background-color: #fca001; /* Fundal inițial ușor mai deschis */
+}
+
+.skill img {
+    width: 40px;
+    height: 40px;
+}
+
+.skill:hover {
+    background-color: #e09e00; /* Fundal mai închis la hover */
+    transform: scale(1.1);
+    color: #000; /* Păstrează textul negru */
+}
+
 .buttons-container {
     display: flex;
     justify-content: space-between; /* Butoane la stânga și dreapta */

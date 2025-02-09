@@ -26,3 +26,32 @@ goTopBtn.addEventListener('click', () => {
 
 //Copyright function
 document.getElementById("year").textContent = new Date().getFullYear();
+
+//functie scriere
+document.addEventListener("DOMContentLoaded", function () {
+    const textElement = document.querySelector(".typewriter");
+    const text = "Hi, I'm Flavius!";
+    let index = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+        if (!isDeleting) {
+            textElement.textContent = text.substring(0, index++);
+        } else {
+            textElement.textContent = text.substring(0, index--);
+        }
+
+        if (index === text.length + 1) {
+            isDeleting = true;
+            setTimeout(typeEffect, 1000); // Pauză după scriere
+        } else if (index === 0) {
+            isDeleting = false;
+            setTimeout(typeEffect, 500); // Pauză după ștergere
+        } else {
+            setTimeout(typeEffect, isDeleting ? 100 : 150); // Viteză tastare și ștergere
+        }
+    }
+
+    typeEffect();
+});
+
