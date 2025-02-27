@@ -87,7 +87,7 @@ header{
 .details1{ /* clasa details*/
     font-size: 16px;
     background-color: #fca001;
-    border-radius: 5px;/* pentru colturi*/
+    border-radius: 40px;/* pentru colturi*/
     margin-bottom: 16px;/*spatiu dupa fiecare topic*/
     position: relative;
     overflow: hidden;/* pentru colturile de sus*/
@@ -99,6 +99,7 @@ header{
 
 .details1 .details1-title{
     padding: 16px;  /* pentru textul de jos*/ 
+    text-align: center;
 }
 
 .details1-details{
@@ -139,7 +140,7 @@ header{
 .project{ /* clasa project*/
     font-size: 16px;
     background-color: #fca001;
-    border-radius: 5px;/* pentru colturi*/
+    border-radius: 40px;/* pentru colturi*/
     margin-bottom: 16px;/*spatiu dupa fiecare topic*/
     position: relative;
     overflow: hidden;/* pentru colturile de sus*/
@@ -151,6 +152,7 @@ header{
 
 .project .project-title{
     padding: 16px;  /* pentru textul de jos*/ 
+    text-align: center;
 }
 
 .project-details{
@@ -191,7 +193,7 @@ header{
 .contact{ /* clasa contact*/
     font-size: 16px;
     background-color: #fca001;
-    border-radius: 5px;/* pentru colturi*/
+    border-radius: 40px;/* pentru colturi*/
     margin-bottom: 16px;/*spatiu dupa fiecare topic*/
     position: relative;
     overflow: hidden;/* pentru colturile de sus*/
@@ -203,6 +205,7 @@ header{
 
 .contact .contact-title{
     padding: 16px;  /* pentru textul de jos*/ 
+    text-align: center;
 }
 
 .contact-details{
