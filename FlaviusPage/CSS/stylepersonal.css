@@ -260,3 +260,53 @@ footer{/* pentru copyright*/
     animation: fadeOut 0.5s ease-out forwards; /* Aplică animația fadeOut */
     display: flex; /* Menține vizibilitatea în timpul animației */
 }
+
+@media screen and (max-width: 768px) {
+    /* Hero Section */
+    .hero-section {
+        flex-direction: column; /* Stivuiește elementele vertical */
+        padding: 40px 20px; /* Reduce padding-ul */
+        text-align: center;
+    }
+
+    .hero-section .text {
+        width: 100%;
+    }
+
+    .hero-section .headshot img {
+        width: 200px;
+        height: 200px;
+    }
+
+    /* Skills Section */
+    .skills-container {
+        flex-direction: column; /* Stivuiește skills pe verticală */
+        align-items: center;
+    }
+
+    /* Butoane */
+    .buttons-container {
+        flex-direction: column; /* Butoanele unul sub altul */
+        gap: 10px;
+    }
+
+    .buton1, .buton2 {
+        width: 80%; /* Lățime mai mare */
+        text-align: center;
+        justify-content: center;
+    }
+
+    /* Header */
+    header {
+        height: 180px; /* Mai mic pentru mobile */
+        background-position: center 50%;
+    }
+
+    /* Scroll to top button */
+    .go-top-btn {
+        width: 50px;
+        height: 50px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
