@@ -83,6 +83,25 @@ header{
     border-radius: 15px;
 }
 
+.section-container {
+    display: flex;
+    justify-content: center; /* Centrează elementele pe orizontală */
+    align-items: stretch; /* Asigură că au aceeași înălțime */
+    gap: 20px; /* Spațiere între secțiuni */
+    flex-wrap: nowrap; /* Nu permite trecerea pe un alt rând */
+}
+
+.details1, .project, .contact {
+    flex: 1; /* Toate cardurile să fie egale */
+    max-width: 400px; /* Menține lățimea maximă */
+    min-height: 100px;
+    height: 100%; /* Ocupă toată înălțimea */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
 /* Details1 styles */
 .details1{ /* clasa details*/
     font-size: 16px;
@@ -95,6 +114,7 @@ header{
 
 .details1 img{  /* pentru imaginea din sectiunea detalii 1*/
     max-width: 100%;
+    height: 300px;
 }
 
 .details1 .details1-title{
@@ -148,6 +168,7 @@ header{
 
 .project img{  /* pentru imaginea din sectiunea detalii 1*/
     max-width: 100%;
+    height: 300px;
 }
 
 .project .project-title{
@@ -295,13 +316,17 @@ footer{/* pentru copyright*/
 /*Media Query*/
 @media screen and (max-width: 768px) {
     .section-container {
-        display: block; /* Elemente pe un singur rand pe mobil */
-        text-align: center; /* Centrare continut */
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
     }
 
     .details1, .project, .contact {
-        width: 100%; /* Elemente pe toata latimea */
-        margin-bottom: 16px; /* Spatiere intre sectiuni */
+        width: 100%;
+        max-width: 90%;
+        margin-bottom: 16px;
     }
 }
+
 
