@@ -222,6 +222,7 @@ header{
 
 .contact img{  /* pentru imaginea din sectiunea detalii 1*/
     max-width: 100%;
+    height: 300px;
 }
 
 .contact .contact-title{
@@ -317,16 +318,16 @@ footer{/* pentru copyright*/
 @media screen and (max-width: 768px) {
     .section-container {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 16px;
+        flex-direction: column; /* Stack pe verticală */
+        align-items: center; /* Centrează conținutul */
+        gap: 16px; /* Spațiere între secțiuni */
     }
 
     .details1, .project, .contact {
-        width: 100%;
-        max-width: 90%;
-        margin-bottom: 16px;
+        width: 90%; /* Ajustează lățimea */
+        max-width: 350px; /* Evită să fie prea mari */
     }
 }
+
 
 
