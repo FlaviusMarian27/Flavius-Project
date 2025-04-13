@@ -1,0 +1,456 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Popping', sans-serif;
+}
+
+body{
+    font-family: sans-serif;
+    line-height: 1.5;
+    color: #fff;
+    background: linear-gradient(to right, #f0a339, #f2ce2f);
+}
+
+/* Header styles imagine*/
+header{
+    background-image: url('../images/mountain.jpg');
+    height: 250px;
+    background-position: center 70%;
+    background-size: cover;
+    width: 100%;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between; /* Butoane la stânga și dreapta */
+    align-items: center;
+    padding: 20px;
+    max-width: 100%;
+}
+
+.buton1 {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fca001;
+    color: #000;
+    font-size: 16px;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: 0.3s;
+    margin-left: 20px;
+}
+
+.buton1:hover {
+    background-color: #fff;
+}
+
+.buton1 i {
+    margin: 0 8px; /* Spațiere între iconiță și text */
+}
+
+.buton2 {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fca001;
+    color: #000;
+    font-size: 16px;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: 0.3s;
+    margin-right: 20px;
+}
+
+.buton2:hover {
+    background-color: #fff;
+}
+
+.buton2 i {
+    margin: 0 8px; /* Spațiere între iconiță și text */
+}
+
+.contact{
+    position: relative;
+    min-height: 100vh;
+    padding: 50px 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: linear-gradient(to right, #f0a339, #f2ce2f);
+}
+
+.contact .content{/* Pentru a centra contacteaza ma */
+    max-width: 800px;
+    text-align: center;
+}
+
+.contact .content h2{
+    font-size: 3em;
+    color: #000000;
+    font-weight: 700;
+}
+
+.contact .content p{
+    color: #000;
+    font-size:  1.1em;
+    font-weight: 300;
+}
+
+.container{
+    width: 100%;
+    display: flex; /* Pune elementele pe orizontală */
+    flex-wrap: wrap;
+    justify-content: center; /* Separă elementele */
+    align-items: flex-start; /* Aliniază sus */
+    gap: 50px;
+    background: linear-gradient(to right, #f2ce2f , #f0a339);
+    margin-top: 30px;
+    padding: 50px 100px;
+}
+
+.container .contactInfo{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container .contactInfo .box{
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+    cursor: pointer;
+}
+
+.container .contactInfo .box .icon{
+    position: relative;
+    min-width: 60px;
+    height: 60px;
+    background: repeating-conic-gradient(from 27.5deg,#000,0%,#000 10%, transparent 10%, transparent 50% );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .contactInfo .box .icon::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-conic-gradient(from 117.5deg,#000,0%,#000 10%, transparent 10%, transparent 50% );
+}
+
+.container .contactInfo .box .icon::after{
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: #f0a339; /* imprejur*/
+}
+
+.container .contactInfo .box .icon b{
+    position: absolute;
+    inset: 8px;
+    background: #000; /* patrat */
+    z-index: 2;
+}
+
+.container .contactInfo .box .icon i{
+    position: relative;
+    z-index: 1000;
+    color: #f0a339;/*simbol*/
+    font-size: 1.25em;
+}
+
+.container .contactInfo .box .text{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    font-size: 1.1em;
+    color: #000;
+    font-weight: 300;
+}
+
+.container .contactInfo .box .text h3{
+    font-weight: 700;
+    color: #000;/* scris subtitlu*/
+}
+
+/* connect with me style*/
+.container .contactInfo .txt{
+    color:#000;
+    margin-top:  50px;
+    font-weight: 700;
+    border-left: 50px solid #000;
+    padding-left: 10px;
+    line-height: 1em;
+}
+
+.container .contactInfo .sci{
+    position: relative;
+    display: flex;
+    gap: 30px;
+    margin: 20px 0;
+}
+
+.container .contactInfo .sci li{
+    list-style: none;
+}
+
+/* animatie lista*/
+.container .contactInfo .sci li a{
+    color: #000;
+    font-size: 1.5em;
+    transition: 0.25s;
+}
+
+.container .contactInfo .sci li a:hover{
+    color: #fff;
+    filter: drop-shadow(0 0 5px #fff)
+}
+
+.container .contactForm{
+    position: relative;
+    width: 40%;
+    margin-left: auto; 
+    background: repeating-conic-gradient(from var(--a),#000,0%,#000 10%, transparent 10%, transparent 50% );
+    animation: animate 6s linear infinite;
+    padding: 60px;
+}
+
+.container .contactForm::before{
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-conic-gradient(from var(--a),#000,0%,#000 10%, transparent 10%, transparent 50% );
+    animation: animate 6s linear infinite;
+    animation-delay: -1.5s ;
+}
+
+.container .contactForm::after{
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border: 20px solid #f2ce2f;
+    background: #f0a339;
+}
+
+@property --a{
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
+@keyframes animate {
+    0%{
+        --a: 0deg;
+    }
+    100%{
+        --a: 360deg;
+    }
+}
+
+.container .contactForm form{
+    position: relative;
+    z-index: 10;
+}
+
+.container .contactForm form h2{
+    font-size: 2em;
+    color: #000;
+    font-weight: 700;
+}
+
+.container .contactForm form .inputBox{
+    position: relative;
+    width: 100%;
+    margin-top: 20px ;
+}
+
+.container .contactForm form .inputBox input,
+.container .contactForm form .inputBox textarea{
+    width: 100% !important;
+    padding: 5px 0;
+    font-size: 1.1em;
+    margin: 10px 0;
+    border: none;
+    background: transparent;
+    border-bottom: 2px solid #000;
+    color: #000;
+    outline: none;
+    resize: none;
+}
+
+.container .contactForm form .inputBox span{
+    position: absolute;
+    left: 0;
+    pointer-events: none;
+    padding: 5px 0;
+    margin: 10px 0;
+    font-size: 1.1em;
+    color: #000;
+    transition: 0.5s;
+}
+
+.container .contactForm form .inputBox input:focus ~ span,
+.container .contactForm form .inputBox textarea:focus ~ span,
+.container .contactForm form .inputBox input:valid ~ span,
+.container .contactForm form .inputBox textarea:valid ~ span{
+    color: #fff;
+    font-size: 0.9em;
+    transform: translateY(-24px);
+}
+
+.container .contactForm form .inputBox input[type="submit"]{
+    width: 100%;
+    background: #f2ce2f;
+    color:#000;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+/* Footer styles */
+footer{/* pentru copyright*/
+    font-size: 16px;
+    text-align: center;
+    padding: 16px 0;
+ }
+
+
+ /* Scroll to top */
+@keyframes slideInFromLeft {
+    from {
+        transform: translateY(-100%); /* Pornește din afara ecranului */
+        opacity: 0; /* Invizibil la inceput */
+    }
+    to {
+        transform: translateY(0); /* Ajunge la poziția sa finală */
+        opacity: 1; /* Devine complet vizibil */
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1; /* Vizibil */
+        transform: translateY(0); /* La poziția sa normală */
+    }
+    to {
+        opacity: 0; /* Invizibil */
+        transform: translateY(50px); /* Se mută în jos */
+    }
+}
+
+.go-top-btn{
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 60px;
+    width: 60px;
+    background-color: #fca001;
+    border: 3px solid #fff;
+    display: none;
+    justify-content: center;
+    align-content: center;
+    animation: slideInFromLeft 1s ease-out;
+    z-index: 1000;/* il aduci peste toate butoanele*/
+}
+
+.go-top-btn img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.go-top-btn:hover img {
+    filter: invert(1); /* Face imaginea neagra daca era alba */
+}
+
+.go-top-btn.hide {
+    animation: fadeOut 0.5s ease-out forwards; /* Aplică animația fadeOut */
+    display: flex; /* Menține vizibilitatea în timpul animației */
+}
+
+/* Media Query*/
+/* Pentru ecrane mici (mobil) */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px; /* Mărire a fontului pe mobil pentru lizibilitate */
+    }
+
+    .contact {
+        padding: 30px; /* Micșorăm padding-ul */
+    }
+
+    .container {
+        flex-direction: column; /* Plasăm contactInfo și contactForm pe verticală */
+        padding: 20px;
+    }
+
+    .container .contactInfo, .container .contactForm {
+        width: 100%; /* Fă totul pe lățime completă */
+        margin-left: 0;
+    }
+
+    .container .contactInfo .box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .container .contactInfo .sci {
+        gap: 20px;
+    }
+
+    .contactForm {
+        padding: 30px;
+    }
+
+    /* Butonul "Scroll to top" */
+    .go-top-btn {
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+/* Pentru ecrane medii (tablete) */
+@media (max-width: 1024px) {
+    body {
+        font-size: 16px; /* Ajustează fontul pentru tablete */
+    }
+
+    .container {
+        padding: 30px;
+    }
+
+    .container .contactInfo, .container .contactForm {
+        width: 45%; /* Reduce lățimea pentru tablete */
+    }
+
+    .container .contactInfo .box {
+        flex-direction: column;
+    }
+
+    .container .contactForm {
+        padding: 40px;
+    }
+}
+
+/* Pentru desktopuri mari */
+@media (min-width: 1280px) {
+    .container {
+        padding: 50px 200px;
+    }
+
+    .contactForm {
+        padding: 60px;
+    }
+
+    .container .contactInfo, .container .contactForm {
+        width: 45%;
+    }
+}

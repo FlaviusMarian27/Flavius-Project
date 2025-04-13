@@ -1,0 +1,269 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Popping', sans-serif;
+}
+
+body{
+    font-family: sans-serif;
+    line-height: 1.5;
+    color: #fff;
+    background: linear-gradient(to right, #f0a339, #f2ce2f);
+}
+
+/* Header styles imagine*/
+header{
+    background-image: url('../images/mountain.jpg');
+    height: 250px;
+    background-position: center 70%;
+    background-size: cover;
+    width: 100%;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between; /* Butoane la stânga și dreapta */
+    align-items: center;
+    padding: 20px;
+    max-width: 100%;
+}
+
+.buton1 {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fca001;
+    color: #000;
+    font-size: 16px;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: 0.3s;
+    margin-left: 20px;
+}
+
+.buton1:hover {
+    background-color: #fff;
+}
+
+.buton1 i {
+    margin: 0 8px; /* Spațiere între iconiță și text */
+}
+
+.buton2 {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fca001;
+    color: #000;
+    font-size: 16px;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: 0.3s;
+    margin-right: 0 auto;/* pentru a fixa pe centru*/
+}
+
+.buton2:hover {
+    background-color: #fff;
+}
+
+.buton2 i {
+    margin: 0 8px; /* Spațiere între iconiță și text */
+}
+
+.buton3 {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fca001;
+    color: #000;
+    font-size: 16px;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: 0.3s;
+    margin-right: 20px;
+}
+
+.buton3:hover {
+    background-color: #fff;
+}
+
+.buton3 i {
+    margin: 0 8px; /* Spațiere între iconiță și text */
+}
+
+/* Footer styles */
+footer{/* pentru copyright*/
+    font-size: 16px;
+    text-align: center;
+    padding: 16px 0;
+}
+
+/* Scroll to top */
+@keyframes slideInFromLeft {
+    from {
+        transform: translateY(-100%); /* Pornește din afara ecranului */
+        opacity: 0; /* Invizibil la inceput */
+    }
+    to {
+        transform: translateY(0); /* Ajunge la poziția sa finală */
+        opacity: 1; /* Devine complet vizibil */
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1; /* Vizibil */
+        transform: translateY(0); /* La poziția sa normală */
+    }
+    to {
+        opacity: 0; /* Invizibil */
+        transform: translateY(50px); /* Se mută în jos */
+    }
+}
+
+.go-top-btn{
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 60px;
+    width: 60px;
+    background-color: #fca001;
+    border: 3px solid #fff;
+    display: none;
+    justify-content: center;
+    align-content: center;
+    animation: slideInFromLeft 1s ease-out;
+    z-index: 1000;/* il aduci peste toate butoanele*/
+}
+
+.go-top-btn img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.go-top-btn:hover img {
+    filter: invert(1); /* Face imaginea neagra daca era alba */
+}
+
+.go-top-btn.hide {
+    animation: fadeOut 0.5s ease-out forwards; /* Aplică animația fadeOut */
+    display: flex; /* Menține vizibilitatea în timpul animației */
+}
+
+
+.section-container {
+    display: flex;
+    justify-content: center; /* Centrează secțiunile pe orizontală */
+    flex-wrap: wrap; /* Permite trecerea pe rând nou dacă nu încap */
+    gap: 20px; /* Spațiere între secțiuni */
+    padding: 20px;
+}
+
+/* TicTacToeC styles */
+.tictactoeC {
+    font-size: 16px;
+    background-color: #fca001;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 300px;
+    height: 300px;
+    background-color: #fca001;
+    border-radius: 30px;
+    padding-top: 20px;
+}
+
+.tictactoeC img {
+    width: auto; /* Permite imaginii să-și păstreze proporțiile */
+    height: auto;
+    max-width: 100%; /* Se asigură că imaginea nu depășește containerul */
+    max-height: 100%;
+    display: block;
+    margin: auto; /* Centrează imaginea orizontal și vertical */
+    border-radius: 30px;
+    max-width: 80%;
+    object-fit: contain;
+}
+
+.tictactoeC .tictactoeC-title {
+    padding: 10px;
+    min-height: 40px; /* Asigură un spațiu minim pentru titlu */
+    font-weight: bold;
+    font-size: 18px; /* Ajustează mărimea fontului dacă e necesar */
+    color: #000; /* Asigură-te că se vede bine pe fundal */
+}
+
+
+.tictactoeC-details {
+    display: none;
+    background-color: #fca001;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 16px;
+}
+
+.tictactoeC-details .btn-outline {
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    padding: 8px;
+    border: solid 2px #fff;
+    border-radius: 15px;
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+}
+
+.tictactoeC-details .btn-outline:hover {
+    color: #fca001;
+    background-color: #fff;
+}
+
+.tictactoeC:hover .tictactoeC-details {
+    display: block;
+}
+
+.buttons-container-1 {
+    display: flex;
+    justify-content: space-between; /* Butoane la stânga și dreapta */
+    align-items: center;
+    padding: 20px;
+    max-width: 100%;
+}
+
+.buton1-1 {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #fca001;
+    color: #000;
+    font-size: 16px;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: 0.3s;
+    margin-left: 20px;
+}
+
+.buton1-1:hover {
+    background-color: #fff;
+}
+
+.buton1-1 i {
+    margin: 0 8px; /* Spațiere între iconiță și text */
+}
+

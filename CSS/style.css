@@ -1,0 +1,333 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family: sans-serif;
+    line-height: 1.5;
+    color: #fff;
+    background: linear-gradient(to right, #f0a339, #f2ce2f);
+}
+
+/* General styles */
+.page-container{
+    width: 480px;
+    max-width: 100%;
+    padding: 16px;
+    margin: 0 auto;/* centram la mijloc, astfel 0 pentru marginea de sus si jos, auto pentru marginea din stanga si dreapta*/ 
+}
+
+section{
+    margin-bottom: 32px;
+}
+
+/* Header styles */
+header{
+    background-image: url('../images/mountain.jpg');
+    height: 250px;
+    background-position: center 70%;
+    background-size: cover;
+}
+
+/* Profile main styles*/ 
+.profile{ /* asta ii textul la centru */
+    text-align: center;
+    margin-top: -75px;/* pentru a trage imaginea peste cea de coperta*/
+}
+
+.profile-image{/* ialtimea si latimea img*/
+    width: 150px;
+    height: 150px;
+    border: solid 4px #fff;
+    border-radius: 50%;
+    overflow: hidden; /* Asigură că imaginea nu iese din container */
+    display: inline-block;
+}
+
+.profile-image img{/* asta ii divul ala cu imaginea*/
+    width: 100%;/*ai are marimea de 100% din parinte adica din clasa de mai sus 150 pe 150*/
+    height: 100%;
+    object-fit: cover; /* asigura ca proportiile sunt pastrate */
+    border-radius: 50%;
+}
+
+.profile-details{
+    font-size: 16px;
+    margin: 24px 0; /* spatiu intre imagine profil si nume */
+}
+
+/* ANimatie*/
+@keyframes slideInFromLeft {
+    from {
+        transform: translateY(-100%); /* Pornește din afara ecranului */
+        opacity: 0; /* Invizibil la inceput */
+    }
+    to {
+        transform: translateY(0); /* Ajunge la poziția sa finală */
+        opacity: 1; /* Devine complet vizibil */
+    }
+}
+
+.profile-details h1{
+    font-size: 32px;
+    margin-bottom: 16px;
+    animation: slideInFromLeft 1s ease-out;
+}
+
+.tags span{ /* pentru taguri*/
+    font-size: 14px;
+    background-color: #fca001;
+    padding: 8px; /* spatiu intre taguri*/
+    border-radius: 15px;
+}
+
+.section-container {
+    display: flex;
+    justify-content: center; /* Centrează elementele pe orizontală */
+    align-items: stretch; /* Asigură că au aceeași înălțime */
+    gap: 20px; /* Spațiere între secțiuni */
+    flex-wrap: nowrap; /* Nu permite trecerea pe un alt rând */
+}
+
+.details1, .project, .contact {
+    flex: 1; /* Toate cardurile să fie egale */
+    max-width: 400px; /* Menține lățimea maximă */
+    min-height: 100px;
+    height: 100%; /* Ocupă toată înălțimea */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Details1 styles */
+.details1{ /* clasa details*/
+    font-size: 16px;
+    background-color: #fca001;
+    border-radius: 40px;/* pentru colturi*/
+    margin-bottom: 16px;/*spatiu dupa fiecare topic*/
+    position: relative;
+    overflow: hidden;/* pentru colturile de sus*/
+} 
+
+.details1 img{  /* pentru imaginea din sectiunea detalii 1*/
+    max-width: 100%;
+    height: 300px;
+}
+
+.details1 .details1-title{
+    padding: 16px;  /* pentru textul de jos*/ 
+    text-align: center;
+}
+
+.details1-details{
+    display: none;/* uita mai jos unde scrie 2*/
+    background-color: #fca001;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 16px;
+}
+
+.details1-details .btn-outline{
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    padding: 8px;
+    border: solid 2px #fff;
+    border-radius: 15px;
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+}
+
+.details1-details .btn-outline:hover{
+    color: #fca001;
+    background-color: #fff;/* efect buton*/
+}
+
+.details1:hover .details1-details{
+    display: block; /* 2 cand mergem cu masul pe divul cu imagine*/
+}
+
+
+/* Project styles */
+.project{ /* clasa project*/
+    font-size: 16px;
+    background-color: #fca001;
+    border-radius: 40px;/* pentru colturi*/
+    margin-bottom: 16px;/*spatiu dupa fiecare topic*/
+    position: relative;
+    overflow: hidden;/* pentru colturile de sus*/
+} 
+
+.project img{  /* pentru imaginea din sectiunea detalii 1*/
+    max-width: 100%;
+    height: 300px;
+}
+
+.project .project-title{
+    padding: 16px;  /* pentru textul de jos*/ 
+    text-align: center;
+}
+
+.project-details{
+    display: none;/* uita mai jos unde scrie 2*/
+    background-color: #fca001;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 16px;
+}
+
+.project-details .btn-outline{
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    padding: 8px;
+    border: solid 2px #fff;
+    border-radius: 15px;
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+}
+
+.project-details .btn-outline:hover{
+    color: #fca001;
+    background-color: #fff;/* efect buton*/
+}
+
+.project:hover .project-details{
+    display: block; /* 2 cand mergem cu masul pe divul cu imagine*/
+}
+
+
+/* Contact styles */
+.contact{ /* clasa contact*/
+    font-size: 16px;
+    background-color: #fca001;
+    border-radius: 40px;/* pentru colturi*/
+    margin-bottom: 16px;/*spatiu dupa fiecare topic*/
+    position: relative;
+    overflow: hidden;/* pentru colturile de sus*/
+} 
+
+.contact img{  /* pentru imaginea din sectiunea detalii 1*/
+    max-width: 100%;
+    height: 300px;
+}
+
+.contact .contact-title{
+    padding: 16px;  /* pentru textul de jos*/ 
+    text-align: center;
+}
+
+.contact-details{
+    display: none;/* uita mai jos unde scrie 2*/
+    background-color: #fca001;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 16px;
+}
+
+.contact-details .btn-outline{
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    padding: 8px;
+    border: solid 2px #fff;
+    border-radius: 15px;
+    position: absolute;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+}
+
+.contact-details .btn-outline:hover{
+    color: #fca001;
+    background-color: #fff;/* efect buton*/
+}
+
+.contact:hover .contact-details{
+    display: block; /* 2 cand mergem cu masul pe divul cu imagine*/
+}
+
+
+/* Footer styles */
+footer{/* pentru copyright*/
+   font-size: 16px;
+   text-align: center;
+   padding: 16px 0;
+}
+
+/* Scroll to top */
+@keyframes fadeOut {
+    from {
+        opacity: 1; /* Vizibil */
+        transform: translateY(0); /* La poziția sa normală */
+    }
+    to {
+        opacity: 0; /* Invizibil */
+        transform: translateY(50px); /* Se mută în jos */
+    }
+}
+
+.go-top-btn{
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 60px;
+    width: 60px;
+    background-color: #fca001;
+    border: 3px solid #fff;
+    display: none;
+    justify-content: center;
+    align-content: center;
+    animation: slideInFromLeft 1s ease-out;
+}
+
+.go-top-btn img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.go-top-btn:hover img {
+    filter: invert(1); /* Face imaginea neagra daca era alba */
+}
+
+.go-top-btn.hide {
+    animation: fadeOut 0.5s ease-out forwards; /* Aplică animația fadeOut */
+    display: flex; /* Menține vizibilitatea în timpul animației */
+}
+
+/*Media Query*/
+@media screen and (max-width: 768px) {
+    .section-container {
+        display: flex;
+        flex-direction: column; /* Stack pe verticală */
+        align-items: center; /* Centrează conținutul */
+        gap: 16px; /* Spațiere între secțiuni */
+    }
+
+    .details1, .project, .contact {
+        width: 90%; /* Ajustează lățimea */
+        max-width: 350px; /* Evită să fie prea mari */
+    }
+}
+
+
+
