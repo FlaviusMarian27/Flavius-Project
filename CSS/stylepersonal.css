@@ -2,234 +2,213 @@
     margin:0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Popping', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
-
 body{
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
     line-height: 1.5;
-    color: #fff;
-    background: linear-gradient(to right, #f0a339, #f2ce2f);
+    color: #111;
+    background: linear-gradient(135deg, #f8b500, #ffe259);
+    min-height: 100vh;
 }
 
 /* Header styles imagine*/
 header{
     background-image: url('../images/mountain.jpg');
-    height: 250px;
+    height: 220px;
     background-position: center 70%;
     background-size: cover;
     width: 100%;
+    margin-bottom: 0;
+}
+
+.left-btn {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex: 1;
+}
+
+.right-btn {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1;
+}
+
+.buttons-row {
+    display: flex;
+    justify-content: space-between;  /* unul stânga, unul dreapta */
+    align-items: center;
+    width: 100%;
+    padding: 28px 38px 0 38px;
+    box-sizing: border-box;
+}
+
+/* Butoane stil portocaliu, rotunde, font mare */
+.buton1, .buton2 {
+    display: flex;
+    align-items: center;
+    padding: 18px 42px;
+    background: #fca001;
+    color: #222;
+    font-size: 1.25em;
+    border-radius: 32px;
+    text-decoration: none;
+    transition: 0.2s;
+    box-shadow: 0 3px 18px rgba(252,160,1,0.13);
+    font-weight: 700;
+    gap: 12px;
+    border: none;
+    letter-spacing: 0.03em;
+}
+.buton1:hover, .buton2:hover {
+    background: #fff;
+    color: #fca001;
+    transform: scale(1.08);
+}
+.buton1 i, .buton2 i {
+    margin: 0 5px;
+    font-size: 1.18em;
+}
+
+/* Responsive: pe mobil, butoanele stau unul sub altul, centrat */
+@media (max-width: 650px) {
+    .buttons-row {
+        flex-direction: column;
+        gap: 16px;
+        padding: 18px 8px 0 8px;
+    }
+    .buton1, .buton2 {
+        width: 100%;
+        justify-content: center;
+    }
 }
 
 
-/* Hero */
+/* HERO SECTION */
 .hero-section {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 60px 270px; /* Reduce padding-ul lateral */
-    gap: 10px; /* Reduce spațiul dintre text și imagine */
-    background-color: linear-gradient(to right, #f0a339, #f2ce2f);
+    padding: 54px 80px;
+    gap: 42px;
+    background: none;
 }
-
 .hero-section .text {
-    flex: 1;
+    flex: 1.2;
     color: #000;
+    max-width: 540px;
 }
-
 .hero-section .text h2 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 10px;
+    font-size: 2.7rem;
+    font-weight: 800;
+    margin-bottom: 13px;
+    color: #111;
 }
-
 .hero-section .text p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 20px;
+    font-size: 1.14rem;
+    line-height: 1.7;
+    margin-bottom: 22px;
     color: #333;
 }
-
 .hero-section .text .links {
     display: flex;
-    gap: 15px; /* Reduce distanța dintre butoane */
+    gap: 18px;
+    margin-top: 12px;
 }
-
 .hero-section .text .links a {
-    display: inline-block;
-    padding: 12px 20px;
-    background-color: #fca001; /* Fundal negru */
-    color: #000; /* Text alb */
-    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 30px;
+    background-color: #fca001;
+    color: #111;
+    border-radius: 15px;
     text-decoration: none;
-    font-weight: bold;
-    transition: all 0.3s ease;
+    font-weight: 700;
+    font-size: 1.09em;
+    transition: all 0.22s;
+    box-shadow: 0 2px 7px rgba(255,170,0,0.10);
+    border: none;
 }
-
 .hero-section .text .links a:hover {
-    background-color: #fca001; /* Fundal alb la hover */
-    color: #fff; /* Text negru la hover */
+    background-color: #fff;
+    color: #fca001;
+    transform: scale(1.05);
 }
-
-.hero-section .text .links .a i {
-    margin-right: 8px;
-}
-
 .hero-section .headshot {
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .hero-section .headshot img {
-    width: 300px;
-    height: 300px;
+    width: 280px;
+    height: 280px;
     object-fit: cover;
     border-radius: 50%;
-    border: 4px solid #000;
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
-h1 {
-    font-family: 'Lato', sans-serif;
-    font-size: 2.5rem;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-}
-
-.typewriter {
-    display: inline-block;
-    border-right: 3px solid black; /* Cursor */
-    white-space: nowrap;
-    overflow: hidden;
+    border: 4px solid #fca001;
+    box-shadow: 0 3px 18px rgba(252,160,1,0.16);
 }
 
 /* Skills */
 #skills {
     text-align: center;
-    padding: 50px 0;
-    color:#000;
+    padding: 56px 0 36px 0;
+    color: #111;
 }
-
 #skills h2 {
-    font-weight: 900; /* Extra bold pentru titlu */
-    color:#000;
+    font-weight: 900;
+    color: #111;
+    margin-bottom: 10px;
+    font-size: 2.1em;
 }
-
+#skills p {
+    font-size: 1.08em;
+    color: #222;
+    margin-bottom: 18px;
+}
 .skills-container {
     display: flex;
     justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
 }
-
 .skill {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 10px 20px;
-    border-radius: 10px;
-    font-size: 18px;
+    padding: 12px 24px;
+    border-radius: 15px;
+    font-size: 19px;
     font-weight: bold;
-    color: #000; /* Text negru */
-    transition: 0.3s;
-    background-color: #fca001; /* Fundal inițial ușor mai deschis */
+    color: #111;
+    background-color: #ffd366;
+    transition: 0.22s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
-
 .skill img {
     width: 40px;
     height: 40px;
 }
-
 .skill:hover {
-    background-color: #e09e00; /* Fundal mai închis la hover */
-    transform: scale(1.1);
-    color: #000; /* Păstrează textul negru */
-}
-
-.buttons-container {
-    display: flex;
-    justify-content: space-between; /* Butoane la stânga și dreapta */
-    align-items: center;
-    padding: 20px;
-    max-width: 100%;
-}
-
-.buton1 {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
     background-color: #fca001;
+    transform: scale(1.09);
     color: #000;
-    font-size: 16px;
-    border-radius: 15px;
-    text-decoration: none;
-    transition: 0.3s;
-    margin-left: 20px;/* pentru a fixa pe stanga*/
-}
-
-.buton1:hover {
-    background-color: #fff;
-}
-
-.buton1 i {
-    margin: 0 8px; /* Spațiere între iconiță și text */
-}
-
-.buton2 {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #fca001;
-    color: #000;
-    font-size: 16px;
-    border-radius: 15px;
-    text-decoration: none;
-    transition: 0.3s;
-    margin-right: 20px;
-}
-
-.buton2:hover {
-    background-color: #fff;
-}
-
-.buton2 i {
-    margin: 0 8px; /* Spațiere între iconiță și text */
 }
 
 /* Footer styles */
-footer{/* pentru copyright*/
+footer {
     font-size: 16px;
     text-align: center;
     padding: 16px 0;
+    color: #222;
+    margin-top: auto;
 }
 
-/* Scroll to top */
-@keyframes slideInFromLeft {
-    from {
-        transform: translateY(-100%); /* Pornește din afara ecranului */
-        opacity: 0; /* Invizibil la inceput */
-    }
-    to {
-        transform: translateY(0); /* Ajunge la poziția sa finală */
-        opacity: 1; /* Devine complet vizibil */
-    }
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1; /* Vizibil */
-        transform: translateY(0); /* La poziția sa normală */
-    }
-    to {
-        opacity: 0; /* Invizibil */
-        transform: translateY(50px); /* Se mută în jos */
-    }
-}
-
-.go-top-btn{
+/* Go to top */
+.go-top-btn {
     position: fixed;
     bottom: 25px;
     right: 25px;
@@ -237,94 +216,85 @@ footer{/* pentru copyright*/
     cursor: pointer;
     height: 60px;
     width: 60px;
-    background-color: #fca001;
-    border: 3px solid #fff;
-    display: none;
-    justify-content: center;
-    align-content: center;
-    animation: slideInFromLeft 1s ease-out;
-    z-index: 1000;/* il aduci peste toate butoanele*/
-}
-
-.go-top-btn img{
+    background: linear-gradient(135deg,#fca001,#ffe259);
+    border: none;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #fff;
+    box-shadow: 0 6px 32px rgba(252,160,1,0.18);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(40px);
+    transition: opacity 0.6s, transform 0.6s;
+    z-index: 1000;
+}
+.go-top-btn.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+.go-top-btn:hover {
+    background: linear-gradient(135deg,#ffe259,#fca001);
+    color: #fca001;
 }
 
-.go-top-btn:hover img {
-    filter: invert(1); /* Face imaginea neagra daca era alba */
-}
-
-.go-top-btn.hide {
-    animation: fadeOut 0.5s ease-out forwards; /* Aplică animația fadeOut */
-    display: flex; /* Menține vizibilitatea în timpul animației */
-}
-
-@media screen and (max-width: 768px) {
-    /* Hero Section */
-    .hero-section {
-        flex-direction: column; /* Stivuiește elementele vertical */
-        padding: 40px 20px; /* Reduce padding-ul */
-        text-align: center;
-    }
-
-    .hero-section .text {
-        width: 100%;
-    }
-
-    .hero-section .headshot img {
-        width: 200px;
-        height: 200px;
-    }
-
-    /* Skills Section */
-    .skills-container {
-        flex-direction: column; /* Stivuiește skills pe verticală */
-        align-items: center;
-    }
-
-    /* Butoane */
-    .buttons-container {
-        flex-direction: column; /* Butoanele unul sub altul */
-        gap: 10px;
-    }
-
-    .buton1, .buton2 {
-        width: 80%; /* Lățime mai mare */
-        text-align: center;
-        justify-content: center;
-    }
-
-    /* Header */
-    header {
-        height: 180px; /* Mai mic pentru mobile */
-        background-position: center 50%;
-    }
-
-    /* Scroll to top button */
-    .go-top-btn {
-        width: 50px;
-        height: 50px;
-        bottom: 15px;
-        right: 15px;
-    }
-}
-
+/* Animatie aparitie smooth */
 .hidden {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.8s cubic-bezier(.32,.72,.41,.89), transform 0.8s cubic-bezier(.32,.72,.41,.89);
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(.32,.72,.41,.89), transform 0.8s cubic-bezier(.32,.72,.41,.89);
 }
-
 .show {
-  opacity: 1;
-  transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0);
 }
 
-/* Pentru efect de cascadă */
-.delay-1 { transition-delay: 0.2s; }
-.delay-2 { transition-delay: 0.4s; }
-.delay-3 { transition-delay: 0.6s; }
-.delay-4 { transition-delay: 0.8s; }
-.delay-5 { transition-delay: 1s; }
+/* Responsive */
+@media (max-width: 1000px) {
+    .hero-section {
+        flex-direction: column;
+        gap: 35px;
+        padding: 30px 18px 20px 18px;
+        text-align: center;
+    }
+    .hero-section .headshot img {
+        width: 180px;
+        height: 180px;
+    }
+    .buttons-container {
+        padding: 16px 2vw 0 2vw;
+        gap: 8px;
+    }
+    .buton1, .buton2 {
+        padding: 13px 20px;
+        font-size: 1em;
+        border-radius: 15px;
+    }
+}
+@media (max-width: 600px) {
+    .hero-section {
+        padding: 18px 0 10px 0;
+    }
+    .skills-container {
+        gap: 12px;
+    }
+    .skill {
+        font-size: 15px;
+        padding: 9px 14px;
+        border-radius: 10px;
+    }
+    #skills {
+        padding: 36px 0 18px 0;
+    }
+    .headshot img {
+        width: 100px;
+        height: 100px;
+    }
+    .buttons-container {
+        flex-direction: column;
+        gap: 5px;
+        padding: 10px 2vw 0 2vw;
+    }
+}
