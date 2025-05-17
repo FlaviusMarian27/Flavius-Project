@@ -310,3 +310,21 @@ footer{/* pentru copyright*/
         right: 15px;
     }
 }
+
+.hidden {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(.32,.72,.41,.89), transform 0.8s cubic-bezier(.32,.72,.41,.89);
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Pentru efect de cascadă */
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
+.delay-4 { transition-delay: 0.8s; }
+.delay-5 { transition-delay: 1s; }

@@ -1,56 +1,42 @@
-//Go to top buttom
-const goTopBtn = document.querySelector('.go-top-btn');
+// Go to top button animatie smooth
+    document.addEventListener("DOMContentLoaded", function () {
+        // Animatie aparitie smooth
+        const elements = document.querySelectorAll(".hidden");
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach((entry, idx) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
 
-window. addEventListener('scroll', checkHeight)
+        elements.forEach((el, i) => {
+            el.style.transitionDelay = `${i * 0.10}s`;
+            observer.observe(el);
+        });
 
-function checkHeight() {
-    if (window.scrollY > 20) {
-        goTopBtn.classList.remove('hide');
-        goTopBtn.style.display = "flex";
-    } else {
-        if (!goTopBtn.classList.contains('hide')) {
-            goTopBtn.classList.add('hide');
-            setTimeout(() => {
-                goTopBtn.style.display = "none";
-            }, 500);
-        }
-    }
-}
+        // Year in footer
+        document.getElementById("year").textContent = new Date().getFullYear();
 
-goTopBtn.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    })
-})
+        // Go to top
+        const goTopBtn = document.getElementById('goTopBtn');
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 200) {
+                goTopBtn.classList.add('show');
+            } else {
+                goTopBtn.classList.remove('show');
+            }
+        });
+        goTopBtn.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
 
-//Copyright function
-document.getElementById("year").textContent = new Date().getFullYear();
-
-//functie scriere
-document.addEventListener("DOMContentLoaded", function () {
-    const textElement = document.querySelector(".typewriter");
-    const text = "Hi, I'm Flavius!";
-    let index = 0;
-    let isDeleting = false;
-
-    function typeEffect() {
-        if (!isDeleting) {
-            textElement.textContent = text.substring(0, index++);
-        } else {
-            textElement.textContent = text.substring(0, index--);
-        }
-
-        if (index === text.length + 1) {
-            isDeleting = true;
-            setTimeout(typeEffect, 1000); // Pauză după scriere
-        } else if (index === 0) {
-            isDeleting = false;
-            setTimeout(typeEffect, 500); // Pauză după ștergere
-        } else {
-            setTimeout(typeEffect, isDeleting ? 100 : 150); // Viteză tastare și ștergere
-        }
-    }
-
-    typeEffect();
-});
+        // Card background din atribut data-bg
+        document.querySelectorAll('.card').forEach(card => {
+            card.style.backgroundImage = `url('${card.getAttribute('data-bg')}')`;
+        });
+    });

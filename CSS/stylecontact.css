@@ -1,21 +1,24 @@
-*{
-    margin:0;
+* {
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Popping', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
-body{
-    font-family: sans-serif;
-    line-height: 1.5;
-    color: #fff;
-    background: linear-gradient(to right, #f0a339, #f2ce2f);
+html, body {
+    width: 100vw;
+    overflow-x: hidden !important;
 }
 
-/* Header styles imagine*/
-header{
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8b500, #ffe259);
+    color: #222;
+}
+
+header {
     background-image: url('../images/mountain.jpg');
-    height: 250px;
+    height: 200px;
     background-position: center 70%;
     background-size: cover;
     width: 100%;
@@ -23,434 +26,300 @@ header{
 
 .buttons-container {
     display: flex;
-    justify-content: space-between; /* Butoane la stânga și dreapta */
+    justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    max-width: 100%;
+    padding: 20px 24px 0 24px;
+    max-width: 900px;
+    margin: 0 auto;
+    gap: 16px;
+    flex-wrap: wrap;
 }
-
-.buton1 {
+.buton1, .buton2 {
     display: flex;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #fca001;
-    color: #000;
-    font-size: 16px;
-    border-radius: 15px;
+    padding: 12px 28px;
+    background: #fca001;
+    color: #222;
+    font-size: 1.18em;
+    border-radius: 16px;
     text-decoration: none;
     transition: 0.3s;
-    margin-left: 20px;
+    box-shadow: 0 2px 8px rgba(252,160,1,0.11);
+    font-weight: 600;
+    gap: 8px;
+    border: none;
+}
+.buton1:hover, .buton2:hover {
+    background: #fff;
+    color: #fca001;
+}
+.buton1 i, .buton2 i {
+    margin: 0 4px;
 }
 
-.buton1:hover {
-    background-color: #fff;
-}
-
-.buton1 i {
-    margin: 0 8px; /* Spațiere între iconiță și text */
-}
-
-.buton2 {
+/* Contact */
+.contact {
+    width: 100vw;
     display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #fca001;
-    color: #000;
-    font-size: 16px;
-    border-radius: 15px;
-    text-decoration: none;
-    transition: 0.3s;
-    margin-right: 20px;
-}
-
-.buton2:hover {
-    background-color: #fff;
-}
-
-.buton2 i {
-    margin: 0 8px; /* Spațiere între iconiță și text */
-}
-
-.contact{
-    position: relative;
-    min-height: 100vh;
-    padding: 50px 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    background: linear-gradient(to right, #f0a339, #f2ce2f);
+    align-items: center;
+    justify-content: flex-start;
 }
-
-.contact .content{/* Pentru a centra contacteaza ma */
-    max-width: 800px;
+.contact .content {
+    margin-top: 40px;
+    margin-bottom: 20px;
     text-align: center;
 }
-
-.contact .content h2{
-    font-size: 3em;
-    color: #000000;
-    font-weight: 700;
+.contact .content h2 {
+    font-size: 2.7rem;
+    font-weight: 800;
+    color: #222;
+}
+.contact .content p {
+    margin-top: 12px;
+    font-size: 1.1rem;
+    color: #444;
+    font-weight: 400;
 }
 
-.contact .content p{
-    color: #000;
-    font-size:  1.1em;
-    font-weight: 300;
-}
-
-.container{
-    width: 100%;
-    display: flex; /* Pune elementele pe orizontală */
+/* Marele card cu info + form */
+.container {
+    width: 96vw;
+    max-width: 900px;
+    margin: 40px auto 32px auto;
+    display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Separă elementele */
-    align-items: flex-start; /* Aliniază sus */
-    gap: 50px;
-    background: linear-gradient(to right, #f2ce2f , #f0a339);
-    margin-top: 30px;
-    padding: 50px 100px;
-}
-
-.container .contactInfo{
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-}
-
-.container .contactInfo .box{
-    position: relative;
-    padding: 20px 0;
-    display: flex;
-    cursor: pointer;
-}
-
-.container .contactInfo .box .icon{
-    position: relative;
-    min-width: 60px;
-    height: 60px;
-    background: repeating-conic-gradient(from 27.5deg,#000,0%,#000 10%, transparent 10%, transparent 50% );
-    display: flex;
+    background: rgba(255,196,51,0.19);
+    box-shadow: 0 10px 48px 0 rgba(255,170,0,0.17), 0 3px 20px rgba(0,0,0,0.09);
+    border-radius: 32px;
+    padding: 40px 28px;
+    gap: 44px;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    backdrop-filter: blur(12px);
+    overflow: hidden;
 }
 
-.container .contactInfo .box .icon::before{
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: repeating-conic-gradient(from 117.5deg,#000,0%,#000 10%, transparent 10%, transparent 50% );
+.container .contactInfo,
+.container .contactForm {
+    min-width: 300px;
+    width: 44%;
+    color: #111;
 }
-
-.container .contactInfo .box .icon::after{
-    content: '';
-    position: absolute;
-    inset: 2px;
-    background: #f0a339; /* imprejur*/
-}
-
-.container .contactInfo .box .icon b{
-    position: absolute;
-    inset: 8px;
-    background: #000; /* patrat */
-    z-index: 2;
-}
-
-.container .contactInfo .box .icon i{
-    position: relative;
-    z-index: 1000;
-    color: #f0a339;/*simbol*/
-    font-size: 1.25em;
-}
-
-.container .contactInfo .box .text{
-    position: relative;
+.container .contactInfo {
     display: flex;
     flex-direction: column;
-    margin-left: 20px;
-    font-size: 1.1em;
-    color: #000;
-    font-weight: 300;
 }
-
-.container .contactInfo .box .text h3{
-    font-weight: 700;
-    color: #000;/* scris subtitlu*/
-}
-
-/* connect with me style*/
-.container .contactInfo .txt{
-    color:#000;
-    margin-top:  50px;
-    font-weight: 700;
-    border-left: 50px solid #000;
-    padding-left: 10px;
-    line-height: 1em;
-}
-
-.container .contactInfo .sci{
-    position: relative;
+.container .contactInfo .box {
     display: flex;
-    gap: 30px;
-    margin: 20px 0;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 32px;
 }
-
-.container .contactInfo .sci li{
+.container .contactInfo .icon {
+    min-width: 54px;
+    min-height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    color: #f8b500;
+    font-size: 2.1em;
+    border-radius: 12px;
+}
+.container .contactInfo .text {
+    display: flex;
+    flex-direction: column;
+}
+.container .contactInfo .text h3 {
+    font-weight: 700;
+    color: #111;
+    font-size: 1.08em;
+}
+.container .contactInfo .text p {
+    margin-top: 2px;
+    font-size: 1em;
+    color: #222;
+}
+.container .contactInfo .txt {
+    color: #111;
+    font-weight: 700;
+    margin-top: 28px;
+    margin-bottom: 12px;
+    font-size: 1.09em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.container .contactInfo .sci {
+    display: flex;
+    gap: 22px;
+    margin-bottom: 4px;
+}
+.container .contactInfo .sci li {
     list-style: none;
 }
-
-/* animatie lista*/
-.container .contactInfo .sci li a{
-    color: #000;
-    font-size: 1.5em;
-    transition: 0.25s;
+.container .contactInfo .sci li a {
+    color: #111;
+    font-size: 1.7em;
+    transition: color 0.17s, transform 0.17s;
+}
+.container .contactInfo .sci li a:hover {
+    color: #f8b500;
+    transform: translateY(-2px) scale(1.07);
 }
 
-.container .contactInfo .sci li a:hover{
-    color: #fff;
-    filter: drop-shadow(0 0 5px #fff)
+/* FORMULAR cu portocaliu si scris negru */
+.container .contactForm form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
 }
-
-.container .contactForm{
-    position: relative;
-    width: 40%;
-    margin-left: auto; 
-    background: repeating-conic-gradient(from var(--a),#000,0%,#000 10%, transparent 10%, transparent 50% );
-    animation: animate 6s linear infinite;
-    padding: 60px;
-}
-
-.container .contactForm::before{
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: repeating-conic-gradient(from var(--a),#000,0%,#000 10%, transparent 10%, transparent 50% );
-    animation: animate 6s linear infinite;
-    animation-delay: -1.5s ;
-}
-
-.container .contactForm::after{
-    content: '';
-    position: absolute;
-    inset: 2px;
-    border: 20px solid #f2ce2f;
-    background: #f0a339;
-}
-
-@property --a{
-    syntax: '<angle>';
-    inherits: false;
-    initial-value: 0deg;
-}
-
-@keyframes animate {
-    0%{
-        --a: 0deg;
-    }
-    100%{
-        --a: 360deg;
-    }
-}
-
-.container .contactForm form{
-    position: relative;
-    z-index: 10;
-}
-
-.container .contactForm form h2{
-    font-size: 2em;
-    color: #000;
+.container .contactForm form h2 {
+    font-size: 2.1em;
     font-weight: 700;
+    color: #222;
+    margin-bottom: 28px;
 }
-
-.container .contactForm form .inputBox{
+.container .contactForm form .inputBox {
     position: relative;
     width: 100%;
-    margin-top: 20px ;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
 }
-
 .container .contactForm form .inputBox input,
-.container .contactForm form .inputBox textarea{
-    width: 100% !important;
-    padding: 5px 0;
-    font-size: 1.1em;
-    margin: 10px 0;
+.container .contactForm form .inputBox textarea {
+    background: #ffd366;
     border: none;
-    background: transparent;
-    border-bottom: 2px solid #000;
-    color: #000;
     outline: none;
+    padding: 16px;
+    border-radius: 14px;
+    font-size: 1.08em;
+    color: #222 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     resize: none;
+    transition: box-shadow 0.19s, background 0.18s;
 }
-
-.container .contactForm form .inputBox span{
-    position: absolute;
-    left: 0;
-    pointer-events: none;
-    padding: 5px 0;
-    margin: 10px 0;
-    font-size: 1.1em;
-    color: #000;
-    transition: 0.5s;
+.container .contactForm form .inputBox input::placeholder,
+.container .contactForm form .inputBox textarea::placeholder {
+    color: #a06800;
+    opacity: 1;
 }
-
-.container .contactForm form .inputBox input:focus ~ span,
-.container .contactForm form .inputBox textarea:focus ~ span,
-.container .contactForm form .inputBox input:valid ~ span,
-.container .contactForm form .inputBox textarea:valid ~ span{
-    color: #fff;
-    font-size: 0.9em;
-    transform: translateY(-24px);
+.container .contactForm form .inputBox input:focus,
+.container .contactForm form .inputBox textarea:focus {
+    background: #ffc53b;
+    color: #000 !important;
+    box-shadow: 0 2.5px 9px rgba(255,168,0,0.11);
 }
-
-.container .contactForm form .inputBox input[type="submit"]{
-    width: 100%;
-    background: #f2ce2f;
-    color:#000;
+.container .contactForm form .inputBox textarea {
+    min-height: 100px;
+}
+.container .contactForm form .inputBox input[type="submit"],
+.container .contactForm form button {
+    margin-top: 5px;
+    padding: 15px 0;
+    border-radius: 12px;
+    background: linear-gradient(90deg, #ffc53b 0%, #ffa600 100%);
+    color: #222 !important;
+    font-size: 1.17em;
+    font-weight: 700;
     border: none;
     cursor: pointer;
-    padding: 10px;
-    font-size: 1.1em;
-    font-weight: 500;
+    transition: background 0.15s, color 0.14s;
+    letter-spacing: 0.01em;
+}
+.container .contactForm form .inputBox input[type="submit"]:hover,
+.container .contactForm form button:hover {
+    background: linear-gradient(90deg, #ffa600 0%, #ffc53b 100%);
+    color: #000 !important;
 }
 
-/* Footer styles */
-footer{/* pentru copyright*/
-    font-size: 16px;
-    text-align: center;
-    padding: 16px 0;
- }
-
-
- /* Scroll to top */
-@keyframes slideInFromLeft {
-    from {
-        transform: translateY(-100%); /* Pornește din afara ecranului */
-        opacity: 0; /* Invizibil la inceput */
-    }
-    to {
-        transform: translateY(0); /* Ajunge la poziția sa finală */
-        opacity: 1; /* Devine complet vizibil */
-    }
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1; /* Vizibil */
-        transform: translateY(0); /* La poziția sa normală */
-    }
-    to {
-        opacity: 0; /* Invizibil */
-        transform: translateY(50px); /* Se mută în jos */
-    }
-}
-
-.go-top-btn{
+.go-top-btn {
     position: fixed;
-    bottom: 25px;
-    right: 25px;
+    bottom: 30px;
+    right: 30px;
     border-radius: 50%;
     cursor: pointer;
     height: 60px;
     width: 60px;
-    background-color: #fca001;
-    border: 3px solid #fff;
-    display: none;
-    justify-content: center;
-    align-content: center;
-    animation: slideInFromLeft 1s ease-out;
-    z-index: 1000;/* il aduci peste toate butoanele*/
-}
-
-.go-top-btn img{
+    background: linear-gradient(135deg,#fca001,#ffe259);
+    border: none;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #fff;
+    box-shadow: 0 6px 32px rgba(252,160,1,0.18);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(40px);
+    transition: opacity 0.6s, transform 0.6s;
+    z-index: 1000;
+}
+.go-top-btn.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+.go-top-btn:hover {
+    background: linear-gradient(135deg,#ffe259,#fca001);
+    color: #fca001;
 }
 
-.go-top-btn:hover img {
-    filter: invert(1); /* Face imaginea neagra daca era alba */
+/* Animatie aparitie smooth */
+.hidden {
+    opacity: 0;
+    transform: translateY(48px);
+    transition: opacity 0.7s cubic-bezier(.32,.72,.41,.89), transform 0.7s cubic-bezier(.32,.72,.41,.89);
+}
+.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.go-top-btn.hide {
-    animation: fadeOut 0.5s ease-out forwards; /* Aplică animația fadeOut */
-    display: flex; /* Menține vizibilitatea în timpul animației */
-}
-
-/* Media Query*/
-/* Pentru ecrane mici (mobil) */
-@media (max-width: 768px) {
-    body {
-        font-size: 14px; /* Mărire a fontului pe mobil pentru lizibilitate */
-    }
-
-    .contact {
-        padding: 30px; /* Micșorăm padding-ul */
-    }
-
+/* Responsive */
+@media (max-width: 900px) {
     .container {
-        flex-direction: column; /* Plasăm contactInfo și contactForm pe verticală */
-        padding: 20px;
-    }
-
-    .container .contactInfo, .container .contactForm {
-        width: 100%; /* Fă totul pe lățime completă */
-        margin-left: 0;
-    }
-
-    .container .contactInfo .box {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        padding: 18px 2vw;
+        gap: 24px;
+        border-radius: 22px;
     }
-
-    .container .contactInfo .sci {
-        gap: 20px;
-    }
-
-    .contactForm {
-        padding: 30px;
-    }
-
-    /* Butonul "Scroll to top" */
-    .go-top-btn {
-        bottom: 15px;
-        right: 15px;
-    }
-}
-
-/* Pentru ecrane medii (tablete) */
-@media (max-width: 1024px) {
-    body {
-        font-size: 16px; /* Ajustează fontul pentru tablete */
-    }
-
-    .container {
-        padding: 30px;
-    }
-
-    .container .contactInfo, .container .contactForm {
-        width: 45%; /* Reduce lățimea pentru tablete */
-    }
-
-    .container .contactInfo .box {
-        flex-direction: column;
-    }
-
+    .container .contactInfo,
     .container .contactForm {
-        padding: 40px;
+        width: 100%;
+        min-width: unset;
+    }
+    .buttons-container {
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px;
+    }
+    .buton1, .buton2 {
+        width: 100%;
+        justify-content: center;
+        margin: 5px 0 !important;
     }
 }
-
-/* Pentru desktopuri mari */
-@media (min-width: 1280px) {
+@media (max-width: 600px) {
     .container {
-        padding: 50px 200px;
+        padding: 8px 0vw;
+        gap: 13px;
+        border-radius: 13px;
     }
-
-    .contactForm {
-        padding: 60px;
+    .contact .content h2 {
+        font-size: 1.4rem;
     }
-
-    .container .contactInfo, .container .contactForm {
-        width: 45%;
+    .container .contactForm form h2 {
+        font-size: 1.1em;
     }
+}
+footer {
+    font-size: 16px;
+    text-align: center;
+    padding: 16px 0;
+    color: #222;
+    margin-top: auto;
 }

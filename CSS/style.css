@@ -1,333 +1,250 @@
-*{
+* {
     margin: 0;
     padding: 0;
-    box-sizing:border-box;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
 
-body{
-    font-family: sans-serif;
-    line-height: 1.5;
-    color: #fff;
-    background: linear-gradient(to right, #f0a339, #f2ce2f);
+html, body {
+    width: 100vw;
+    overflow-x: hidden !important;
 }
 
-/* General styles */
-.page-container{
-    width: 480px;
-    max-width: 100%;
-    padding: 16px;
-    margin: 0 auto;/* centram la mijloc, astfel 0 pentru marginea de sus si jos, auto pentru marginea din stanga si dreapta*/ 
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8b500, #ffe259);
+    color: #222;
 }
 
-section{
-    margin-bottom: 32px;
-}
-
-/* Header styles */
-header{
+header {
     background-image: url('../images/mountain.jpg');
-    height: 250px;
+    height: 200px;
     background-position: center 70%;
     background-size: cover;
+    width: 100%;
 }
 
-/* Profile main styles*/ 
-.profile{ /* asta ii textul la centru */
+/* PROFILE ZONE */
+.page-container {
+    width: 96vw;
+    max-width: 1100px;
+    padding: 16px 0;
+    margin: 0 auto;
+}
+.profile {
     text-align: center;
-    margin-top: -75px;/* pentru a trage imaginea peste cea de coperta*/
+    margin-top: -72px;
+    margin-bottom: 40px;
 }
-
-.profile-image{/* ialtimea si latimea img*/
-    width: 150px;
-    height: 150px;
-    border: solid 4px #fff;
+.profile-image {
+    width: 160px;
+    height: 160px;
+    border: solid 6px #fff;
     border-radius: 50%;
-    overflow: hidden; /* Asigură că imaginea nu iese din container */
+    overflow: hidden;
     display: inline-block;
+    margin-bottom: 8px;
+    box-shadow: 0 3px 16px rgba(255,200,0,0.11);
 }
-
-.profile-image img{/* asta ii divul ala cu imaginea*/
-    width: 100%;/*ai are marimea de 100% din parinte adica din clasa de mai sus 150 pe 150*/
+.profile-image img {
+    width: 100%;
     height: 100%;
-    object-fit: cover; /* asigura ca proportiile sunt pastrate */
+    object-fit: cover;
     border-radius: 50%;
 }
-
-.profile-details{
-    font-size: 16px;
-    margin: 24px 0; /* spatiu intre imagine profil si nume */
+.profile-details {
+    font-size: 21px;
+    margin: 18px 0;
+    color: #222;
+}
+.profile-details h1 {
+    font-size: 46px;
+    margin-bottom: 10px;
+    font-weight: 800;
+    color: #222;
+}
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+.tags span {
+    font-size: 19px;
+    background-color: #ffd366;
+    color: #222;
+    padding: 11px 22px;
+    border-radius: 18px;
+    font-weight: 600;
 }
 
-/* ANimatie*/
-@keyframes slideInFromLeft {
-    from {
-        transform: translateY(-100%); /* Pornește din afara ecranului */
-        opacity: 0; /* Invizibil la inceput */
-    }
-    to {
-        transform: translateY(0); /* Ajunge la poziția sa finală */
-        opacity: 1; /* Devine complet vizibil */
-    }
-}
-
-.profile-details h1{
-    font-size: 32px;
-    margin-bottom: 16px;
-    animation: slideInFromLeft 1s ease-out;
-}
-
-.tags span{ /* pentru taguri*/
-    font-size: 14px;
-    background-color: #fca001;
-    padding: 8px; /* spatiu intre taguri*/
-    border-radius: 15px;
-}
-
+/* Cards late, imagine tot fundalul cardului, fara margini la imagine */
 .section-container {
     display: flex;
-    justify-content: center; /* Centrează elementele pe orizontală */
-    align-items: stretch; /* Asigură că au aceeași înălțime */
-    gap: 20px; /* Spațiere între secțiuni */
-    flex-wrap: nowrap; /* Nu permite trecerea pe un alt rând */
+    justify-content: center;
+    align-items: stretch;
+    gap: 40px;
+    flex-wrap: wrap;
+    width: 96vw;
+    max-width: 1350px;
+    margin: 28px auto 38px auto;
 }
-
-.details1, .project, .contact {
-    flex: 1; /* Toate cardurile să fie egale */
-    max-width: 400px; /* Menține lățimea maximă */
-    min-height: 100px;
-    height: 100%; /* Ocupă toată înălțimea */
+.card {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-}
-
-/* Details1 styles */
-.details1{ /* clasa details*/
-    font-size: 16px;
-    background-color: #fca001;
-    border-radius: 40px;/* pentru colturi*/
-    margin-bottom: 16px;/*spatiu dupa fiecare topic*/
+    justify-content: flex-end;
+    align-items: stretch;
+    border-radius: 38px;
+    width: 410px;
+    height: 380px;
+    min-width: 240px;
+    min-height: 220px;
+    box-shadow: 0 4px 36px rgba(255,170,0,0.13), 0 1px 4px rgba(0,0,0,0.09);
+    text-decoration: none;
     position: relative;
-    overflow: hidden;/* pentru colturile de sus*/
-} 
-
-.details1 img{  /* pentru imaginea din sectiunea detalii 1*/
-    max-width: 100%;
-    height: 300px;
+    overflow: hidden;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    transition: box-shadow 0.21s, transform 0.18s;
 }
-
-.details1 .details1-title{
-    padding: 16px;  /* pentru textul de jos*/ 
+.card:hover {
+    box-shadow: 0 12px 38px rgba(255,170,0,0.21);
+    transform: scale(1.03) translateY(-6px);
+    z-index: 2;
+}
+.card-title {
+    background: rgba(255, 211, 102, 0.96);
+    color: #111;
+    width: 100%;
+    font-size: 1.35em;
+    font-weight: 700;
     text-align: center;
-}
-
-.details1-details{
-    display: none;/* uita mai jos unde scrie 2*/
-    background-color: #fca001;
+    padding: 26px 18px 22px 18px;
     position: absolute;
-    top: 0;
-    right: 0;
     bottom: 0;
     left: 0;
-    padding: 16px;
+    z-index: 2;
+    border-bottom-left-radius: 38px;
+    border-bottom-right-radius: 38px;
+    letter-spacing: 0.01em;
+    box-shadow: 0 1px 22px 0 rgba(255,170,0,0.06);
 }
-
-.details1-details .btn-outline{
-    text-align: center;
-    text-decoration: none;
-    color: #fff;
-    padding: 8px;
-    border: solid 2px #fff;
-    border-radius: 15px;
-    position: absolute;
-    left: 16px;
-    right: 16px;
-    bottom: 16px;
-}
-
-.details1-details .btn-outline:hover{
-    color: #fca001;
-    background-color: #fff;/* efect buton*/
-}
-
-.details1:hover .details1-details{
-    display: block; /* 2 cand mergem cu masul pe divul cu imagine*/
-}
-
-
-/* Project styles */
-.project{ /* clasa project*/
-    font-size: 16px;
-    background-color: #fca001;
-    border-radius: 40px;/* pentru colturi*/
-    margin-bottom: 16px;/*spatiu dupa fiecare topic*/
-    position: relative;
-    overflow: hidden;/* pentru colturile de sus*/
-} 
-
-.project img{  /* pentru imaginea din sectiunea detalii 1*/
-    max-width: 100%;
-    height: 300px;
-}
-
-.project .project-title{
-    padding: 16px;  /* pentru textul de jos*/ 
-    text-align: center;
-}
-
-.project-details{
-    display: none;/* uita mai jos unde scrie 2*/
-    background-color: #fca001;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 16px;
-}
-
-.project-details .btn-outline{
-    text-align: center;
-    text-decoration: none;
-    color: #fff;
-    padding: 8px;
-    border: solid 2px #fff;
-    border-radius: 15px;
-    position: absolute;
-    left: 16px;
-    right: 16px;
-    bottom: 16px;
-}
-
-.project-details .btn-outline:hover{
-    color: #fca001;
-    background-color: #fff;/* efect buton*/
-}
-
-.project:hover .project-details{
-    display: block; /* 2 cand mergem cu masul pe divul cu imagine*/
-}
-
-
-/* Contact styles */
-.contact{ /* clasa contact*/
-    font-size: 16px;
-    background-color: #fca001;
-    border-radius: 40px;/* pentru colturi*/
-    margin-bottom: 16px;/*spatiu dupa fiecare topic*/
-    position: relative;
-    overflow: hidden;/* pentru colturile de sus*/
-} 
-
-.contact img{  /* pentru imaginea din sectiunea detalii 1*/
-    max-width: 100%;
-    height: 300px;
-}
-
-.contact .contact-title{
-    padding: 16px;  /* pentru textul de jos*/ 
-    text-align: center;
-}
-
-.contact-details{
-    display: none;/* uita mai jos unde scrie 2*/
-    background-color: #fca001;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 16px;
-}
-
-.contact-details .btn-outline{
-    text-align: center;
-    text-decoration: none;
-    color: #fff;
-    padding: 8px;
-    border: solid 2px #fff;
-    border-radius: 15px;
-    position: absolute;
-    left: 16px;
-    right: 16px;
-    bottom: 16px;
-}
-
-.contact-details .btn-outline:hover{
-    color: #fca001;
-    background-color: #fff;/* efect buton*/
-}
-
-.contact:hover .contact-details{
-    display: block; /* 2 cand mergem cu masul pe divul cu imagine*/
-}
-
 
 /* Footer styles */
-footer{/* pentru copyright*/
-   font-size: 16px;
-   text-align: center;
-   padding: 16px 0;
+footer {
+    font-size: 16px;
+    text-align: center;
+    padding: 16px 0;
+    color: #222;
+    margin-top: auto;
 }
 
-/* Scroll to top */
-@keyframes fadeOut {
-    from {
-        opacity: 1; /* Vizibil */
-        transform: translateY(0); /* La poziția sa normală */
-    }
-    to {
-        opacity: 0; /* Invizibil */
-        transform: translateY(50px); /* Se mută în jos */
-    }
-}
-
-.go-top-btn{
+/* Go to top */
+.go-top-btn {
     position: fixed;
-    bottom: 25px;
-    right: 25px;
+    bottom: 30px;
+    right: 30px;
     border-radius: 50%;
     cursor: pointer;
     height: 60px;
     width: 60px;
-    background-color: #fca001;
-    border: 3px solid #fff;
-    display: none;
-    justify-content: center;
-    align-content: center;
-    animation: slideInFromLeft 1s ease-out;
-}
-
-.go-top-btn img{
+    background: linear-gradient(135deg,#fca001,#ffe259);
+    border: none;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #fff;
+    box-shadow: 0 6px 32px rgba(252,160,1,0.18);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(40px);
+    transition: opacity 0.6s, transform 0.6s;
+    z-index: 1000;
+}
+.go-top-btn.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+.go-top-btn:hover {
+    background: linear-gradient(135deg,#ffe259,#fca001);
+    color: #fca001;
 }
 
-.go-top-btn:hover img {
-    filter: invert(1); /* Face imaginea neagra daca era alba */
+/* Animatie aparitie smooth */
+.hidden {
+    opacity: 0;
+    transform: translateY(48px);
+    transition: opacity 0.7s cubic-bezier(.32,.72,.41,.89), transform 0.7s cubic-bezier(.32,.72,.41,.89);
+}
+.show {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.go-top-btn.hide {
-    animation: fadeOut 0.5s ease-out forwards; /* Aplică animația fadeOut */
-    display: flex; /* Menține vizibilitatea în timpul animației */
+/* Responsive */
+@media (max-width: 1400px) {
+    .section-container, .buttons-container {
+        max-width: 98vw;
+        width: 98vw;
+    }
+    .buttons-container {
+        padding: 28px 5vw 0 4vw;
+    }
 }
-
-/*Media Query*/
-@media screen and (max-width: 768px) {
+@media (max-width: 1200px) {
+    .card {
+        width: 340px;
+        height: 320px;
+        border-radius: 25px;
+    }
+    .card-title {
+        border-radius: 0 0 25px 25px;
+        padding: 18px 10px 13px 10px;
+        font-size: 1.08em;
+    }
+}
+@media (max-width: 1050px) {
     .section-container {
-        display: flex;
-        flex-direction: column; /* Stack pe verticală */
-        align-items: center; /* Centrează conținutul */
-        gap: 16px; /* Spațiere între secțiuni */
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
     }
-
-    .details1, .project, .contact {
-        width: 90%; /* Ajustează lățimea */
-        max-width: 350px; /* Evită să fie prea mari */
+    .card {
+        width: 96vw;
+        max-width: 430px;
+        height: 220px;
+        border-radius: 18px;
+    }
+    .card-title {
+        font-size: 1em;
+        border-radius: 0 0 18px 18px;
     }
 }
-
-
-
+@media (max-width: 480px) {
+    .card {
+        height: 140px;
+        border-radius: 9px;
+    }
+    .card-title {
+        font-size: 0.99em;
+        padding: 11px 2px 5px 2px;
+        border-radius: 0 0 9px 9px;
+    }
+    .profile-image {
+        width: 78px;
+        height: 78px;
+        border-width: 2.5px;
+    }
+    .profile-details h1 {
+        font-size: 25px;
+    }
+    .tags span {
+        font-size: 11px;
+        padding: 7px 10px;
+        border-radius: 9px;
+    }
+}
