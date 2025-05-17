@@ -1,269 +1,230 @@
-*{
-    margin:0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Popping', sans-serif;
+body {
+    background: linear-gradient(135deg, #f8b500, #ffe259);
+    min-height: 100vh;
+    color: #111;
+    margin: 0;
+    font-family: 'Poppins', Arial, sans-serif;
 }
-
-body{
-    font-family: sans-serif;
-    line-height: 1.5;
-    color: #fff;
-    background: linear-gradient(to right, #f0a339, #f2ce2f);
-}
-
-/* Header styles imagine*/
-header{
+.header-img {
     background-image: url('../images/mountain.jpg');
-    height: 250px;
+    height: 170px;
     background-position: center 70%;
     background-size: cover;
     width: 100%;
+    margin-bottom: 0;
 }
 
-.buttons-container {
+.buttons-row {
     display: flex;
-    justify-content: space-between; /* Butoane la stânga și dreapta */
+    justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    max-width: 100%;
+    width: 100%;
+    padding: 28px 38px 0 38px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
 }
 
-.buton1 {
+.buton1, .buton2 {
     display: flex;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #fca001;
-    color: #000;
-    font-size: 16px;
-    border-radius: 15px;
+    padding: 18px 42px;
+    background: #fca001;
+    color: #222;
+    font-size: 1.25em;
+    border-radius: 32px;
     text-decoration: none;
-    transition: 0.3s;
-    margin-left: 20px;
+    transition: 0.2s;
+    box-shadow: 0 3px 18px rgba(252,160,1,0.13);
+    font-weight: 700;
+    gap: 12px;
+    border: none;
+    letter-spacing: 0.03em;
+}
+.buton1:hover, .buton2:hover {
+    background: #fff;
+    color: #fca001;
+    transform: scale(1.08);
+}
+.buton1 i, .buton2 i {
+    margin: 0 5px;
+    font-size: 1.18em;
 }
 
-.buton1:hover {
-    background-color: #fff;
-}
-
-.buton1 i {
-    margin: 0 8px; /* Spațiere între iconiță și text */
-}
-
-.buton2 {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #fca001;
-    color: #000;
-    font-size: 16px;
-    border-radius: 15px;
-    text-decoration: none;
-    transition: 0.3s;
-    margin-right: 0 auto;/* pentru a fixa pe centru*/
-}
-
-.buton2:hover {
-    background-color: #fff;
-}
-
-.buton2 i {
-    margin: 0 8px; /* Spațiere între iconiță și text */
-}
-
-.buton3 {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #fca001;
-    color: #000;
-    font-size: 16px;
-    border-radius: 15px;
-    text-decoration: none;
-    transition: 0.3s;
-    margin-right: 20px;
-}
-
-.buton3:hover {
-    background-color: #fff;
-}
-
-.buton3 i {
-    margin: 0 8px; /* Spațiere între iconiță și text */
-}
-
-/* Footer styles */
-footer{/* pentru copyright*/
-    font-size: 16px;
+.title {
     text-align: center;
-    padding: 16px 0;
+    margin-top: 25px;
+    font-size: 2.6rem;
+    font-weight: 900;
+    color: #222;
+    letter-spacing: 0.01em;
 }
-
-/* Scroll to top */
-@keyframes slideInFromLeft {
-    from {
-        transform: translateY(-100%); /* Pornește din afara ecranului */
-        opacity: 0; /* Invizibil la inceput */
-    }
-    to {
-        transform: translateY(0); /* Ajunge la poziția sa finală */
-        opacity: 1; /* Devine complet vizibil */
-    }
-}
-
-@keyframes fadeOut {
-    from {
-        opacity: 1; /* Vizibil */
-        transform: translateY(0); /* La poziția sa normală */
-    }
-    to {
-        opacity: 0; /* Invizibil */
-        transform: translateY(50px); /* Se mută în jos */
-    }
-}
-
-.go-top-btn{
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    border-radius: 50%;
-    cursor: pointer;
-    height: 60px;
-    width: 60px;
-    background-color: #fca001;
-    border: 3px solid #fff;
-    display: none;
-    justify-content: center;
-    align-content: center;
-    animation: slideInFromLeft 1s ease-out;
-    z-index: 1000;/* il aduci peste toate butoanele*/
-}
-
-.go-top-btn img{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.go-top-btn:hover img {
-    filter: invert(1); /* Face imaginea neagra daca era alba */
-}
-
-.go-top-btn.hide {
-    animation: fadeOut 0.5s ease-out forwards; /* Aplică animația fadeOut */
-    display: flex; /* Menține vizibilitatea în timpul animației */
-}
-
 
 .section-container {
     display: flex;
-    justify-content: center; /* Centrează secțiunile pe orizontală */
-    flex-wrap: wrap; /* Permite trecerea pe rând nou dacă nu încap */
-    gap: 20px; /* Spațiere între secțiuni */
-    padding: 20px;
+    justify-content: center;
+    align-items: stretch;
+    gap: 40px;
+    flex-wrap: wrap;
+    width: 96vw;
+    max-width: 1350px;
+    margin: 28px auto 38px auto;
 }
 
-/* TicTacToeC styles */
-.tictactoeC {
-    font-size: 16px;
-    background-color: #fca001;
-    border-radius: 20px;
-    margin-bottom: 16px;
-    position: relative;
-    overflow: hidden;
-
+.project-card {
+    background: #fca001;
+    border-radius: 32px;
+    box-shadow: 0 5px 32px rgba(252,160,1,0.14);
+    width: 340px;
+    padding: 22px 18px 12px 18px;
+    margin: 20px;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    transition: transform 0.23s cubic-bezier(.32,.72,.41,.89), box-shadow 0.25s;
+}
+.project-card:hover {
+    transform: scale(1.04);
+    box-shadow: 0 10px 44px rgba(252,160,1,0.25);
+}
+.project-card img {
+    width: 185px;
+    height: 185px;
+    object-fit: cover;
+    border-radius: 28px;
+    margin-bottom: 18px;
+}
+.project-title {
+    font-weight: 800;
+    font-size: 1.22em;
+    color: #111;
+    margin-top: 0;
     text-align: center;
-    width: 300px;
-    height: 300px;
-    background-color: #fca001;
-    border-radius: 30px;
-    padding-top: 20px;
 }
 
-.tictactoeC img {
-    width: auto; /* Permite imaginii să-și păstreze proporțiile */
-    height: auto;
-    max-width: 100%; /* Se asigură că imaginea nu depășește containerul */
-    max-height: 100%;
-    display: block;
-    margin: auto; /* Centrează imaginea orizontal și vertical */
-    border-radius: 30px;
-    max-width: 80%;
-    object-fit: contain;
-}
-
-.tictactoeC .tictactoeC-title {
-    padding: 10px;
-    min-height: 40px; /* Asigură un spațiu minim pentru titlu */
-    font-weight: bold;
-    font-size: 18px; /* Ajustează mărimea fontului dacă e necesar */
-    color: #000; /* Asigură-te că se vede bine pe fundal */
-}
-
-
-.tictactoeC-details {
+/* MODAL POP-UP */
+.modal-overlay {
     display: none;
-    background-color: #fca001;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 16px;
+    position: fixed;
+    z-index: 5000;
+    left: 0; top: 0; right: 0; bottom: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(30,30,30,0.55);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn .4s;
 }
-
-.tictactoeC-details .btn-outline {
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+.modal-overlay.active {
+    display: flex;
+}
+.modal-content {
+    background: linear-gradient(135deg,#ffe082 60%,#fca001 100%);
+    border-radius: 28px;
+    padding: 34px 38px 26px 38px;
+    box-shadow: 0 6px 38px rgba(0,0,0,0.12);
+    max-width: 420px;
+    width: 94vw;
+    position: relative;
     text-align: center;
-    text-decoration: none;
-    color: #fff;
-    padding: 8px;
-    border: solid 2px #fff;
-    border-radius: 15px;
-    position: absolute;
-    left: 16px;
-    right: 16px;
-    bottom: 16px;
+    animation: slideUp .5s;
 }
-
-.tictactoeC-details .btn-outline:hover {
+@keyframes slideUp {
+    from { transform: translateY(80px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+}
+.modal-img {
+    width: 155px; height: 155px;
+    border-radius: 20px;
+    object-fit: cover;
+    margin-bottom: 15px;
+    box-shadow: 0 1px 18px #fca00154;
+}
+.modal-content h2 {
+    margin-top: 0;
+    font-size: 1.7em;
+    color: #111;
+    font-weight: 800;
+}
+.modal-content p {
+    color: #111;
+    margin-bottom: 28px;
+    font-size: 1.12em;
+}
+.download-btn {
+    display: inline-block;
+    background: #fca001;
+    color: #111;
+    font-weight: 700;
+    font-size: 1.13em;
+    border-radius: 16px;
+    padding: 12px 32px;
+    text-decoration: none;
+    box-shadow: 0 2px 10px #fca0011a;
+    transition: background .16s, color .16s;
+    margin-top: 6px;
+}
+.download-btn:hover {
+    background: #fff;
     color: #fca001;
-    background-color: #fff;
+    box-shadow: 0 4px 20px #fca00135;
 }
-
-.tictactoeC:hover .tictactoeC-details {
-    display: block;
+.download-btn i {
+    margin-right: 7px;
 }
-
-.buttons-container-1 {
-    display: flex;
-    justify-content: space-between; /* Butoane la stânga și dreapta */
-    align-items: center;
-    padding: 20px;
-    max-width: 100%;
+.modal-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 2.2em;
+    color: #fca001;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color .2s;
+    z-index: 10;
 }
-
-.buton1-1 {
-    display: flex;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #fca001;
-    color: #000;
+.modal-close:hover {
+    color: #cf4d06;
+}
+footer {
     font-size: 16px;
-    border-radius: 15px;
-    text-decoration: none;
-    transition: 0.3s;
-    margin-left: 20px;
+    text-align: center;
+    padding: 16px 0;
+    color: #222;
+    margin-top: auto;
 }
-
-.buton1-1:hover {
-    background-color: #fff;
+@media (max-width: 650px) {
+    .section-container {
+        gap: 15px;
+    }
+    .project-card {
+        width: 97vw;
+        min-width: unset;
+        padding: 18px 6vw 10px 6vw;
+        margin: 12px auto;
+    }
+    .modal-content {
+        padding: 14px 6vw 18px 6vw;
+        border-radius: 17px;
+        max-width: 99vw;
+    }
+    .modal-img {
+        width: 95px; height: 95px;
+        border-radius: 10px;
+    }
+    .buttons-row {
+        flex-direction: column;
+        gap: 13px;
+        padding: 14px 10px 0 10px;
+    }
+    .buton1, .buton2 {
+        width: 100%;
+        justify-content: center;
+        font-size: 1em;
+        padding: 13px 15px;
+        border-radius: 15px;
+    }
 }
-
-.buton1-1 i {
-    margin: 0 8px; /* Spațiere între iconiță și text */
-}
-

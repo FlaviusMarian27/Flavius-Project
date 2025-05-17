@@ -1,65 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta http-equiv ="X-UA-Compatible" content="IE=edge"/>
-    <meta name = "keywords" content = "marian flavius,contact"/>
-    <meta name = "description" content = "Eu sunt Marian Flavius-Andrei și sunt pasionat de programare!"/>
-    <meta name = "author" content = "Marian Flavius-Andrei"/>
-    <meta name = "robots" content = "index,follow"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../CSS/styleproject.css">
-    <title>Projects</title>
+    <title>Proiecte personale</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <link rel="stylesheet" href="../CSS/styleproject.css"/>
 </head>
 <body>
-    <!-- Start buttom  -->
-    <buttom class="go-top-btn">
-        <img src = "../images/arrow-up.jpg" alt = "arrow up">
-    </buttom>
-    <!-- End buttom  -->
+    <!-- HEADER cu imagine -->
+    <header class="header-img"></header>
 
-    <!-- Start imagine coperta  -->
-    <header></header>
-    <!-- End imagine coperta  -->
-        
-    <!-- Start butoane navigare -->
-    <div class="buttons-container">
+    <!-- Butoane de navigare sub imagine -->
+    <div class="buttons-row">
         <a href="../HTML/personal.html" class="buton1">
-            <i class="fa-solid fa-arrow-left"></i> Projects
+            <i class="fa-solid fa-arrow-left"></i> About me
         </a>
-
-        <a href="../HTML/index.html" class="buton2">
+        <a href="../index.html" class="buton2">
             Home page <i class="fa-solid fa-house"></i>
         </a>
-
-        <a href="../HTML/contact.html" class="buton3">Contact 
-            <i class="fa-solid fa-arrow-right"></i>
-        </a>
     </div>
-    <!-- End butoane navigare -->
-    
-    <div class="section-container">
-        <!-- TicTacToe in C start -->
-        <section class = "tictactoeC">
-            <div class="tictactoeC-container">
-                <div class = "tictactoeC">
-                    <div class="tictactoeC-details">
-                        <p>This is a mini game of TicTacToe in C </p>
-                        <a href="../HTML/tictactoeC.html" class="btn-outline">View details</a>
-                    </div>
-                    <img src="../images/TicTacToe.jpg" alt="game details page">
-                    <p class="tictactoeC-title">TicTacToe in C</p>
-                </div>
-        </section>
-        <!-- TicTacToe in C end -->
 
-        
+    <main>
+        <h1 class="title">Proiecte personale</h1>
+        <div class="section-container">
+            <div class="project-card" id="tictactoeC">
+                <img src="../images/TicTacToe.jpg" alt="TicTacToe in C">
+                <p class="project-title">TicTacToe in C</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL POP-UP -->
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal-content">
+            <span class="modal-close" id="modalClose">&times;</span>
+            <img src="../images/TicTacToe.jpg" alt="TicTacToe in C" class="modal-img">
+            <h2>TicTacToe in C</h2>
+            <p>
+                Joc clasic de X și 0 realizat în limbajul C, rulabil în consolă.<br>
+                <strong>Funcționalități:</strong> jucător vs. jucător, verificare câștig, resetare, scoruri.<br>
+                Ușor de folosit și cu cod comentat pentru învățare!
+            </p>
+            <a href="../FISIERE/TicTacToelnC/xsio.c" class="download-btn" download>
+                <i class="fa-solid fa-download"></i> Descarcă sursele
+            </a>
+        </div>
     </div>
 
     <footer>
-        <p id="copyright"> &copy; Copyright <span id="year"></span>. All rights reserved.</p>
+        <p>&copy; Copyright <span id="year"></span>. All rights reserved.</p>
     </footer>
-    <script src ="../JS/script.js"></script>
+    <!-- Script extern -->
+    <script src="../JS/scriptproject.js"></script>
 </body>
 </html>
