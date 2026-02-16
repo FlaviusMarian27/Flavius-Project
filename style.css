@@ -133,3 +133,141 @@ h1 span{
     }
 }
 
+/*3. About me*/
+.about{
+    padding: 100px 10%;
+    background-color: #0f172a;
+}
+
+.section-about{
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #38bdf8;
+    font-weight: 800;
+}
+
+.about-grid{
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.about-text p{
+    font-size: 1.1rem;
+    color: #94a3b8;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.upt-link {
+    color: #38bdf8;          /* Albastrul din logo-ul tau */
+    text-decoration: none;   /* Scoatem sublinierea implicita */
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid transparent; /* Pregatim o sublinere custom */
+}
+
+.upt-link:hover {
+    color: #f8fafc;          /* Se face alb la hover */
+    border-bottom: 1px solid #38bdf8; /* Apare o linie fina cyan sub text */
+    text-shadow: 0 0 8px rgba(56, 189, 248, 0.5); /* Efect de glow discret */
+}
+
+/*Evidentiem cuvintele cheie*/
+.about-text span{
+    color: #f8fafc;
+    font-weight: 600;
+    border-bottom: 1px solid #38bdf8;
+}
+
+.about-text strong{
+    color: #fbbf24;
+}
+
+.about-stats{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.stat-box{
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid #38bdf8;
+    transition: transform 0.3s ease;
+}
+
+.stat-box:hover{
+    transform: translateX(10px);
+    background: #243397;
+}
+
+.stat-box h4 {
+    color: #38bdf8;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.stat-box p {
+    color: #f8fafc;
+    font-weight: 600;
+}
+
+@media (max-width: 900px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-stats {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
+
+/*Logo - uri*/
+.about-logos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /*distanta intre cele 2*/
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(56,189,248, 0.1);
+}
+
+.logo-item{
+    background: white;
+    padding: 10px 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 200px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0, 0.3);
+    text-decoration: none;
+}
+
+.logo-item img{
+    height: 100%;
+    width: auto;
+    max-width: 400px;
+    object-fit: contain;
+}
+
+.logo-item:hover{
+    cursor: pointer;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(56,189,248, 0.2);
+}
+
+@media (max-width: 600px) {
+    .about-logos{
+        flex-direction: column;
+        gap: 20px;
+    }
+}
