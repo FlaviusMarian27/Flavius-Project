@@ -690,3 +690,96 @@ h1 span{
         margin-bottom: 40px;
     }
 }
+
+/* =========================
+   FIELD OF INTEREST (Infinite Scroll)
+   ========================= */
+.interests {
+    padding: 100px 0;
+    background-color: #0f172a;
+    position: relative;
+    overflow: hidden;
+}
+
+.interests-intro {
+    text-align: center;
+    color: #94a3b8;
+    max-width: 700px;
+    margin: -40px auto 60px auto;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    padding: 0 20px;
+}
+
+/* Configurarea animației specifice pentru Interese */
+/* Viteza mai lentă (50s) pentru că utilizatorul trebuie să citească textul */
+.interest-track[data-animated="true"] {
+    --animation-direction: normal; /* Spre stânga */
+    --animation-duration: 50s;     /* Mai lent ca să fie citibil */
+}
+
+/* Stilul Cardului */
+.interest-card {
+    background: rgba(30, 41, 59, 0.5);
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+
+    /* IMPORTANT: Dimensiuni fixe ca să nu se strivească în carusel */
+    width: 350px;       /* Lățime fixă */
+    flex-shrink: 0;     /* Nu lăsăm flexbox să-l micșoreze */
+    user-select: none;  /* Previne selectarea textului în timpul mișcării */
+}
+
+.interest-card:hover {
+    transform: translateY(-10px);
+    background: rgba(30, 41, 59, 0.8);
+    border-color: #38bdf8;
+    box-shadow: 0 10px 30px rgba(56, 189, 248, 0.1);
+}
+
+/* Iconița */
+.icon-box {
+    width: 60px;
+    height: 60px;
+    background: rgba(56, 189, 248, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.icon-box i {
+    font-size: 1.8rem;
+    color: #38bdf8;
+}
+
+.interest-card:hover .icon-box {
+    background: #38bdf8;
+    transform: scale(1.1) rotate(5deg);
+}
+
+.interest-card:hover .icon-box i {
+    color: #0f172a;
+}
+
+/* Textul */
+.interest-card h3 {
+    font-size: 1.4rem;
+    color: #f8fafc;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.interest-card p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    white-space: normal; /* Permitem textului să treacă pe rândul următor în interiorul cardului */
+}
