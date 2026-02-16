@@ -696,7 +696,13 @@ h1 span{
    ========================= */
 .interests {
     padding: 100px 0;
-    background-color: #0f172a;
+    background-image: linear-gradient(rgba(15, 23, 42, 0.90), rgba(15, 23, 42, 0.90)),
+                        url("images/laptop.png"); /* Sau numele altei imagini */
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efectul de parallax (imaginea stă fixă) */
+
     position: relative;
     overflow: hidden;
 }
