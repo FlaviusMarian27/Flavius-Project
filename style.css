@@ -408,3 +408,260 @@ h1 span{
 .skill-card.soft i {
     color: #fbbf24;
 }
+
+/* =========================================
+   PROJECTS SECTION (Complete)
+   ========================================= */
+
+/* 1. Setări Generale Secțiune */
+.projects {
+    padding: 100px 0;
+    background-color: #0b1120; /* Fundal puțin mai închis pentru contrast */
+    position: relative;
+}
+
+/* 2. Titlul Mare și Spațierea Containerului */
+.projects .container {
+    width: 85%;           /* Nu lăsăm conținutul să se lipească de margini */
+    max-width: 1300px;    /* Limită maximă pe ecrane ultrawide */
+    margin: 0 auto;       /* Centrare */
+}
+
+.projects .section-title {
+    font-size: 3.5rem;    /* Titlu impunător */
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 60px;
+    color: #f8fafc;
+    /* Opțional: Gradient discret pe text */
+    background: linear-gradient(to right, #f8fafc, #38bdf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* 3. Grila de Proiecte (Grid System) */
+.projects-grid {
+    display: grid;
+    gap: 30px;
+
+    /* DEFAULT (Mobil): 1 coloană */
+    grid-template-columns: 1fr;
+}
+
+/* TABLETĂ: 2 coloane */
+@media (min-width: 700px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* DESKTOP: Fix 3 coloane */
+@media (min-width: 1100px) {
+    .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* 4. Stilul Cardului (Simplu) */
+.project-item {
+    background: #1e293b;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.project-item:hover {
+    transform: translateY(-10px); /* Se ridică la hover */
+    box-shadow: 0 20px 40px rgba(56, 189, 248, 0.15); /* Glow albastru */
+    border-color: #38bdf8;
+}
+
+/* Zona de imagine din card */
+.project-thumb {
+    height: 220px; /* Înălțime fixă pentru uniformitate */
+    width: 100%;
+    overflow: hidden;
+}
+
+.project-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Umple spațiul perfect */
+    transition: transform 0.5s ease;
+}
+
+/* Zoom pe imagine la hover */
+.project-item:hover .project-thumb img {
+    transform: scale(1.1);
+}
+
+/* Titlul din card */
+.project-info {
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: #1e293b;
+}
+
+.project-info h3 {
+    font-size: 1.25rem;
+    color: #f8fafc;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* 5. Fereastra Modală (Popup Detalii) */
+.modal {
+    display: none; /* Ascuns implicit */
+    position: fixed;
+    z-index: 9999; /* Peste tot site-ul */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Fundal întunecat transparent */
+    backdrop-filter: blur(8px); /* Efect de ceață în spate */
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Clasa 'show' adăugată de JS face fereastra vizibilă */
+.modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-content {
+    background: #0f172a;
+    width: 90%;
+    max-width: 700px;
+    border-radius: 20px;
+    border: 1px solid #38bdf8;
+    box-shadow: 0 0 50px rgba(56, 189, 248, 0.2);
+    position: relative;
+    overflow: hidden;
+    transform: scale(0.8); /* Pornește mic */
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Efect de "bounciness" la deschidere */
+    display: flex;
+    flex-direction: column;
+}
+
+.modal.show .modal-content {
+    transform: scale(1); /* Ajunge la mărimea normală */
+}
+
+/* Butonul X de închidere */
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+    line-height: 1;
+    transition: color 0.3s;
+    background: rgba(0,0,0,0.5); /* Mic fundal ca să se vadă peste poză */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+}
+
+.close-modal:hover {
+    color: #38bdf8;
+    background: rgba(255,255,255,0.1);
+}
+
+/* Imaginea Mare din Modal */
+.modal-header {
+    width: 100%;
+    height: 300px;
+}
+
+.modal-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Conținutul text din Modal */
+.modal-body {
+    padding: 30px;
+}
+
+.modal-body h3 {
+    font-size: 2rem;
+    color: #f8fafc;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(56, 189, 248, 0.3);
+    padding-bottom: 10px;
+    display: inline-block;
+}
+
+.modal-body p {
+    color: #cbd5e1;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    font-size: 1.05rem;
+}
+
+/* Tag-urile din Modal */
+.project-tags {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag-modal {
+    background: rgba(56, 189, 248, 0.1);
+    color: #38bdf8;
+    padding: 6px 14px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+}
+
+/* Butonul de GitHub din Modal */
+.btn-code {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: #38bdf8;
+    color: #0f172a;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-code:hover {
+    background: #0ea5e9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4);
+}
+
+/* Media Query pentru Modal pe Mobil */
+@media (max-width: 600px) {
+    .modal-content {
+        width: 95%;
+        max-height: 90vh; /* Să nu iasă din ecran */
+        overflow-y: auto; /* Scroll dacă e prea înalt */
+    }
+    .modal-header {
+        height: 200px;
+    }
+    .projects .section-title {
+        font-size: 2.5rem;
+    }
+}

@@ -127,21 +127,122 @@
         </section>
 
         <section id="projects" class="projects">
-            <h2 class="section-title">Personal Projects</h2>
-            <div class="projects-grid">
-                <article class="project-card">
-                    <div class="project-content">
-                        <div class="project-header">
-                            <h3>C++ Game Engine</h3>
-                            <span class="project-tag">C++ / Game Dev</span>
+            <div class="container">
+                <h2 class="section-title">Personal Projects</h2>
+
+                <div class="projects-grid">
+
+                    <div class="project-item"
+                         data-title="TicTacToe SFML"
+                         data-image="images/icon.png"
+                         data-tags="C++, SFML, OOP"
+                         data-github="https://github.com/flaviusmarian27"
+                         data-desc="A graphical implementation of the classic game using SFML. Focused on Object-Oriented Programming (OOP) principles to handle real-time rendering and complex game states.">
+
+                        <div class="project-thumb">
+                            <img src="images/icon.png" alt="TicTacToe">
                         </div>
-                        <p>O scurtă descriere a motorului de joc sau a logicii interactive pe care ai construit-o.</p>
-                        <div class="project-footer">
-                            <a href="https://github.com/flaviusmarian27" target="_blank" class="view-code">View Code</a>
+                        <div class="project-info">
+                            <h3>TicTacToe SFML</h3>
                         </div>
                     </div>
-                </article>
 
+                    <div class="project-item"
+                         data-title="Exploding Kittens CLI"
+                         data-image="images/ek.png"
+                         data-tags="C, Ncurses, Logic"
+                         data-github="https://github.com/flaviusmarian27"
+                         data-desc="A terminal-based strategy game using the Ncurses library. Focused on efficient memory usage, game state management, and user interaction in a CLI environment.">
+
+                        <div class="project-thumb">
+                            <img src="images/ek.png" alt="Exploding Kittens">
+                        </div>
+                        <div class="project-info">
+                            <h3>Exploding Kittens CLI</h3>
+                        </div>
+                    </div>
+
+                    <div class="project-item"
+                         data-title="8086 Microprocessor"
+                         data-image="images/arh.png"
+                         data-tags="Assembly x86, Hardware"
+                         data-github="https://github.com/flaviusmarian27"
+                         data-desc="A deep dive into computer architecture. Wrote efficient low-level code respecting hardware constraints to simulate and interact with the 8086 microprocessor environment.">
+
+                        <div class="project-thumb">
+                            <img src="images/arh.png" alt="8086 Assembly">
+                        </div>
+                        <div class="project-info">
+                            <h3>8086 Microprocessor</h3>
+                        </div>
+                    </div>
+
+                    <div class="project-item"
+                         data-title="Gym Manager App"
+                         data-image="images/LogoGym.png"
+                         data-tags="HTML, CSS, JS, Node.js, MongoDB"
+                         data-github="https://github.com/flaviusmarian27"
+                         data-desc="A complete CRUD system for managing gym memberships. Implemented scalable database schemas and handled asynchronous backend logic while maintaining a clean UI.">
+
+                        <div class="project-thumb">
+                            <img src="images/LogoGym.png" alt="Gym App">
+                        </div>
+                        <div class="project-info">
+                            <h3>Gym Manager Web App</h3>
+                        </div>
+                    </div>
+
+                    <div class="project-item"
+                         data-title="Operating Systems Core"
+                         data-image="images/os.png"
+                         data-tags="C, Linux API, Kernel"
+                         data-github="https://github.com/flaviusmarian27"
+                         data-desc="Developed robust system-level applications focusing on process synchronization, memory management, and multi-threading within the Linux environment.">
+
+                        <div class="project-thumb">
+                            <img src="images/os.png" alt="OS Core">
+                        </div>
+                        <div class="project-info">
+                            <h3>Operating Systems Core</h3>
+                        </div>
+                    </div>
+
+                    <div class="project-item"
+                         data-title="SystemC ALU Modules"
+                         data-image="images/ALU.png"
+                         data-tags="C++, SystemC, Hardware"
+                         data-github="https://github.com/flaviusmarian27"
+                         data-desc="Modeled complex digital logic and Arithmetic Logic Units (ALU). Used SystemC for hardware description to simulate component behavior before physical implementation.">
+
+                        <div class="project-thumb">
+                            <img src="images/ALU.png" alt="SystemC">
+                        </div>
+                        <div class="project-info">
+                            <h3>SystemC ALU Modules</h3>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="project-modal" class="modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+
+                    <div class="modal-header">
+                        <img id="modal-img" src="" alt="">
+                    </div>
+
+                    <div class="modal-body">
+                        <div id="modal-tags" class="project-tags"></div>
+                        <h3 id="modal-title">Titlu Proiect</h3>
+                        <p id="modal-desc">Descrierea va apărea aici...</p>
+
+                        <a id="modal-github" href="#" target="_blank" class="btn-code">
+                            <i class="fa-brands fa-github"></i> View on GitHub
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
