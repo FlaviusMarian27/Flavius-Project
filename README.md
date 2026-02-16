@@ -4,6 +4,7 @@
 
 ## 🌐 What the site includes
 
+
 - **Custom HTML pages**:  
   - `index.html` – Home page  
   - `contact.html` – Contact info and social media  
