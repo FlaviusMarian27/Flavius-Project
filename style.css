@@ -69,7 +69,7 @@ nav ul li a:hover {
     align-items: center;
     padding: 0 10%;
 
-    background-image: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)),
+    background-image: linear-gradient(rgba(15, 23, 42, 0.70), rgba(15, 23, 42, 0.85)),
                     url("images/vibecoding.gif");
     background-size: cover;
     background-position: center;
@@ -93,6 +93,7 @@ nav ul li a:hover {
 .hero-text-content{
     flex: 1;
     text-align: left;
+    z-index: 2;
 }
 
 h1{
