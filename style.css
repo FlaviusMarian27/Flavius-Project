@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background: #0f172a;
+    color: #f8fafc;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/*Bara de navigare*/
+nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+}
+
+.nav-logo{
+    height: 67px;
+    transition: all 0.3s ease;
+}
+
+.nav-logo:hover {
+    filter: drop-shadow(0 0 10px #38bdf8); /* Glow albastru la hover */
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav ul li a {
+    color: #f8fafc;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #38bdf8; /* Accentul albastru */
+}
+
+/*-----Hero Section*/
+.hero{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 10%;
+
+    background-image: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)),
+                    url("/images/vibecoding.gif");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content{
+    display: flex;
+    flex-direction: row; /*aliniera orizontala*/
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 100px;/*Spatiu intre poza si scris*/
+}
+
+.hero-text-content{
+    flex: 1;
+    text-align: left;
+}
+
+h1{
+    font-size: 3.5rem;
+    line-height: 1.2;
+    color: #f8fafc;
+}
+
+h1 span{
+    color: #38bdf8;
+    display: block;
+}
+
+.profile-wrapper{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.profile-image{
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #38bdf8;
+    box-shadow: 0 0 50px rgba(56, 189, 248, 0.2);
+}
+
+/*ajustare pentru ecranele mici*/
+@media(max-width: 1100px){
+    .profile-wrapper{
+        width: 350px;
+        height: 350px;
+    }
+
+    h1{
+        font-size: 2.8rem;
+    }
+}
+

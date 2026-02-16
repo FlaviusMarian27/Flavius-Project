@@ -1,67 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Pagina Personală</title>
-    <link rel="stylesheet" href="./CSS/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marian Flavius-Andrei - Personal Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
-<body>
-    <!-- Go to top button -->
-    <button class="go-top-btn hidden" id="goTopBtn">
-        <i class="fa-solid fa-arrow-up"></i>
-    </button>
 
-    <header></header>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="#home" class="logo">
+                <img src="images/logoMFA.png" alt="MFA logo" class="nav-logo">
+            </a>
+        </div>
+
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
     <main>
-        <div class="page-container">
-            <section class="profile hidden">
-                <div class="profile-image">
-                    <img src="./images/profile.jpg" alt="imagine de profil Marian Flavius-Andrei" >
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Hi there, I'm <span>Marian Flavius-Andrei!</span></h1>
+                <div class="profile-wrapper">
+                    <img src="images/profileImage.png" alt="Marian Flavius-Andrei" class="profile-image">
                 </div>
-                <div class="profile-details">
-                    <h1>Marian Flavius-Andrei</h1>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
                     <p>
-                        Hi there! I am Marian Flavius-Andrei, I am a student and I am passionate about programming!
+                        I'm student at Politehnica University of Timișoara at faculty of Automation and Computer Engineering.
+                    </p>
+                    <p>
+                        I am passionate about both software and hardware, with experience in low-level programming and full-stack development. I work with C, Assembly, and SystemC to understand and model system architectures, and in Linux environments I develop performance-oriented applications with efficient resource management. In parallel, I build web applications using HTML, CSS, JavaScript, and MongoDB, and develop games in C++ to combine complex logic with interactive interfaces
                     </p>
                 </div>
-                <div class="tags">
-                    <span>#programming</span>
-                    <span>#java</span>
-                    <span>#C/C++</span>
-                    <span>#determination</span>
-                    <span>#webdev</span>
+            </div>
+        </section>
+
+        <section id="skills" class="skills">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Hardware & Low-Level</h3>
+                    <ul>
+                        <li>C / Assembly</li>
+                        <li>SystemC</li>
+                        <li>System Architecture</li>
+                        <li>Linux Environments</li>
+                    </ul>
                 </div>
-            </section>
-        </div>
-        <div class="section-container">
-            <!-- Card 1 -->
-            <a href="./HTML/personal.html" class="card hidden" data-bg="images/information.jpg">
-                <div class="card-title">
-                    Personal information page
+                <div class="skill-category">
+                    <h3>Web Development</h3>
+                    <ul>
+                        <li>HTML5 / CSS3</li>
+                        <li>JavaScript</li>
+                        <li>MongoDB</li>
+                    </ul>
                 </div>
-            </a>
-            <!-- Card 2 -->
-            <a href="./HTML/proiecte.html" class="card hidden" data-bg="images/proiecte.jpg">
-                <div class="card-title">
-                    Presentation page for personal projects
+                <div class="skill-category">
+                    <h3>Creative & Others</h3>
+                    <ul>
+                        <li>C++ (Game Development)</li>
+                        <li>Resource Management</li>
+                        <li>Git / GitHub</li>
+                    </ul>
                 </div>
-            </a>
-            <!-- Card 3 -->
-            <a href="./HTML/contact.html" class="card hidden" data-bg="images/socialmedia.jpg">
-                <div class="card-title">
-                    Contact page
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <h2 class="section-title">Personal Projects</h2>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-content">
+                        <div class="project-header">
+                            <h3>C++ Game Engine</h3>
+                            <span class="project-tag">C++ / Game Dev</span>
+                        </div>
+                        <p>O scurtă descriere a motorului de joc sau a logicii interactive pe care ai construit-o.</p>
+                        <div class="project-footer">
+                            <a href="https://github.com/flaviusmarian27" target="_blank" class="view-code">View Code</a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <section id="contact" class="container">
+            <h2 class="section-title">Hai să vorbim</h2>
+            <div class="contact-content">
+                <p>Ești interesat de o colaborare sau vrei doar să saluti? Alege metoda preferată:</p>
+                <div class="contact-links">
+                    <a href="mailto:marianflavius27@yahoo.com" class="contact-item">📧 Email</a>
+                    <a href="https://linkedin.com/in/flavius-andrei-marian" target="_blank" class="contact-item">🔗 LinkedIn</a>
+                    <a href="https://github.com/flaviusmarian27" target="_blank" class="contact-item">💻 GitHub</a>
                 </div>
-            </a>
-        </div>
+            </div>
+        </section>
     </main>
 
     <footer>
         <p id="copyright"> &copy; Copyright <span id="year"></span>. All rights reserved.</p>
     </footer>
 
-    <script src ="./JS/script.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
