@@ -271,3 +271,134 @@ h1 span{
         gap: 20px;
     }
 }
+
+/*=================
+    SKILLS SECTION
+  =================*/
+
+.skills{
+    padding: 100px 0;
+    background-color: #0f172a;
+    overflow: hidden;
+}
+
+.skills .container{
+    padding: 0 5%;/* Aliniem titlul, dar lăsăm benzile libere */
+}
+
+.skills-category{
+    margin-bottom: 80px;
+}
+
+.category-title{
+    font-size: 1.5rem;
+    color: #f8fafc;
+    margin-bottom: 30px;
+    display: inline-block;
+}
+
+.blue-accent{
+    color: #38bdf8;
+}
+
+.yellow-accent{
+    color: #fbbf24;
+}
+
+/*Wrapper banda*/
+.horizontal-scroll-wrapper{
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+
+.horizontal-scroll-track{
+    display: flex;
+    gap: 30px;
+    width: max-content;
+    flex-wrap: nowrap;
+    padding-bottom: 20px;
+}
+
+.horizontal-scroll-track[data-animated="true"] {
+    /* Pornim animația numită 'scroll' */
+    animation: scroll var(--animation-duration, 40s) var(--animation-direction, normal) linear infinite;
+}
+
+.hard-track[data-animated="true"] {
+    --animation-direction: normal;
+    --animation-duration: 35s;
+}
+
+.soft-track[data-animated="true"] {
+    --animation-direction: reverse;
+    --animation-duration: 45s;
+}
+
+.horizontal-scroll-track:hover{
+    animation-play-state: paused;
+}
+
+@keyframes scroll{
+    to {
+        transform: translate(calc(-50% - 15px));
+    }
+}
+
+.skill-card{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(30, 41, 59, 0.6);
+    padding: 15px 30px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    white-space: nowrap;
+    transition: all 0.3s ease;
+    cursor: default;
+    user-select: none;
+}
+
+.skill-card i{
+    font-size: 1.5rem;
+}
+
+.skill-card span{
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #f8fafc;
+}
+
+/* Culori specifice Hard (Albastru) */
+.skill-card.hard{
+    border-left: 3px solid #38bdf8;
+}
+
+.skill-card.hard:hover {
+    background: rgba(56, 189, 248, 0.15);
+    border-color: #38bdf8;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+    transform: scale(1.05);
+}
+
+.skill-card.hard i {
+    color: #38bdf8;
+}
+
+/* Culori specifice Soft (Galben) */
+.skill-card.soft {
+    border-left: 3px solid #fbbf24;
+}
+
+.skill-card.soft:hover {
+    background: rgba(251, 191, 36, 0.15);
+    border-color: #fbbf24;
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
+    transform: scale(1.05);
+}
+
+.skill-card.soft i {
+    color: #fbbf24;
+}

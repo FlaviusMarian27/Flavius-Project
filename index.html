@@ -6,6 +6,7 @@
     <title>Marian Flavius-Andrei - Personal Page</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
@@ -83,33 +84,45 @@
         </section>
 
         <section id="skills" class="skills">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Hardware & Low-Level</h3>
-                    <ul>
-                        <li>C / Assembly</li>
-                        <li>SystemC</li>
-                        <li>System Architecture</li>
-                        <li>Linux Environments</li>
-                    </ul>
+            <div class="container">
+                <h2 class="section-title">Skills & Expertise</h2>
+
+                <div class="skills-category">
+                    <h3 class="category-title"><span class="blue-accent">#</span> Hard Skills</h3>
+
+                    <div class="horizontal-scroll-wrapper">
+                        <div class="horizontal-scroll-track hard-track scroller">
+                            <div class="skill-card hard"><i class="fa-solid fa-code"></i> <span>C / C++</span></div>
+                            <div class="skill-card hard"><i class="fa-brands fa-python"></i> <span>Python</span></div>
+                            <div class="skill-card hard"><i class="fa-solid fa-microchip"></i> <span>Assembly (ASM)</span></div>
+                            <div class="skill-card hard"><i class="fa-brands fa-java"></i> <span>Java</span></div>
+                            <div class="skill-card hard"><i class="fa-solid fa-memory"></i> <span>Verilog / SystemC</span></div>
+                            <div class="skill-card hard"><i class="fa-brands fa-html5"></i> <span>Web Dev</span></div>
+                            <div class="skill-card hard"><i class="fa-solid fa-database"></i> <span>MySQL/PostgreSQL/MongoDB</span></div>
+                            <div class="skill-card hard"><i class="fa-solid fa-network-wired"></i> <span>Networking</span></div>
+                            <div class="skill-card hard"><i class="fa-brands fa-linux"></i> <span>Linux Env</span></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Web Development</h3>
-                    <ul>
-                        <li>HTML5 / CSS3</li>
-                        <li>JavaScript</li>
-                        <li>MongoDB</li>
-                    </ul>
+
+                <div class="skills-category">
+                    <h3 class="category-title"><span class="yellow-accent">#</span> Soft Skills</h3>
+
+                    <div class="horizontal-scroll-wrapper">
+                        <div class="horizontal-scroll-track soft-track scroller">
+                            <div class="skill-card soft"><i class="fa-solid fa-lightbulb"></i> <span>Problem Solving</span></div>
+                            <div class="skill-card soft"><i class="fa-solid fa-users-gear"></i> <span>Teamwork</span></div>
+                            <div class="skill-card soft"><i class="fa-solid fa-comments"></i> <span>Communication</span></div>
+                            <div class="skill-card soft"><i class="fa-solid fa-bolt"></i> <span>Fast Learner</span></div>
+                            <div class="skill-card soft"><i class="fa-solid fa-clock"></i> <span>Time Mgmt</span></div>
+                            <div class="skill-card soft"><i class="fa-solid fa-chess-knight"></i> <span>Critical Thinking</span></div>
+                            <div class="skill-card soft"><i class="fa-solid fa-magnifying-glass-chart"></i><span>Attention to Detail</span></div>
+                            <div class="skill-card soft"><i class="fa-solid fa-palette"></i><span>Creativity</span></div>
+                            <div class="skill-card soft"><i class="fa-solid fa-arrows-rotate"></i><span>Adaptability</span></div>
+                        </div>
+                    </div>
                 </div>
-                <div class="skill-category">
-                    <h3>Creative & Others</h3>
-                    <ul>
-                        <li>C++ (Game Development)</li>
-                        <li>Resource Management</li>
-                        <li>Git / GitHub</li>
-                    </ul>
-                </div>
+
             </div>
         </section>
 
@@ -149,8 +162,6 @@
         <p id="copyright"> &copy; Copyright <span id="year"></span>. All rights reserved.</p>
     </footer>
 
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
