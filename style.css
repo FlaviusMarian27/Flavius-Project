@@ -81,7 +81,7 @@ nav ul li a:hover {
 
 .hero-content{
     display: flex;
-    flex-direction: row; /*aliniera orizontala*/
+    flex-direction: row; /* aliniera orizontala */
     align-items: center;
     justify-content: space-between;
     width: 100%;
