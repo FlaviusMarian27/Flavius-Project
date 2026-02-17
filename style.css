@@ -104,6 +104,7 @@ h1{
 h1 span{
     color: #38bdf8;
     display: block;
+    white-space: nowrap;
 }
 
 .profile-wrapper{
@@ -119,6 +120,83 @@ h1 span{
     object-fit: cover;
     border: 4px solid #38bdf8;
     box-shadow: 0 0 50px rgba(56, 189, 248, 0.2);
+}
+
+/* =========================
+   HERO BUTTONS & LAYOUT
+   ========================= */
+
+/* 1. Containerul pentru Text și Butoane */
+.hero-text {
+    flex: 1; /* Ocupă tot spațiul din stânga */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; /* Aliniem la stânga pe desktop */
+    gap: 30px; /* Spațiu între Titlu și Butoane */
+}
+
+/* 2. Containerul Butoanelor */
+.hero-buttons {
+    display: flex;
+    gap: 20px; /* Distanța dintre butoane */
+    flex-wrap: wrap;
+}
+
+/* 3. Stilul General al Butonului */
+.btn {
+    padding: 14px 32px;
+    border-radius: 50px; /* Formă de capsulă */
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px; /* Spațiu între iconiță și text */
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+/* --- Butonul Principal (Download CV) --- */
+.primary-btn {
+    background-color: #38bdf8; /* Cyan */
+    color: #0f172a; /* Text închis */
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.4); /* Glow effect */
+}
+
+.primary-btn:hover {
+    background-color: #0ea5e9;
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(56, 189, 248, 0.6);
+}
+
+/* --- Butonul Secundar (Contact Me) --- */
+.secondary-btn {
+    background-color: transparent;
+    color: #f8fafc;
+    border-color: rgba(248, 250, 252, 0.3); /* Bordură fină albă */
+}
+
+.secondary-btn:hover {
+    border-color: #38bdf8;
+    color: #38bdf8;
+    transform: translateY(-3px);
+    background-color: rgba(56, 189, 248, 0.05);
+}
+
+/* --- ADAPTARE PENTRU MOBIL --- */
+/* Trebuie să ne asigurăm că pe mobil butoanele sunt centrate */
+@media (max-width: 900px) {
+    .hero-text {
+        align-items: center; /* Centrăm totul */
+        text-align: center;
+        width: 100%;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
 }
 
 /*ajustare pentru ecranele mici*/
