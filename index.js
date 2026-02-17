@@ -81,3 +81,23 @@ window.addEventListener("click", (e) => {
         modal.classList.remove("show");
     }
 });
+
+// ==========================================
+// HAMBURGER MENU (Mobile)
+// ==========================================
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-links");
+
+// Când dai click pe hamburger, deschide/închide meniul
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+});
+
+// Când dai click pe un link din meniu, închide meniul automat
+document.querySelectorAll(".nav-links li a").forEach(link => {
+    link.addEventListener("click", () => {
+        hamburger.classList.remove("active");
+        navMenu.classList.remove("active");
+    });
+});

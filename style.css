@@ -947,3 +947,158 @@ footer {
     padding: 16px 0;
     margin-top: auto;
 }
+
+/* =========================================
+   RESPONSIVE DESIGN (Mobile & Tablet)
+   ========================================= */
+
+/* --- 1. NAVIGARE (Hamburger Menu) --- */
+/* Ascundem butonul hamburger pe desktop */
+.hamburger {
+    display: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+    background-color: #f8fafc;
+}
+
+/* Reguli doar pentru Mobil (ecrane sub 768px) */
+@media (max-width: 768px) {
+    /* Afișăm hamburgerul */
+    .hamburger {
+        display: block;
+    }
+
+    /* Ascundem butonul X când meniul e închis */
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    /* Transformăm meniul într-un sertar lateral */
+    .nav-links {
+        position: fixed;
+        left: -100%; /* Ascuns în stânga ecranului */
+        top: 70px; /* Sub bara de logo */
+        gap: 0;
+        flex-direction: column;
+        background-color: rgba(15, 23, 42, 0.95); /* Fundal aproape opac */
+        backdrop-filter: blur(10px);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        box-shadow: 0 10px 10px rgba(0,0,0,0.5);
+    }
+
+    .nav-links.active {
+        left: 0; /* Apare pe ecran */
+    }
+
+    .nav-links li {
+        margin: 16px 0;
+    }
+}
+
+/* --- 2. HERO SECTION --- */
+@media (max-width: 900px) {
+    .hero {
+        height: auto; /* Nu mai forțăm înălțimea fixă */
+        padding: 150px 5% 100px 5%; /* Mai mult spațiu sus */
+        text-align: center;
+    }
+
+    .hero-content {
+        flex-direction: column-reverse; /* Poza sus, Textul jos (sau invers dacă vrei column) */
+        gap: 50px;
+    }
+
+    .hero-text-content {
+        text-align: center; /* Centrăm textul */
+    }
+
+    h1 {
+        font-size: 2.5rem; /* Micșorăm titlul */
+    }
+
+    .profile-wrapper {
+        justify-content: center;
+        width: 100%;
+        height: auto;
+    }
+
+    .profile-image {
+        width: 280px; /* Poza mai mică pe telefon */
+        height: 280px;
+    }
+}
+
+/* --- 3. ABOUT SECTION --- */
+@media (max-width: 768px) {
+    .about {
+        padding: 60px 5%;
+    }
+
+    .section-about {
+        text-align: center;
+    }
+
+    .about-stats {
+        width: 100%;
+    }
+
+    .logo-item img {
+        max-width: 100%; /* Să nu iasă logourile din ecran */
+    }
+}
+
+/* --- 4. INTERESTS SECTION --- */
+@media (max-width: 600px) {
+    /* Ajustăm cardurile din scroll să nu fie prea late pentru ecran */
+    .interest-card {
+        width: 85vw; /* 85% din lățimea ecranului telefonului */
+        padding: 20px;
+    }
+
+    .interests-intro {
+        font-size: 1rem;
+    }
+}
+
+/* --- 5. CONTACT & FOOTER --- */
+@media (max-width: 600px) {
+    .contact-card {
+        flex-direction: column; /* Iconita sus, text jos */
+        text-align: center;
+        padding: 20px;
+    }
+
+    .contact-card .icon-box {
+        margin-bottom: 10px;
+    }
+
+    .email-grid {
+        grid-template-columns: 1fr; /* O singură coloană */
+    }
+
+    .social-links {
+        flex-direction: column; /* Butoanele unul sub altul */
+    }
+
+    .social-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
