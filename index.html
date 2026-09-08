@@ -10,443 +10,482 @@
 </head>
 
 <body>
-    <nav>
-        <div class="logo">
-            <a href="#home" class="logo">
-                <img src="images/logoMFA.png" alt="MFA logo" class="nav-logo">
+<nav>
+    <div class="logo">
+        <a href="#home" class="logo">
+            <img src="images/logoMFA.png" alt="MFA logo" class="nav-logo">
+        </a>
+    </div>
+
+    <ul class="nav-links"> <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#interests">Interests</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </div>
+</nav>
+
+<main>
+    <section id="home" class="hero">
+        <div class="hero-content">
+
+            <div class="hero-text">
+                <h1>Hi there, I'm <br> <span>Marian Flavius-Andrei!</span></h1>
+
+                <div class="hero-buttons">
+                    <a href="cv/Marian_Flavius-Andrei.pdf" download class="btn primary-btn">
+                        <i class="fa-solid fa-download"></i> Download CV
+                    </a>
+
+                    <a href="#contact" class="btn secondary-btn">
+                        Contact Me
+                    </a>
+                </div>
+            </div>
+
+            <div class="profile-wrapper">
+                <img src="images/profileImage.png" alt="Marian Flavius-Andrei" class="profile-image">
+            </div>
+
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>
+                    I'm a student at
+                    <a href="https://www.upt.ro/" target="_blank" rel="noopener noreferrer" class="upt-link">
+                        Politehnica University of Timișoara
+                    </a>
+                    at the faculty of Automation and Computer Engineering.
+                </p>
+                <p>
+                    I am passionate about both <strong>software and hardware</strong>, with experience in low-level programming and full-stack development. I work with <span>C, Assembly, and SystemC</span> to understand and model system architectures.
+                </p>
+                <p>
+                    In Linux environments, I develop performance-oriented applications with efficient resource management. In parallel, I build web applications using <span>HTML, CSS, JavaScript, and MongoDB</span>, and develop games in <span>C++</span> to combine complex logic with interactive interfaces.
+                </p>
+            </div>
+
+            <div class="about-stats">
+                <div class="stat-box">
+                    <h4>Education</h4>
+                    <p>Politehnica University of Timișoara</p>
+                    <p>Faculty of Automation and Computer Engineering</p>
+                </div>
+                <div class="stat-box">
+                    <h4>Main Focus</h4>
+                    <p>Operating Systems, OOP, Databases, Networking & Low-level</p>
+                </div>
+                <div class="stat-box">
+                    <h4>Hobbies</h4>
+                    <p>Game Dev & Hardware</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="about-logos">
+            <a href="https://www.upt.ro/" target="_blank" rel="noopener noreferrer" class="logo-item">
+                <img src="images/upt.png" alt="Universitatea Politehnica Timișoara">
+            </a>
+
+            <a href="https://ac.upt.ro/" target="_blank" rel="noopener noreferrer" class="logo-item">
+                <img src="images/ac.png" alt="Facultatea de Automatică și Calculatoare">
             </a>
         </div>
+    </section>
 
-        <ul class="nav-links"> <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#interests">Interests</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Work Experience</h2>
 
-        <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+            <div class="experience-list">
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-heading">
+                            <h3>IA-PracticAC (EU-funded Project) | UPT</h3>
+                            <span class="experience-role">Trainee / Program Participant</span>
+                        </div>
+                        <span class="experience-date">13 Feb 2026 - Current</span>
+                    </div>
+                    <ul class="experience-bullets">
+                        <li>Got into a competitive EU-funded program covering AI, Cybersecurity, and Cloud/Edge Computing.</li>
+                        <li>Attending technical workshops focused on practical industry skills.</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-heading">
+                            <h3>Savnet Summer Academy Program | Savnet Training Center</h3>
+                            <span class="experience-role">Trainee</span>
+                        </div>
+                        <span class="experience-date">13 Jul 2026 - 31 Aug 2026</span>
+                    </div>
+                    <ul class="experience-bullets">
+                        <li>Completed a full-time program covering networking (protocol layers, IPv4/IPv6 addressing & subnetting, VLANs, inter-VLAN routing, DHCP, NAT/PAT, ACLs) and Linux (file/process/user management, permissions, pipes, REGEX).</li>
+                        <li>Built and documented network topologies in Packet Tracer/GNS3; automated basic telecom infrastructure tasks with Python.</li>
+                    </ul>
+                </div>
+
+            </div>
         </div>
-    </nav>
+    </section>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="hero-content">
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Expertise</h2>
 
-                <div class="hero-text">
-                    <h1>Hi there, I'm <br> <span>Marian Flavius-Andrei!</span></h1>
-
-                    <div class="hero-buttons">
-                        <a href="cv/Marian_Flavius-Andrei.pdf" download class="btn primary-btn">
-                            <i class="fa-solid fa-download"></i> Download CV
-                        </a>
-
-                        <a href="#contact" class="btn secondary-btn">
-                            Contact Me
-                        </a>
-                    </div>
-                </div>
-
-                <div class="profile-wrapper">
-                    <img src="images/profileImage.png" alt="Marian Flavius-Andrei" class="profile-image">
-                </div>
-
-            </div>
-        </section>
-
-        <section id="about" class="about">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>
-                        I'm a student at
-                        <a href="https://www.upt.ro/" target="_blank" rel="noopener noreferrer" class="upt-link">
-                            Politehnica University of Timișoara
-                        </a>
-                        at the faculty of Automation and Computer Engineering.
-                    </p>
-                    <p>
-                        I am passionate about both <strong>software and hardware</strong>, with experience in low-level programming and full-stack development. I work with <span>C, Assembly, and SystemC</span> to understand and model system architectures.
-                    </p>
-                    <p>
-                        In Linux environments, I develop performance-oriented applications with efficient resource management. In parallel, I build web applications using <span>HTML, CSS, JavaScript, and MongoDB</span>, and develop games in <span>C++</span> to combine complex logic with interactive interfaces.
-                    </p>
-                </div>
-
-                <div class="about-stats">
-                    <div class="stat-box">
-                        <h4>Education</h4>
-                        <p>Politehnica University of Timișoara</p>
-                        <p>Faculty of Automation and Computer Engineering</p>
-                    </div>
-                    <div class="stat-box">
-                        <h4>Main Focus</h4>
-                        <p>Operating Systems, OOP, Databases, Networking & Low-level</p>
-                    </div>
-                    <div class="stat-box">
-                        <h4>Hobbies</h4>
-                        <p>Game Dev & Hardware</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="about-logos">
-                <a href="https://www.upt.ro/" target="_blank" rel="noopener noreferrer" class="logo-item">
-                    <img src="images/upt.png" alt="Universitatea Politehnica Timișoara">
-                </a>
-
-                <a href="https://ac.upt.ro/" target="_blank" rel="noopener noreferrer" class="logo-item">
-                    <img src="images/ac.png" alt="Facultatea de Automatică și Calculatoare">
-                </a>
-            </div>
-        </section>
-
-        <section id="skills" class="skills">
-            <div class="container">
-                <h2 class="section-title">Skills & Expertise</h2>
-
-                <div class="skills-category">
-                    <h3 class="category-title"><span class="blue-accent">#</span> Hard Skills</h3>
-
-                    <div class="horizontal-scroll-wrapper">
-                        <div class="horizontal-scroll-track hard-track scroller">
-                            <div class="skill-card hard"><i class="fa-solid fa-code"></i> <span>C / C++</span></div>
-                            <div class="skill-card hard"><i class="fa-brands fa-python"></i> <span>Python</span></div>
-                            <div class="skill-card hard"><i class="fa-solid fa-microchip"></i> <span>Assembly (ASM)</span></div>
-                            <div class="skill-card hard"><i class="fa-brands fa-java"></i> <span>Java</span></div>
-                            <div class="skill-card hard"><i class="fa-solid fa-memory"></i> <span>Verilog / SystemC</span></div>
-                            <div class="skill-card hard"><i class="fa-brands fa-html5"></i> <span>Web Dev</span></div>
-                            <div class="skill-card hard"><i class="fa-solid fa-database"></i> <span>MySQL/PostgreSQL/MongoDB</span></div>
-                            <div class="skill-card hard"><i class="fa-solid fa-network-wired"></i> <span>Networking</span></div>
-                            <div class="skill-card hard"><i class="fa-brands fa-linux"></i> <span>Linux Env</span></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skills-category">
-                    <h3 class="category-title"><span class="yellow-accent">#</span> Soft Skills</h3>
-
-                    <div class="horizontal-scroll-wrapper">
-                        <div class="horizontal-scroll-track soft-track scroller">
-                            <div class="skill-card soft"><i class="fa-solid fa-lightbulb"></i> <span>Problem Solving</span></div>
-                            <div class="skill-card soft"><i class="fa-solid fa-users-gear"></i> <span>Teamwork</span></div>
-                            <div class="skill-card soft"><i class="fa-solid fa-comments"></i> <span>Communication</span></div>
-                            <div class="skill-card soft"><i class="fa-solid fa-bolt"></i> <span>Fast Learner</span></div>
-                            <div class="skill-card soft"><i class="fa-solid fa-clock"></i> <span>Time Mgmt</span></div>
-                            <div class="skill-card soft"><i class="fa-solid fa-chess-knight"></i> <span>Critical Thinking</span></div>
-                            <div class="skill-card soft"><i class="fa-solid fa-magnifying-glass-chart"></i><span>Attention to Detail</span></div>
-                            <div class="skill-card soft"><i class="fa-solid fa-palette"></i><span>Creativity</span></div>
-                            <div class="skill-card soft"><i class="fa-solid fa-arrows-rotate"></i><span>Adaptability</span></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="projects" class="projects">
-            <div class="container">
-                <h2 class="section-title">Personal Projects</h2>
-
-                <div class="projects-grid">
-
-                    <div class="project-item"
-                         data-title="MP3/MP4 for Windows"
-                         data-image="images/windowsmp3mp4.png"
-                         data-tags="Python, Batchfile"
-                         data-github="https://github.com/FlaviusMarian27/MP3-MP4-Windows"
-                         data-desc="A simple and ad-free Python GUI application to download YouTube videos as MP3/MP4 for Windows.">
-
-                        <div class="project-thumb">
-                            <img src="images/windowsmp3mp4.png" alt="MP3/MP4 for Windows">
-                        </div>
-                        <div class="project-info">
-                            <h3>MP3/MP4 for Windows</h3>
-                        </div>
-                    </div>
-
-                    <div class="project-item"
-                         data-title="MP3/MP4 for Linux"
-                         data-image="images/linuxmp3mp4.png"
-                         data-tags="Python, Shell"
-                         data-github="https://github.com/FlaviusMarian27/MP3_converter.git"
-                         data-desc="A simple and ad-free Python GUI application to download YouTube videos as MP3/MP4 converter for Linux.">
-
-                        <div class="project-thumb">
-                            <img src="images/linuxmp3mp4.png" alt="MP3/MP4 for Linux">
-                        </div>
-                        <div class="project-info">
-                            <h3>MP3/MP4 for Linux</h3>
-                        </div>
-                    </div>
-
-                    <div class="project-item"
-                         data-title="Clarity Gym"
-                         data-image="images/CG.png"
-                         data-tags="Vue, Js, Go, PostgreSQL"
-                         data-github="https://github.com/FlaviusMarian27/Clarity-Gym"
-                         data-desc="The web application, provisionally called Clarity Gym, is a platform modern digital dedicated to the efficient management of the activity in a fitness room and the direct interconnection between clients and personal trainers.">
-
-                        <div class="project-thumb">
-                            <img src="images/CG.png" alt="ClarityGym">
-                        </div>
-                        <div class="project-info">
-                            <h3>Clarity Gym</h3>
-                        </div>
-                    </div>
-
-                    <div class="project-item"
-                         data-title="System Monitor"
-                         data-image="images/SM.png"
-                         data-tags="C, Python"
-                         data-github="https://github.com/FlaviusMarian27/System-Monitor"
-                         data-desc="A high-performance Linux system monitoring dashboard that combines a blazing-fast C backend for real-time hardware data extraction with a modern Python/PyQt6 frontend for interactive, neon-styled visualization and process management.">
-
-                        <div class="project-thumb">
-                            <img src="images/SM.png" alt="SystemMonitor">
-                        </div>
-                        <div class="project-info">
-                            <h3>System Monitor</h3>
-                        </div>
-                    </div>
-
-                    <div class="project-item"
-                         data-title="TicTacToe SFML"
-                         data-image="images/icon.png"
-                         data-tags="C++, SFML, OOP"
-                         data-github="https://github.com/FlaviusMarian27/TicTacToe"
-                         data-desc="A graphical implementation of the classic game using SFML. Focused on Object-Oriented Programming (OOP) principles to handle real-time rendering and complex game states.">
-
-                        <div class="project-thumb">
-                            <img src="images/icon.png" alt="TicTacToe">
-                        </div>
-                        <div class="project-info">
-                            <h3>TicTacToe SFML</h3>
-                        </div>
-                    </div>
-
-                    <div class="project-item"
-                         data-title="Exploding Kittens CLI"
-                         data-image="images/ek.png"
-                         data-tags="C, Ncurses, Logic"
-                         data-github="https://github.com/FlaviusMarian27/ExplodingKittens"
-                         data-desc="A terminal-based strategy game using the Ncurses library. Focused on efficient memory usage, game state management, and user interaction in a CLI environment.">
-
-                        <div class="project-thumb">
-                            <img src="images/ek.png" alt="Exploding Kittens">
-                        </div>
-                        <div class="project-info">
-                            <h3>Exploding Kittens CLI</h3>
-                        </div>
-                    </div>
-
-                    <div class="project-item"
-                         data-title="8086 Microprocessor"
-                         data-image="images/arh.png"
-                         data-tags="Assembly x86, Hardware"
-                         data-github="https://github.com/FlaviusMarian27/Microsistem-cu-microprocesor-8086"
-                         data-desc="A deep dive into computer architecture. Wrote efficient low-level code respecting hardware constraints to simulate and interact with the 8086 microprocessor environment.">
-
-                        <div class="project-thumb">
-                            <img src="images/arh.png" alt="8086 Assembly">
-                        </div>
-                        <div class="project-info">
-                            <h3>8086 Microprocessor</h3>
-                        </div>
-                    </div>
-
-                    <div class="project-item"
-                         data-title="Gym Manager App"
-                         data-image="images/LogoGym.png"
-                         data-tags="HTML, CSS, JS, Node.js, MongoDB"
-                         data-github="https://github.com/FlaviusMarian27/GymManagerWeb"
-                         data-desc="A complete CRUD system for managing gym memberships. Implemented scalable database schemas and handled asynchronous backend logic while maintaining a clean UI.">
-
-                        <div class="project-thumb">
-                            <img src="images/LogoGym.png" alt="Gym App">
-                        </div>
-                        <div class="project-info">
-                            <h3>Gym Manager Web App</h3>
-                        </div>
-                    </div>
-
-                    <div class="project-item"
-                         data-title="Operating Systems Core"
-                         data-image="images/os.png"
-                         data-tags="C, Linux API, Kernel"
-                         data-github="https://github.com/FlaviusMarian27/OperatingSystems"
-                         data-desc="Developed robust system-level applications focusing on process synchronization, memory management, and multi-process within the Linux environment.">
-
-                        <div class="project-thumb">
-                            <img src="images/os.png" alt="OS Core">
-                        </div>
-                        <div class="project-info">
-                            <h3>Operating Systems Core</h3>
-                        </div>
-                    </div>
-
-                    <div class="project-item"
-                         data-title="SystemC ALU Modules"
-                         data-image="images/ALU.png"
-                         data-tags="C++, SystemC, Hardware"
-                         data-github="https://github.com/FlaviusMarian27/SystemC-ALU-Modules"
-                         data-desc="Modeled complex digital logic and Arithmetic Logic Units (ALU). Used SystemC for hardware description to simulate component behavior before physical implementation.">
-
-                        <div class="project-thumb">
-                            <img src="images/ALU.png" alt="SystemC">
-                        </div>
-                        <div class="project-info">
-                            <h3>SystemC ALU Modules</h3>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <div id="project-modal" class="modal">
-                <div class="modal-content">
-                    <span class="close-modal">&times;</span>
-
-                    <div class="modal-header">
-                        <img id="modal-img" src="" alt="">
-                    </div>
-
-                    <div class="modal-body">
-                        <div id="modal-tags" class="project-tags"></div>
-                        <h3 id="modal-title">Titlu Proiect</h3>
-                        <p id="modal-desc">Descrierea va apărea aici...</p>
-
-                        <a id="modal-github" href="#" target="_blank" class="btn-code">
-                            <i class="fa-brands fa-github"></i> View on GitHub
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="interests" class="interests">
-            <div class="container">
-                <h2 class="section-title">Field of Interest</h2>
-
-                <p class="interests-intro">
-                    I am constantly exploring the evolving tech landscape, focusing on the synergy between hardware, low-level software, and connectivity.
-                </p>
+            <div class="skills-category">
+                <h3 class="category-title"><span class="blue-accent">#</span> Hard Skills</h3>
 
                 <div class="horizontal-scroll-wrapper">
-                    <div class="horizontal-scroll-track interest-track scroller">
-
-                        <div class="interest-card">
-                            <div class="icon-box">
-                                <i class="fa-solid fa-car"></i>
-                            </div>
-                            <h3>Automotive Systems</h3>
-                            <p>Fascinated by ECU development, RTOS, and autonomous driving technologies.</p>
-                        </div>
-
-                        <div class="interest-card">
-                            <div class="icon-box">
-                                <i class="fa-solid fa-network-wired"></i>
-                            </div>
-                            <h3>Networking</h3>
-                            <p>Exploring network protocols, socket programming, and infrastructure security.</p>
-                        </div>
-
-                        <div class="interest-card">
-                            <div class="icon-box">
-                                <i class="fa-solid fa-terminal"></i>
-                            </div>
-                            <h3>Operating Systems</h3>
-                            <p>Deepening knowledge of kernel architecture, memory management, and process scheduling.</p>
-                        </div>
-
-                        <div class="interest-card">
-                            <div class="icon-box">
-                                <i class="fa-solid fa-shield-halved"></i>
-                            </div>
-                            <h3>Cybersecurity</h3>
-                            <p>Focused on hardware security, secure coding practices, and embedded protection.</p>
-                        </div>
-
-                        <div class="interest-card">
-                            <div class="icon-box">
-                                <i class="fa-solid fa-cloud"></i>
-                            </div>
-                            <h3>Cloud & AI</h3>
-                            <p>Interested in scaling applications and deploying efficient TinyML models on edge hardware.</p>
-                        </div>
-
-                        <div class="interest-card">
-                            <div class="icon-box">
-                                <i class="fa-solid fa-mobile-screen"></i>
-                            </div>
-                            <h3>Web & Mobile</h3>
-                            <p>Building modern, responsive applications that provide seamless user experiences.</p>
-                        </div>
-
+                    <div class="horizontal-scroll-track hard-track scroller">
+                        <div class="skill-card hard"><i class="fa-solid fa-code"></i> <span>C / C++</span></div>
+                        <div class="skill-card hard"><i class="fa-brands fa-python"></i> <span>Python</span></div>
+                        <div class="skill-card hard"><i class="fa-solid fa-microchip"></i> <span>Assembly (ASM)</span></div>
+                        <div class="skill-card hard"><i class="fa-brands fa-java"></i> <span>Java</span></div>
+                        <div class="skill-card hard"><i class="fa-solid fa-memory"></i> <span>Verilog / SystemC</span></div>
+                        <div class="skill-card hard"><i class="fa-brands fa-html5"></i> <span>Web Dev</span></div>
+                        <div class="skill-card hard"><i class="fa-solid fa-database"></i> <span>MySQL/PostgreSQL/MongoDB</span></div>
+                        <div class="skill-card hard"><i class="fa-solid fa-network-wired"></i> <span>Networking</span></div>
+                        <div class="skill-card hard"><i class="fa-brands fa-linux"></i> <span>Linux Env</span></div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <section id="contact" class="contact">
-            <div class="container">
-                <h2 class="section-title">Get In Touch</h2>
+            <div class="skills-category">
+                <h3 class="category-title"><span class="yellow-accent">#</span> Soft Skills</h3>
 
-                <p class="contact-intro">
-                    Whether you have a question, a project idea, or just want to say hi, feel free to reach out.
-                    I am responsive on both my personal and academic channels.
-                </p>
-
-                <div class="contact-wrapper">
-
-                    <div class="email-grid">
-
-                        <a href="mailto:marianflavius27@yahoo.com" class="contact-card">
-                            <div class="icon-box">
-                                <i class="fa-solid fa-paper-plane"></i>
-                            </div>
-                            <div class="card-info">
-                                <h4>Personal Email</h4>
-                                <p>marianflavius27@yahoo.com</p>
-                            </div>
-                        </a>
-
-                        <a href="mailto:prenume.nume@student.upt.ro" class="contact-card">
-                            <div class="icon-box">
-                                <i class="fa-solid fa-graduation-cap"></i>
-                            </div>
-                            <div class="card-info">
-                                <h4>Academic Email</h4>
-                                <p>flavius.marian@student.upt.ro</p>
-                            </div>
-                        </a>
-
-                    </div>
-
-                    <div class="social-connect">
-                        <h3>Or connect via socials</h3>
-                        <div class="social-links">
-                            <a href="https://linkedin.com/in/flavius-andrei-marian" target="_blank" class="social-btn linkedin">
-                                <i class="fa-brands fa-linkedin-in"></i> LinkedIn
-                            </a>
-                            <a href="https://github.com/flaviusmarian27" target="_blank" class="social-btn github">
-                                <i class="fa-brands fa-github"></i> GitHub
-                            </a>
-                        </div>
+                <div class="horizontal-scroll-wrapper">
+                    <div class="horizontal-scroll-track soft-track scroller">
+                        <div class="skill-card soft"><i class="fa-solid fa-lightbulb"></i> <span>Problem Solving</span></div>
+                        <div class="skill-card soft"><i class="fa-solid fa-users-gear"></i> <span>Teamwork</span></div>
+                        <div class="skill-card soft"><i class="fa-solid fa-comments"></i> <span>Communication</span></div>
+                        <div class="skill-card soft"><i class="fa-solid fa-bolt"></i> <span>Fast Learner</span></div>
+                        <div class="skill-card soft"><i class="fa-solid fa-clock"></i> <span>Time Mgmt</span></div>
+                        <div class="skill-card soft"><i class="fa-solid fa-chess-knight"></i> <span>Critical Thinking</span></div>
+                        <div class="skill-card soft"><i class="fa-solid fa-magnifying-glass-chart"></i><span>Attention to Detail</span></div>
+                        <div class="skill-card soft"><i class="fa-solid fa-palette"></i><span>Creativity</span></div>
+                        <div class="skill-card soft"><i class="fa-solid fa-arrows-rotate"></i><span>Adaptability</span></div>
                     </div>
                 </div>
             </div>
-        </section>
-    </main>
 
-    <footer>
-        <p id="copyright"> &copy; Copyright <span id="year"></span>. All rights reserved.</p>
-    </footer>
+        </div>
+    </section>
 
-    <script src="index.js"></script>
-    <script src="scroll-animations.js"></script>
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Personal Projects</h2>
+
+            <div class="projects-grid">
+
+                <div class="project-item"
+                     data-title="MP3/MP4 for Windows"
+                     data-image="images/windowsmp3mp4.png"
+                     data-tags="Python, Batchfile"
+                     data-github="https://github.com/FlaviusMarian27/MP3-MP4-Windows"
+                     data-desc="A simple and ad-free Python GUI application to download YouTube videos as MP3/MP4 for Windows.">
+
+                    <div class="project-thumb">
+                        <img src="images/windowsmp3mp4.png" alt="MP3/MP4 for Windows">
+                    </div>
+                    <div class="project-info">
+                        <h3>MP3/MP4 for Windows</h3>
+                    </div>
+                </div>
+
+                <div class="project-item"
+                     data-title="MP3/MP4 for Linux"
+                     data-image="images/linuxmp3mp4.png"
+                     data-tags="Python, Shell"
+                     data-github="https://github.com/FlaviusMarian27/MP3_converter.git"
+                     data-desc="A simple and ad-free Python GUI application to download YouTube videos as MP3/MP4 converter for Linux.">
+
+                    <div class="project-thumb">
+                        <img src="images/linuxmp3mp4.png" alt="MP3/MP4 for Linux">
+                    </div>
+                    <div class="project-info">
+                        <h3>MP3/MP4 for Linux</h3>
+                    </div>
+                </div>
+
+                <div class="project-item"
+                     data-title="Clarity Gym"
+                     data-image="images/CG.png"
+                     data-tags="Vue, Js, Go, PostgreSQL"
+                     data-github="https://github.com/FlaviusMarian27/Clarity-Gym"
+                     data-desc="The web application, provisionally called Clarity Gym, is a platform modern digital dedicated to the efficient management of the activity in a fitness room and the direct interconnection between clients and personal trainers.">
+
+                    <div class="project-thumb">
+                        <img src="images/CG.png" alt="ClarityGym">
+                    </div>
+                    <div class="project-info">
+                        <h3>Clarity Gym</h3>
+                    </div>
+                </div>
+
+                <div class="project-item"
+                     data-title="System Monitor"
+                     data-image="images/SM.png"
+                     data-tags="C, Python"
+                     data-github="https://github.com/FlaviusMarian27/System-Monitor"
+                     data-desc="A high-performance Linux system monitoring dashboard that combines a blazing-fast C backend for real-time hardware data extraction with a modern Python/PyQt6 frontend for interactive, neon-styled visualization and process management.">
+
+                    <div class="project-thumb">
+                        <img src="images/SM.png" alt="SystemMonitor">
+                    </div>
+                    <div class="project-info">
+                        <h3>System Monitor</h3>
+                    </div>
+                </div>
+
+                <div class="project-item"
+                     data-title="TicTacToe SFML"
+                     data-image="images/icon.png"
+                     data-tags="C++, SFML, OOP"
+                     data-github="https://github.com/FlaviusMarian27/TicTacToe"
+                     data-desc="A graphical implementation of the classic game using SFML. Focused on Object-Oriented Programming (OOP) principles to handle real-time rendering and complex game states.">
+
+                    <div class="project-thumb">
+                        <img src="images/icon.png" alt="TicTacToe">
+                    </div>
+                    <div class="project-info">
+                        <h3>TicTacToe SFML</h3>
+                    </div>
+                </div>
+
+                <div class="project-item"
+                     data-title="Exploding Kittens CLI"
+                     data-image="images/ek.png"
+                     data-tags="C, Ncurses, Logic"
+                     data-github="https://github.com/FlaviusMarian27/ExplodingKittens"
+                     data-desc="A terminal-based strategy game using the Ncurses library. Focused on efficient memory usage, game state management, and user interaction in a CLI environment.">
+
+                    <div class="project-thumb">
+                        <img src="images/ek.png" alt="Exploding Kittens">
+                    </div>
+                    <div class="project-info">
+                        <h3>Exploding Kittens CLI</h3>
+                    </div>
+                </div>
+
+                <div class="project-item"
+                     data-title="8086 Microprocessor"
+                     data-image="images/arh.png"
+                     data-tags="Assembly x86, Hardware"
+                     data-github="https://github.com/FlaviusMarian27/Microsistem-cu-microprocesor-8086"
+                     data-desc="A deep dive into computer architecture. Wrote efficient low-level code respecting hardware constraints to simulate and interact with the 8086 microprocessor environment.">
+
+                    <div class="project-thumb">
+                        <img src="images/arh.png" alt="8086 Assembly">
+                    </div>
+                    <div class="project-info">
+                        <h3>8086 Microprocessor</h3>
+                    </div>
+                </div>
+
+                <div class="project-item"
+                     data-title="Gym Manager App"
+                     data-image="images/LogoGym.png"
+                     data-tags="HTML, CSS, JS, Node.js, MongoDB"
+                     data-github="https://github.com/FlaviusMarian27/GymManagerWeb"
+                     data-desc="A complete CRUD system for managing gym memberships. Implemented scalable database schemas and handled asynchronous backend logic while maintaining a clean UI.">
+
+                    <div class="project-thumb">
+                        <img src="images/LogoGym.png" alt="Gym App">
+                    </div>
+                    <div class="project-info">
+                        <h3>Gym Manager Web App</h3>
+                    </div>
+                </div>
+
+                <div class="project-item"
+                     data-title="Operating Systems Core"
+                     data-image="images/os.png"
+                     data-tags="C, Linux API, Kernel"
+                     data-github="https://github.com/FlaviusMarian27/OperatingSystems"
+                     data-desc="Developed robust system-level applications focusing on process synchronization, memory management, and multi-process within the Linux environment.">
+
+                    <div class="project-thumb">
+                        <img src="images/os.png" alt="OS Core">
+                    </div>
+                    <div class="project-info">
+                        <h3>Operating Systems Core</h3>
+                    </div>
+                </div>
+
+                <div class="project-item"
+                     data-title="SystemC ALU Modules"
+                     data-image="images/ALU.png"
+                     data-tags="C++, SystemC, Hardware"
+                     data-github="https://github.com/FlaviusMarian27/SystemC-ALU-Modules"
+                     data-desc="Modeled complex digital logic and Arithmetic Logic Units (ALU). Used SystemC for hardware description to simulate component behavior before physical implementation.">
+
+                    <div class="project-thumb">
+                        <img src="images/ALU.png" alt="SystemC">
+                    </div>
+                    <div class="project-info">
+                        <h3>SystemC ALU Modules</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="project-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+
+                <div class="modal-header">
+                    <img id="modal-img" src="" alt="">
+                </div>
+
+                <div class="modal-body">
+                    <div id="modal-tags" class="project-tags"></div>
+                    <h3 id="modal-title">Titlu Proiect</h3>
+                    <p id="modal-desc">Descrierea va apărea aici...</p>
+
+                    <a id="modal-github" href="#" target="_blank" class="btn-code">
+                        <i class="fa-brands fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="interests" class="interests">
+        <div class="container">
+            <h2 class="section-title">Field of Interest</h2>
+
+            <p class="interests-intro">
+                I am constantly exploring the evolving tech landscape, focusing on the synergy between hardware, low-level software, and connectivity.
+            </p>
+
+            <div class="horizontal-scroll-wrapper">
+                <div class="horizontal-scroll-track interest-track scroller">
+
+                    <div class="interest-card">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-car"></i>
+                        </div>
+                        <h3>Automotive Systems</h3>
+                        <p>Fascinated by ECU development, RTOS, and autonomous driving technologies.</p>
+                    </div>
+
+                    <div class="interest-card">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-network-wired"></i>
+                        </div>
+                        <h3>Networking</h3>
+                        <p>Exploring network protocols, socket programming, and infrastructure security.</p>
+                    </div>
+
+                    <div class="interest-card">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-terminal"></i>
+                        </div>
+                        <h3>Operating Systems</h3>
+                        <p>Deepening knowledge of kernel architecture, memory management, and process scheduling.</p>
+                    </div>
+
+                    <div class="interest-card">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3>Cybersecurity</h3>
+                        <p>Focused on hardware security, secure coding practices, and embedded protection.</p>
+                    </div>
+
+                    <div class="interest-card">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-cloud"></i>
+                        </div>
+                        <h3>Cloud & AI</h3>
+                        <p>Interested in scaling applications and deploying efficient TinyML models on edge hardware.</p>
+                    </div>
+
+                    <div class="interest-card">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                        </div>
+                        <h3>Web & Mobile</h3>
+                        <p>Building modern, responsive applications that provide seamless user experiences.</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+
+            <p class="contact-intro">
+                Whether you have a question, a project idea, or just want to say hi, feel free to reach out.
+                I am responsive on both my personal and academic channels.
+            </p>
+
+            <div class="contact-wrapper">
+
+                <div class="email-grid">
+
+                    <a href="mailto:marianflavius27@yahoo.com" class="contact-card">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </div>
+                        <div class="card-info">
+                            <h4>Personal Email</h4>
+                            <p>marianflavius27@yahoo.com</p>
+                        </div>
+                    </a>
+
+                    <a href="mailto:prenume.nume@student.upt.ro" class="contact-card">
+                        <div class="icon-box">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div class="card-info">
+                            <h4>Academic Email</h4>
+                            <p>flavius.marian@student.upt.ro</p>
+                        </div>
+                    </a>
+
+                </div>
+
+                <div class="social-connect">
+                    <h3>Or connect via socials</h3>
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/flavius-andrei-marian" target="_blank" class="social-btn linkedin">
+                            <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+                        </a>
+                        <a href="https://github.com/flaviusmarian27" target="_blank" class="social-btn github">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p id="copyright"> &copy; Copyright <span id="year"></span>. All rights reserved.</p>
+</footer>
+
+<script src="index.js"></script>
+<script src="scroll-animations.js"></script>
 </body>
 </html>
