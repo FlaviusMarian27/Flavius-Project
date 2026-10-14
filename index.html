@@ -3,489 +3,863 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marian Flavius-Andrei - Personal Page</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Marian Flavius-Andrei — Networking &amp; Software</title>
+    <meta name="description" content="Marian Flavius-Andrei — networking-focused software engineering student at Politehnica University of Timișoara. VLANs, routing, NAT, ACLs, GNS3, Packet Tracer and Python automation.">
+    <link rel="icon" href="images/logoMFA.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-<nav>
-    <div class="logo">
-        <a href="#home" class="logo">
-            <img src="images/logoMFA.png" alt="MFA logo" class="nav-logo">
+
+<!-- ============ BOOT PRELOADER ============ -->
+<div class="boot" id="boot" aria-hidden="true">
+    <div class="boot-inner">
+        <img src="images/logoMFA.png" alt="" class="boot-logo">
+        <pre class="boot-log" id="boot-log"></pre>
+        <div class="boot-bar"><span id="boot-bar"></span></div>
+    </div>
+</div>
+
+<!-- fundal: rețea animată + spotlight -->
+<canvas id="net-bg" aria-hidden="true"></canvas>
+<div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+<div class="scroll-progress" aria-hidden="true"><span id="scroll-progress"></span></div>
+
+<!-- ============ SIDEBAR ============ -->
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-top">
+        <a href="#home" class="brand" aria-label="Home">
+            <img src="images/logoMFA.png" alt="MFA logo">
         </a>
+        <div class="link-status"><span class="led"></span><span>link up</span></div>
+        <button class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="side-nav">
+            <span></span><span></span>
+        </button>
     </div>
 
-    <ul class="nav-links"> <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#interests">Interests</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
+    <nav class="side-nav" id="side-nav" aria-label="Main">
+        <ul>
+            <li><a href="#home" class="active"><span class="n">00</span>Home</a></li>
+            <li><a href="#networking"><span class="n">01</span>Networking <span class="tag-main">main</span></a></li>
+            <li><a href="#about"><span class="n">02</span>About</a></li>
+            <li><a href="#experience"><span class="n">03</span>Experience</a></li>
+            <li><a href="#skills"><span class="n">04</span>Skills</a></li>
+            <li><a href="#projects"><span class="n">05</span>Projects</a></li>
+            <li><a href="#interests"><span class="n">06</span>Interests</a></li>
+            <li><a href="#contact"><span class="n">07</span>Contact</a></li>
+        </ul>
 
-    <div class="hamburger">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-    </div>
-</nav>
+        <div class="side-footer">
+            <div class="side-iface">
+                <div><span class="k">iface</span><span class="v">Gi0/0</span></div>
+                <div><span class="k">rx</span><span class="v" id="rx">0 B</span></div>
+                <div><span class="k">tx</span><span class="v" id="tx">0 B</span></div>
+            </div>
+            <a href="cv/Marian_Flavius-Andrei.pdf" download class="side-cv">
+                <i class="fa-solid fa-arrow-down"></i> Download CV
+            </a>
+            <div class="side-socials">
+                <a href="https://github.com/flaviusmarian27" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://linkedin.com/in/flavius-andrei-marian" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="mailto:marianflavius27@yahoo.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+        </div>
+    </nav>
+</aside>
 
 <main>
+
+    <!-- ============ 00 HERO ============ -->
     <section id="home" class="hero">
-        <div class="hero-content">
-
+        <div class="hero-grid">
             <div class="hero-text">
-                <h1>Hi there, I'm <br> <span>Marian Flavius-Andrei!</span></h1>
+                <p class="eyebrow"><span class="led"></span> Networking-focused<span class="hide-sm">&nbsp;· Software Engineering @ UPT</span></p>
 
-                <div class="hero-buttons">
-                    <a href="cv/Marian_Flavius-Andrei.pdf" download class="btn primary-btn">
+                <h1 class="hero-title" aria-label="Marian Flavius-Andrei">
+                    <span class="line"><span class="word">Marian</span></span>
+                    <span class="line nowrap"><span class="word">Flavius&#8209;Andrei<span class="c-amber">.</span></span></span>
+                </h1>
+
+                <p class="lede">
+                    I build, secure and automate networks — <span class="hl">VLANs</span>, <span class="hl">routing</span>,
+                    <span class="hl">NAT</span> and <span class="hl">ACLs</span> — in Packet Tracer and GNS3, scripted with
+                    <span class="hl-amber">Python</span> and <span class="hl-amber">Bash</span>.
+                </p>
+
+                <div class="rotator" aria-live="off">
+                    <span class="rot-prefix">currently&nbsp;→</span>
+                    <span class="rot-text" id="rotator">designing an enterprise network for my thesis</span>
+                </div>
+
+                <div class="hero-actions">
+                    <a href="#networking" class="btn btn-primary magnetic">
+                        <i class="fa-solid fa-network-wired"></i> Explore my network
+                    </a>
+                    <a href="cv/Marian_Flavius-Andrei.pdf" download class="btn btn-ghost magnetic">
                         <i class="fa-solid fa-download"></i> Download CV
                     </a>
-
-                    <a href="#contact" class="btn secondary-btn">
-                        Contact Me
-                    </a>
                 </div>
             </div>
 
-            <div class="profile-wrapper">
-                <img src="images/profileImage.png" alt="Marian Flavius-Andrei" class="profile-image">
+            <!-- topologie live -->
+            <div class="topo-card tilt" id="topo-card">
+                <div class="win-bar">
+                    <span class="dots"><i></i><i></i><i></i></span>
+                    <span class="win-title">lab-01.gns3 · enterprise</span>
+                    <span class="win-status"><span class="led"></span>running</span>
+                </div>
+
+                <svg class="topo" id="topo" viewBox="0 0 520 396" role="img" aria-label="Animated network topology: ISP, edge router, core switch, two access switches and hosts in four VLANs">
+                    <defs>
+                        <linearGradient id="g-link" x1="0" x2="0" y1="0" y2="1">
+                            <stop offset="0" stop-color="#38bdf8" stop-opacity=".9"/>
+                            <stop offset="1" stop-color="#38bdf8" stop-opacity=".25"/>
+                        </linearGradient>
+                        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="3" result="b"/>
+                            <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                        </filter>
+                    </defs>
+
+                    <!-- legături (id = from-to) -->
+                    <g class="links">
+                        <path id="l-isp-r1"  d="M260 62 L260 118"/>
+                        <path id="l-r1-sw1"  d="M260 150 L260 198"/>
+                        <path id="l-sw1-sw2" d="M240 222 C200 240 150 245 130 268"/>
+                        <path id="l-sw1-sw3" d="M280 222 C320 240 370 245 390 268"/>
+                        <path id="l-sw2-pc1" d="M115 292 L70 338"/>
+                        <path id="l-sw2-pc2" d="M145 292 L185 338"/>
+                        <path id="l-sw3-srv" d="M375 292 L335 338"/>
+                        <path id="l-sw3-pc3" d="M405 292 L450 338"/>
+                    </g>
+
+                    <!-- etichete interfețe -->
+                    <g class="iface-labels">
+                        <text x="270" y="96">Gi0/0 · 203.0.113.2/30</text>
+                        <text x="270" y="178">Gi0/1 · 802.1Q trunk</text>
+                        <text x="122" y="244" text-anchor="end">trunk</text>
+                        <text x="398" y="244">trunk</text>
+                    </g>
+
+                    <!-- noduri -->
+                    <g class="node cloud" data-node="isp" transform="translate(260 40)">
+                        <path d="M-46 14 a16 16 0 0 1 4 -30 a22 22 0 0 1 40 -6 a18 18 0 0 1 34 8 a14 14 0 0 1 10 28 z"/>
+                        <text y="6">ISP</text>
+                    </g>
+
+                    <g class="node router" data-node="r1" transform="translate(260 134)">
+                        <circle r="20"/>
+                        <path class="glyph" d="M-9 -4 h18 m-4 -4 l4 4 l-4 4 M9 4 h-18 m4 -4 l-4 4 l4 4"/>
+                        <text class="lbl" x="30" y="4">R1 · edge / NAT</text>
+                    </g>
+
+                    <g class="node switch" data-node="sw1" transform="translate(260 210)">
+                        <rect x="-30" y="-13" width="60" height="26" rx="6"/>
+                        <path class="glyph" d="M-14 -4 h28 m-4 -3 l4 3 l-4 3 M14 4 h-28 m4 -3 l-4 3 l4 3"/>
+                        <text class="lbl" x="40" y="4">SW1 · core</text>
+                    </g>
+
+                    <g class="node switch" data-node="sw2" transform="translate(130 280)">
+                        <rect x="-26" y="-12" width="52" height="24" rx="6"/>
+                        <path class="glyph" d="M-12 -3 h24 m-3 -3 l3 3 l-3 3 M12 4 h-24 m3 -3 l-3 3 l3 3"/>
+                        <text class="lbl" x="-34" y="4" text-anchor="end">SW2</text>
+                    </g>
+
+                    <g class="node switch" data-node="sw3" transform="translate(390 280)">
+                        <rect x="-26" y="-12" width="52" height="24" rx="6"/>
+                        <path class="glyph" d="M-12 -3 h24 m-3 -3 l3 3 l-3 3 M12 4 h-24 m3 -3 l-3 3 l3 3"/>
+                        <text class="lbl" x="34" y="4">SW3</text>
+                    </g>
+
+                    <g class="node host v10" data-node="pc1" transform="translate(70 350)">
+                        <rect x="-16" y="-12" width="32" height="20" rx="3"/><path d="M-6 12 h12"/>
+                        <text class="vlan" y="30">VLAN 10</text>
+                    </g>
+                    <g class="node host v20" data-node="pc2" transform="translate(185 350)">
+                        <rect x="-16" y="-12" width="32" height="20" rx="3"/><path d="M-6 12 h12"/>
+                        <text class="vlan" y="30">VLAN 20</text>
+                    </g>
+                    <g class="node host v30" data-node="srv" transform="translate(335 350)">
+                        <rect x="-12" y="-14" width="24" height="28" rx="3"/><path d="M-6 -6 h12 M-6 0 h12 M-6 6 h12"/>
+                        <text class="vlan" y="32">VLAN 30 · SRV</text>
+                    </g>
+                    <g class="node host v40" data-node="pc3" transform="translate(450 350)">
+                        <rect x="-16" y="-12" width="32" height="20" rx="3"/><path d="M-6 12 h12"/>
+                        <text class="vlan" y="30">VLAN 40</text>
+                    </g>
+
+                    <g id="packets"></g>
+                </svg>
+
+                <div class="term" id="hero-term" aria-label="Animated Cisco IOS terminal">
+                    <div class="term-out" id="term-out"></div>
+                </div>
+            </div>
+        </div>
+
+        <ul class="hero-meta">
+            <li><span class="k">Main track</span><span class="v"><span class="led"></span>Networking</span></li>
+            <li><span class="k">Labs</span><span class="v">Packet Tracer · GNS3</span></li>
+            <li><span class="k">Automation</span><span class="v">Python · Bash</span></li>
+            <li><span class="k">Based in</span><span class="v">Timișoara, RO</span></li>
+        </ul>
+
+        <a href="#networking" class="scroll-hint" aria-label="Scroll down"><span></span></a>
+    </section>
+
+    <!-- ticker protocoale -->
+    <div class="ticker" aria-hidden="true">
+        <div class="ticker-row">
+            <div class="ticker-track">
+                <span>IPv4</span><span>IPv6</span><span>VLSM</span><span>VLANs</span><span>802.1Q trunking</span><span>Inter-VLAN routing</span><span>OSPF</span><span>Static routing</span><span>DHCP</span><span>DNS</span><span>NAT / PAT</span><span>ACLs</span><span>SSH hardening</span><span>SLAAC</span><span>ARP</span><span>SNMP</span><span>TCP / UDP</span>
+            </div>
+        </div>
+        <div class="ticker-row reverse">
+            <div class="ticker-track">
+                <span>Cisco IOS</span><span>Packet Tracer</span><span>GNS3</span><span>Python automation</span><span>Bash</span><span>Linux networking</span><span>ip · ping · traceroute</span><span>dig · nslookup</span><span>Subnetting</span><span>OSI / TCP-IP</span><span>Network segmentation</span><span>Topology design</span><span>Lab documentation</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============ 01 NETWORKING ============ -->
+    <section id="networking" class="section">
+        <header class="sec-head">
+            <span class="sec-num">01</span>
+            <h2 class="scramble">Networking</h2>
+            <span class="sec-badge">main track</span>
+            <span class="sec-line"></span>
+        </header>
+
+        <p class="section-intro big-intro">
+            Networking is where I want to build my career. I've worked through the CCNA ITN curriculum,
+            built and documented multi-router topologies, and I'm now designing a full
+            <span class="hl">enterprise network</span> for my bachelor's thesis.
+        </p>
+
+        <!-- thesis -->
+        <article class="thesis spotlight">
+            <div class="thesis-head">
+                <span class="pill pill-amber"><span class="led amber"></span>Bachelor's thesis · in progress</span>
+                <span class="mono muted">GNS3 + Python</span>
+            </div>
+            <h3>Enterprise network for a multi-department company</h3>
+            <p>
+                A complex GNS3 topology modeled on a real company — every department in its own segment — built and
+                automated with Python, covering the CCNA core: switching, routing and security.
+            </p>
+            <ul class="thesis-scope">
+                <li><i class="fa-solid fa-layer-group"></i>Department VLANs &amp; trunking</li>
+                <li><i class="fa-solid fa-route"></i>Inter-VLAN routing</li>
+                <li><i class="fa-solid fa-shield-halved"></i>ACL segmentation</li>
+                <li><i class="fa-solid fa-right-left"></i>NAT / PAT at the edge</li>
+                <li><i class="fa-solid fa-tower-broadcast"></i>ISP side</li>
+                <li><i class="fa-brands fa-python"></i>Python automation</li>
+            </ul>
+        </article>
+
+        <div class="net-grid">
+            <!-- OSI -->
+            <div class="panel osi-panel">
+                <div class="panel-head">
+                    <span class="dot dot-accent"></span>
+                    <h3>Where I work in the stack</h3>
+                    <span class="panel-count" id="pdu-label">PDU: Data</span>
+                </div>
+                <ol class="osi" id="osi">
+                    <li data-pdu="Data"><span class="osi-n">L7</span><span class="osi-name">Application</span><span class="osi-what">DHCP · DNS · HTTP · SSH · SNMP</span></li>
+                    <li data-pdu="Data"><span class="osi-n">L6</span><span class="osi-name">Presentation</span><span class="osi-what">encoding · encryption</span></li>
+                    <li data-pdu="Data"><span class="osi-n">L5</span><span class="osi-name">Session</span><span class="osi-what">sessions · dialog control</span></li>
+                    <li data-pdu="Segment"><span class="osi-n">L4</span><span class="osi-name">Transport</span><span class="osi-what">TCP · UDP · ports · PAT</span></li>
+                    <li data-pdu="Packet"><span class="osi-n">L3</span><span class="osi-name">Network</span><span class="osi-what">IPv4/IPv6 · VLSM · OSPF · static · NAT · ACLs</span></li>
+                    <li data-pdu="Frame"><span class="osi-n">L2</span><span class="osi-name">Data Link</span><span class="osi-what">Ethernet · VLANs · 802.1Q · ARP</span></li>
+                    <li data-pdu="Bits"><span class="osi-n">L1</span><span class="osi-name">Physical</span><span class="osi-what">cabling · topologies</span></li>
+                </ol>
             </div>
 
+            <!-- subnet calculator -->
+            <div class="panel calc-panel">
+                <div class="panel-head">
+                    <span class="dot dot-amber"></span>
+                    <h3>Subnet calculator</h3>
+                    <span class="panel-count">try it</span>
+                </div>
+                <label class="calc-input">
+                    <span class="mono">ip/cidr&nbsp;&gt;</span>
+                    <input id="calc-in" type="text" value="192.168.10.0/26" spellcheck="false" autocomplete="off" inputmode="decimal" aria-label="IPv4 address with CIDR prefix">
+                </label>
+                <div class="calc-presets">
+                    <button data-v="192.168.10.0/24">/24</button>
+                    <button data-v="192.168.10.64/26">/26</button>
+                    <button data-v="172.16.5.130/28">/28</button>
+                    <button data-v="203.0.113.1/30">/30</button>
+                    <button data-v="10.0.0.0/8">/8</button>
+                </div>
+                <dl class="calc-out" id="calc-out">
+                    <div><dt>Network</dt><dd id="c-net">—</dd></div>
+                    <div><dt>Broadcast</dt><dd id="c-bc">—</dd></div>
+                    <div><dt>First host</dt><dd id="c-first">—</dd></div>
+                    <div><dt>Last host</dt><dd id="c-last">—</dd></div>
+                    <div><dt>Mask</dt><dd id="c-mask">—</dd></div>
+                    <div><dt>Wildcard</dt><dd id="c-wc">—</dd></div>
+                    <div class="wide"><dt>Usable hosts</dt><dd id="c-hosts" class="c-big">—</dd></div>
+                </dl>
+                <div class="bits" id="bits" aria-hidden="true"></div>
+            </div>
+        </div>
+
+        <!-- coursework & training -->
+        <h3 class="sub-title">Training &amp; coursework</h3>
+        <div class="course-grid">
+            <div class="course spotlight">
+                <span class="course-state done">completed</span>
+                <h4>Savnet Summer Academy</h4>
+                <p>CCNA ITN curriculum (Cisco NetAcad) + Linux. VLSM, IPv6, static routing, device security, services.</p>
+            </div>
+            <div class="course spotlight">
+                <span class="course-state done">completed</span>
+                <h4>Computer Networks 1 &amp; 2</h4>
+                <p>UPT — protocol stack, addressing, routing and switching fundamentals.</p>
+            </div>
+            <div class="course spotlight">
+                <span class="course-state done">completed</span>
+                <h4>Complex Services in Computer Networks</h4>
+                <p>UPT — network services and how they're deployed.</p>
+            </div>
+            <div class="course spotlight">
+                <span class="course-state live">in progress</span>
+                <h4>Network Administration</h4>
+                <p>UPT — GNS3 labs: Cisco switching, VLANs, DNS, web &amp; mail servers, SNMP monitoring, Bash.</p>
+            </div>
+        </div>
+
+        <!-- lab work -->
+        <h3 class="sub-title">Lab work I've built &amp; documented</h3>
+        <div class="lab-grid">
+            <div class="lab"><i class="fa-solid fa-sitemap"></i><span>Multi-router topologies with VLSM allocation</span></div>
+            <div class="lab"><i class="fa-solid fa-route"></i><span>Static routing &amp; OSPF</span></div>
+            <div class="lab"><i class="fa-solid fa-layer-group"></i><span>VLANs, trunking &amp; inter-VLAN routing</span></div>
+            <div class="lab"><i class="fa-solid fa-right-left"></i><span>NAT / PAT &amp; ACLs</span></div>
+            <div class="lab"><i class="fa-solid fa-server"></i><span>DHCP, DNS, TFTP, HTTP &amp; email services</span></div>
+            <div class="lab"><i class="fa-solid fa-6"></i><span>IPv6: EUI-64, SLAAC, GUA &amp; link-local</span></div>
+            <div class="lab"><i class="fa-solid fa-lock"></i><span>SSH hardening &amp; device security</span></div>
+            <div class="lab"><i class="fa-brands fa-python"></i><span>Python automation of telecom infrastructure tasks</span></div>
         </div>
     </section>
 
-    <section id="about" class="about">
-        <h2 class="section-title">About Me</h2>
+    <!-- ============ 02 ABOUT ============ -->
+    <section id="about" class="section">
+        <header class="sec-head">
+            <span class="sec-num">02</span>
+            <h2 class="scramble">About me</h2>
+            <span class="sec-line"></span>
+        </header>
+
         <div class="about-grid">
-            <div class="about-text">
-                <p>
-                    I'm a student at
-                    <a href="https://www.upt.ro/" target="_blank" rel="noopener noreferrer" class="upt-link">
-                        Politehnica University of Timișoara
-                    </a>
-                    at the faculty of Automation and Computer Engineering.
-                </p>
-                <p>
-                    I am passionate about both <strong>software and hardware</strong>, with experience in low-level programming and full-stack development. I work with <span>C, Assembly, and SystemC</span> to understand and model system architectures.
-                </p>
-                <p>
-                    In Linux environments, I develop performance-oriented applications with efficient resource management. In parallel, I build web applications using <span>HTML, CSS, JavaScript, and MongoDB</span>, and develop games in <span>C++</span> to combine complex logic with interactive interfaces.
-                </p>
+            <figure class="portrait tilt">
+                <div class="portrait-frame">
+                    <img src="images/opt/profileImage.webp" alt="Marian Flavius-Andrei" width="672" height="860" loading="lazy">
+                    <span class="scanline"></span>
+                    <span class="corner tl"></span><span class="corner tr"></span>
+                    <span class="corner bl"></span><span class="corner br"></span>
+                </div>
+                <figcaption><span class="c-accent">host</span> flavius · <span class="c-amber">Timișoara, RO</span></figcaption>
+            </figure>
+
+            <div class="about-right">
+                <div class="about-text">
+                    <p class="big">
+                        I'm a student at
+                        <a href="https://www.upt.ro/" target="_blank" rel="noopener noreferrer" class="link">Politehnica University of Timișoara</a>,
+                        at the Faculty of Automation and Computer Engineering — with <span class="hl">networking</span> as my main focus.
+                    </p>
+                    <p>
+                        I am passionate about both <strong>software and hardware</strong>, with experience in low-level programming and
+                        full-stack development. I work with <span class="hl">C, Assembly, and SystemC</span> to understand and model system architectures.
+                    </p>
+                    <p>
+                        In Linux environments, I develop performance-oriented applications with efficient resource management. In parallel,
+                        I build web applications using <span class="hl">HTML, CSS, JavaScript, and MongoDB</span>, and develop games in
+                        <span class="hl">C++</span> to combine complex logic with interactive interfaces.
+                    </p>
+                </div>
+
+                <dl class="spec">
+                    <div class="spec-row">
+                        <dt>Education</dt>
+                        <dd>Politehnica University of Timișoara<br><small>Faculty of Automation and Computer Engineering</small></dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt>Main focus</dt>
+                        <dd><span class="hl">Networking</span> — plus Operating Systems, OOP, Databases &amp; Low-level</dd>
+                    </div>
+                    <div class="spec-row">
+                        <dt>Hobbies</dt>
+                        <dd>Game Dev &amp; Hardware</dd>
+                    </div>
+                    <div class="spec-row logos">
+                        <dt>Affiliations</dt>
+                        <dd>
+                            <a href="https://www.upt.ro/" target="_blank" rel="noopener noreferrer" class="logo-tile">
+                                <img src="images/upt.png" alt="Universitatea Politehnica Timișoara">
+                            </a>
+                            <a href="https://ac.upt.ro/" target="_blank" rel="noopener noreferrer" class="logo-tile">
+                                <img src="images/ac.png" alt="Facultatea de Automatică și Calculatoare">
+                            </a>
+                        </dd>
+                    </div>
+                </dl>
             </div>
-
-            <div class="about-stats">
-                <div class="stat-box">
-                    <h4>Education</h4>
-                    <p>Politehnica University of Timișoara</p>
-                    <p>Faculty of Automation and Computer Engineering</p>
-                </div>
-                <div class="stat-box">
-                    <h4>Main Focus</h4>
-                    <p>Operating Systems, OOP, Databases, Networking & Low-level</p>
-                </div>
-                <div class="stat-box">
-                    <h4>Hobbies</h4>
-                    <p>Game Dev & Hardware</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="about-logos">
-            <a href="https://www.upt.ro/" target="_blank" rel="noopener noreferrer" class="logo-item">
-                <img src="images/upt.png" alt="Universitatea Politehnica Timișoara">
-            </a>
-
-            <a href="https://ac.upt.ro/" target="_blank" rel="noopener noreferrer" class="logo-item">
-                <img src="images/ac.png" alt="Facultatea de Automatică și Calculatoare">
-            </a>
         </div>
     </section>
 
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-title">Work Experience</h2>
+    <!-- ============ 03 EXPERIENCE ============ -->
+    <section id="experience" class="section">
+        <header class="sec-head">
+            <span class="sec-num">03</span>
+            <h2 class="scramble">Experience</h2>
+            <span class="sec-line"></span>
+        </header>
 
-            <div class="experience-list">
+        <ol class="timeline" id="timeline">
+            <span class="tl-progress" id="tl-progress" aria-hidden="true"></span>
 
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div class="experience-heading">
-                            <h3>IA-PracticAC (EU-funded Project) | UPT</h3>
-                            <span class="experience-role">Trainee / Program Participant</span>
-                        </div>
-                        <span class="experience-date">13 Feb 2026 - Current</span>
-                    </div>
-                    <ul class="experience-bullets">
+            <li class="tl-item current">
+                <div class="tl-date">
+                    <span>Feb 2026</span>
+                    <span class="tl-now">Present</span>
+                </div>
+                <div class="tl-body spotlight">
+                    <h3>IA-PracticAC <span class="muted">— EU-funded Project, UPT</span></h3>
+                    <p class="tl-role">Trainee / Program Participant</p>
+                    <ul>
                         <li>Got into a competitive EU-funded program covering AI, Cybersecurity, and Cloud/Edge Computing.</li>
                         <li>Attending technical workshops focused on practical industry skills.</li>
                     </ul>
-                </div>
-
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <div class="experience-heading">
-                            <h3>Savnet Summer Academy Program | Savnet Training Center</h3>
-                            <span class="experience-role">Trainee</span>
-                        </div>
-                        <span class="experience-date">13 Jul 2026 - 31 Aug 2026</span>
+                    <div class="chips">
+                        <span class="chip">AI</span><span class="chip">Cybersecurity</span><span class="chip">Cloud / Edge</span>
                     </div>
-                    <ul class="experience-bullets">
-                        <li>Completed a full-time program covering networking (protocol layers, IPv4/IPv6 addressing & subnetting, VLANs, inter-VLAN routing, DHCP, NAT/PAT, ACLs) and Linux (file/process/user management, permissions, pipes, REGEX).</li>
+                </div>
+            </li>
+
+            <li class="tl-item net">
+                <div class="tl-date">
+                    <span>Jul 2026</span>
+                    <span>Aug 2026</span>
+                </div>
+                <div class="tl-body spotlight">
+                    <h3>Savnet Summer Academy <span class="muted">— Savnet Training Center</span></h3>
+                    <p class="tl-role">Trainee · <span class="c-accent">networking</span></p>
+                    <ul>
+                        <li>Completed a full-time program covering networking (protocol layers, IPv4/IPv6 addressing &amp; subnetting, VLANs, inter-VLAN routing, DHCP, NAT/PAT, ACLs) and Linux (file/process/user management, permissions, pipes, REGEX).</li>
                         <li>Built and documented network topologies in Packet Tracer/GNS3; automated basic telecom infrastructure tasks with Python.</li>
                     </ul>
+                    <div class="chips">
+                        <span class="chip">Packet Tracer</span><span class="chip">GNS3</span><span class="chip">Cisco IOS</span><span class="chip">Linux</span><span class="chip">Python</span>
+                    </div>
                 </div>
+            </li>
+        </ol>
+    </section>
 
+    <!-- ============ 04 SKILLS ============ -->
+    <section id="skills" class="section">
+        <header class="sec-head">
+            <span class="sec-num">04</span>
+            <h2 class="scramble">Skills</h2>
+            <span class="sec-line"></span>
+        </header>
+
+        <div class="skills-grid">
+            <div class="panel">
+                <div class="panel-head">
+                    <span class="dot dot-accent"></span>
+                    <h3>Hard skills</h3>
+                    <span class="panel-count">09</span>
+                </div>
+                <ul class="skill-list">
+                    <li class="featured"><i class="fa-solid fa-network-wired"></i>Networking<span class="skill-tag">main</span></li>
+                    <li><i class="fa-brands fa-linux"></i>Linux Env</li>
+                    <li><i class="fa-brands fa-python"></i>Python</li>
+                    <li><i class="fa-solid fa-code"></i>C / C++</li>
+                    <li><i class="fa-solid fa-microchip"></i>Assembly (ASM)</li>
+                    <li><i class="fa-brands fa-java"></i>Java</li>
+                    <li><i class="fa-solid fa-memory"></i>Verilog / SystemC</li>
+                    <li><i class="fa-brands fa-html5"></i>Web Dev</li>
+                    <li><i class="fa-solid fa-database"></i>MySQL / PostgreSQL / MongoDB</li>
+                </ul>
+            </div>
+
+            <div class="panel">
+                <div class="panel-head">
+                    <span class="dot dot-amber"></span>
+                    <h3>Soft skills</h3>
+                    <span class="panel-count">09</span>
+                </div>
+                <ul class="soft-list">
+                    <li><i class="fa-solid fa-lightbulb"></i>Problem Solving</li>
+                    <li><i class="fa-solid fa-users-gear"></i>Teamwork</li>
+                    <li><i class="fa-solid fa-comments"></i>Communication</li>
+                    <li><i class="fa-solid fa-bolt"></i>Fast Learner</li>
+                    <li><i class="fa-solid fa-clock"></i>Time Management</li>
+                    <li><i class="fa-solid fa-chess-knight"></i>Critical Thinking</li>
+                    <li><i class="fa-solid fa-magnifying-glass-chart"></i>Attention to Detail</li>
+                    <li><i class="fa-solid fa-palette"></i>Creativity</li>
+                    <li><i class="fa-solid fa-arrows-rotate"></i>Adaptability</li>
+                </ul>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Skills & Expertise</h2>
+    <!-- ============ 05 PROJECTS ============ -->
+    <section id="projects" class="section">
+        <header class="sec-head">
+            <span class="sec-num">05</span>
+            <h2 class="scramble">Projects</h2>
+            <span class="sec-line"></span>
+        </header>
 
-            <div class="skills-category">
-                <h3 class="category-title"><span class="blue-accent">#</span> Hard Skills</h3>
-
-                <div class="horizontal-scroll-wrapper">
-                    <div class="horizontal-scroll-track hard-track scroller">
-                        <div class="skill-card hard"><i class="fa-solid fa-code"></i> <span>C / C++</span></div>
-                        <div class="skill-card hard"><i class="fa-brands fa-python"></i> <span>Python</span></div>
-                        <div class="skill-card hard"><i class="fa-solid fa-microchip"></i> <span>Assembly (ASM)</span></div>
-                        <div class="skill-card hard"><i class="fa-brands fa-java"></i> <span>Java</span></div>
-                        <div class="skill-card hard"><i class="fa-solid fa-memory"></i> <span>Verilog / SystemC</span></div>
-                        <div class="skill-card hard"><i class="fa-brands fa-html5"></i> <span>Web Dev</span></div>
-                        <div class="skill-card hard"><i class="fa-solid fa-database"></i> <span>MySQL/PostgreSQL/MongoDB</span></div>
-                        <div class="skill-card hard"><i class="fa-solid fa-network-wired"></i> <span>Networking</span></div>
-                        <div class="skill-card hard"><i class="fa-brands fa-linux"></i> <span>Linux Env</span></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="skills-category">
-                <h3 class="category-title"><span class="yellow-accent">#</span> Soft Skills</h3>
-
-                <div class="horizontal-scroll-wrapper">
-                    <div class="horizontal-scroll-track soft-track scroller">
-                        <div class="skill-card soft"><i class="fa-solid fa-lightbulb"></i> <span>Problem Solving</span></div>
-                        <div class="skill-card soft"><i class="fa-solid fa-users-gear"></i> <span>Teamwork</span></div>
-                        <div class="skill-card soft"><i class="fa-solid fa-comments"></i> <span>Communication</span></div>
-                        <div class="skill-card soft"><i class="fa-solid fa-bolt"></i> <span>Fast Learner</span></div>
-                        <div class="skill-card soft"><i class="fa-solid fa-clock"></i> <span>Time Mgmt</span></div>
-                        <div class="skill-card soft"><i class="fa-solid fa-chess-knight"></i> <span>Critical Thinking</span></div>
-                        <div class="skill-card soft"><i class="fa-solid fa-magnifying-glass-chart"></i><span>Attention to Detail</span></div>
-                        <div class="skill-card soft"><i class="fa-solid fa-palette"></i><span>Creativity</span></div>
-                        <div class="skill-card soft"><i class="fa-solid fa-arrows-rotate"></i><span>Adaptability</span></div>
-                    </div>
-                </div>
-            </div>
-
+        <div class="filters" role="group" aria-label="Filter projects">
+            <span class="filter-glider" id="filter-glider" aria-hidden="true"></span>
+            <button class="filter active" data-filter="all">All</button>
+            <button class="filter" data-filter="networking">Networking</button>
+            <button class="filter" data-filter="systems">Systems</button>
+            <button class="filter" data-filter="web">Web</button>
+            <button class="filter" data-filter="hardware">Hardware</button>
+            <button class="filter" data-filter="games">Games</button>
+            <button class="filter" data-filter="tools">Tools</button>
         </div>
-    </section>
 
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Personal Projects</h2>
+        <div class="projects-grid">
 
-            <div class="projects-grid">
-
-                <div class="project-item"
-                     data-title="MP3/MP4 for Windows"
-                     data-image="images/windowsmp3mp4.png"
-                     data-tags="Python, Batchfile"
-                     data-github="https://github.com/FlaviusMarian27/MP3-MP4-Windows"
-                     data-desc="A simple and ad-free Python GUI application to download YouTube videos as MP3/MP4 for Windows.">
-
-                    <div class="project-thumb">
-                        <img src="images/windowsmp3mp4.png" alt="MP3/MP4 for Windows">
-                    </div>
-                    <div class="project-info">
-                        <h3>MP3/MP4 for Windows</h3>
-                    </div>
+            <article class="project tilt net-project" data-cat="networking"
+                     data-title="Network Labs — Packet Tracer &amp; GNS3"
+                     data-image=""
+                     data-tags="Cisco IOS, VLSM, OSPF, VLANs, NAT/PAT, ACLs, IPv6"
+                     data-github="https://github.com/flaviusmarian27"
+                     data-desc="A collection of Cisco Packet Tracer and GNS3 labs with GitHub-formatted documentation: multi-router topologies with VLSM allocation, static routing and OSPF, VLANs and inter-VLAN routing, DHCP/DNS services, NAT/PAT, ACLs, IPv6 (EUI-64, SLAAC) and SSH hardening.">
+                <button class="project-hit" aria-label="Open details: Network Labs"></button>
+                <div class="project-thumb net-thumb" aria-hidden="true">
+                    <svg viewBox="0 0 320 200">
+                        <g class="mini-links">
+                            <path d="M160 40 L80 100"/><path d="M160 40 L240 100"/><path d="M80 100 L240 100"/>
+                            <path d="M80 100 L40 160"/><path d="M80 100 L120 160"/><path d="M240 100 L200 160"/><path d="M240 100 L280 160"/>
+                        </g>
+                        <g class="mini-nodes">
+                            <circle cx="160" cy="40" r="13"/><circle cx="80" cy="100" r="13"/><circle cx="240" cy="100" r="13"/>
+                            <rect x="28" y="152" width="24" height="16" rx="3"/><rect x="108" y="152" width="24" height="16" rx="3"/>
+                            <rect x="188" y="152" width="24" height="16" rx="3"/><rect x="268" y="152" width="24" height="16" rx="3"/>
+                        </g>
+                        <circle class="mini-pkt p1" r="4"><animateMotion dur="2.4s" repeatCount="indefinite" path="M40 160 L80 100 L160 40 L240 100 L280 160"/></circle>
+                        <circle class="mini-pkt p2" r="4"><animateMotion dur="3.1s" repeatCount="indefinite" path="M200 160 L240 100 L80 100 L120 160"/></circle>
+                    </svg>
                 </div>
-
-                <div class="project-item"
-                     data-title="MP3/MP4 for Linux"
-                     data-image="images/linuxmp3mp4.png"
-                     data-tags="Python, Shell"
-                     data-github="https://github.com/FlaviusMarian27/MP3_converter.git"
-                     data-desc="A simple and ad-free Python GUI application to download YouTube videos as MP3/MP4 converter for Linux.">
-
-                    <div class="project-thumb">
-                        <img src="images/linuxmp3mp4.png" alt="MP3/MP4 for Linux">
-                    </div>
-                    <div class="project-info">
-                        <h3>MP3/MP4 for Linux</h3>
-                    </div>
+                <div class="project-body">
+                    <span class="project-idx">P/00 · <span class="c-accent">networking</span></span>
+                    <h3>Network Labs</h3>
+                    <p>Documented Packet Tracer &amp; GNS3 labs — VLSM, OSPF, VLANs, NAT/PAT, ACLs, IPv6.</p>
+                    <div class="chips"><span class="chip">Cisco IOS</span><span class="chip">OSPF</span><span class="chip">NAT/PAT</span><span class="chip">ACLs</span></div>
                 </div>
+            </article>
 
-                <div class="project-item"
-                     data-title="Clarity Gym"
-                     data-image="images/CG.png"
-                     data-tags="Vue, Js, Go, PostgreSQL"
-                     data-github="https://github.com/FlaviusMarian27/Clarity-Gym"
-                     data-desc="The web application, provisionally called Clarity Gym, is a platform modern digital dedicated to the efficient management of the activity in a fitness room and the direct interconnection between clients and personal trainers.">
-
-                    <div class="project-thumb">
-                        <img src="images/CG.png" alt="ClarityGym">
-                    </div>
-                    <div class="project-info">
-                        <h3>Clarity Gym</h3>
-                    </div>
-                </div>
-
-                <div class="project-item"
+            <article class="project tilt" data-cat="systems"
                      data-title="System Monitor"
-                     data-image="images/SM.png"
+                     data-image="images/opt/SM.webp"
                      data-tags="C, Python"
                      data-github="https://github.com/FlaviusMarian27/System-Monitor"
                      data-desc="A high-performance Linux system monitoring dashboard that combines a blazing-fast C backend for real-time hardware data extraction with a modern Python/PyQt6 frontend for interactive, neon-styled visualization and process management.">
-
-                    <div class="project-thumb">
-                        <img src="images/SM.png" alt="SystemMonitor">
-                    </div>
-                    <div class="project-info">
-                        <h3>System Monitor</h3>
-                    </div>
+                <button class="project-hit" aria-label="Open details: System Monitor"></button>
+                <div class="project-thumb"><img src="images/opt/SM.webp" alt="" loading="lazy"></div>
+                <div class="project-body">
+                    <span class="project-idx">P/01</span>
+                    <h3>System Monitor</h3>
+                    <p>A high-performance Linux monitoring dashboard — C backend for real-time hardware data, PyQt6 frontend.</p>
+                    <div class="chips"><span class="chip">C</span><span class="chip">Python</span></div>
                 </div>
+            </article>
 
-                <div class="project-item"
+            <article class="project tilt" data-cat="web"
+                     data-title="Clarity Gym"
+                     data-image="images/opt/CG.webp"
+                     data-tags="Vue, Js, Go, PostgreSQL"
+                     data-github="https://github.com/FlaviusMarian27/Clarity-Gym"
+                     data-desc="The web application, provisionally called Clarity Gym, is a modern digital platform dedicated to the efficient management of the activity in a fitness room and the direct interconnection between clients and personal trainers.">
+                <button class="project-hit" aria-label="Open details: Clarity Gym"></button>
+                <div class="project-thumb"><img src="images/opt/CG.webp" alt="" loading="lazy"></div>
+                <div class="project-body">
+                    <span class="project-idx">P/02</span>
+                    <h3>Clarity Gym</h3>
+                    <p>A modern platform for managing a fitness room and connecting clients with personal trainers.</p>
+                    <div class="chips"><span class="chip">Vue</span><span class="chip">Js</span><span class="chip">Go</span><span class="chip">PostgreSQL</span></div>
+                </div>
+            </article>
+
+            <article class="project tilt" data-cat="tools"
+                     data-title="MP3/MP4 for Windows"
+                     data-image="images/opt/windowsmp3mp4.webp"
+                     data-tags="Python, Batchfile"
+                     data-github="https://github.com/FlaviusMarian27/MP3-MP4-Windows"
+                     data-desc="A simple and ad-free Python GUI application to download YouTube videos as MP3/MP4 for Windows.">
+                <button class="project-hit" aria-label="Open details: MP3/MP4 for Windows"></button>
+                <div class="project-thumb"><img src="images/opt/windowsmp3mp4.webp" alt="" loading="lazy"></div>
+                <div class="project-body">
+                    <span class="project-idx">P/03</span>
+                    <h3>MP3/MP4 for Windows</h3>
+                    <p>Ad-free Python GUI app to download YouTube videos as MP3/MP4.</p>
+                    <div class="chips"><span class="chip">Python</span><span class="chip">Batchfile</span></div>
+                </div>
+            </article>
+
+            <article class="project tilt" data-cat="tools"
+                     data-title="MP3/MP4 for Linux"
+                     data-image="images/opt/linuxmp3mp4.webp"
+                     data-tags="Python, Shell"
+                     data-github="https://github.com/FlaviusMarian27/MP3_converter.git"
+                     data-desc="A simple and ad-free Python GUI application to download YouTube videos as MP3/MP4 for Linux.">
+                <button class="project-hit" aria-label="Open details: MP3/MP4 for Linux"></button>
+                <div class="project-thumb"><img src="images/opt/linuxmp3mp4.webp" alt="" loading="lazy"></div>
+                <div class="project-body">
+                    <span class="project-idx">P/04</span>
+                    <h3>MP3/MP4 for Linux</h3>
+                    <p>The same ad-free downloader, built for Linux.</p>
+                    <div class="chips"><span class="chip">Python</span><span class="chip">Shell</span></div>
+                </div>
+            </article>
+
+            <article class="project tilt" data-cat="games"
                      data-title="TicTacToe SFML"
-                     data-image="images/icon.png"
+                     data-image="images/opt/icon.webp"
                      data-tags="C++, SFML, OOP"
                      data-github="https://github.com/FlaviusMarian27/TicTacToe"
                      data-desc="A graphical implementation of the classic game using SFML. Focused on Object-Oriented Programming (OOP) principles to handle real-time rendering and complex game states.">
-
-                    <div class="project-thumb">
-                        <img src="images/icon.png" alt="TicTacToe">
-                    </div>
-                    <div class="project-info">
-                        <h3>TicTacToe SFML</h3>
-                    </div>
+                <button class="project-hit" aria-label="Open details: TicTacToe SFML"></button>
+                <div class="project-thumb"><img src="images/opt/icon.webp" alt="" loading="lazy"></div>
+                <div class="project-body">
+                    <span class="project-idx">P/05</span>
+                    <h3>TicTacToe SFML</h3>
+                    <p>The classic game in SFML, built around clean OOP and real-time rendering.</p>
+                    <div class="chips"><span class="chip">C++</span><span class="chip">SFML</span><span class="chip">OOP</span></div>
                 </div>
+            </article>
 
-                <div class="project-item"
+            <article class="project tilt" data-cat="games"
                      data-title="Exploding Kittens CLI"
-                     data-image="images/ek.png"
+                     data-image="images/opt/ek.webp"
                      data-tags="C, Ncurses, Logic"
                      data-github="https://github.com/FlaviusMarian27/ExplodingKittens"
                      data-desc="A terminal-based strategy game using the Ncurses library. Focused on efficient memory usage, game state management, and user interaction in a CLI environment.">
-
-                    <div class="project-thumb">
-                        <img src="images/ek.png" alt="Exploding Kittens">
-                    </div>
-                    <div class="project-info">
-                        <h3>Exploding Kittens CLI</h3>
-                    </div>
+                <button class="project-hit" aria-label="Open details: Exploding Kittens CLI"></button>
+                <div class="project-thumb"><img src="images/opt/ek.webp" alt="" loading="lazy"></div>
+                <div class="project-body">
+                    <span class="project-idx">P/06</span>
+                    <h3>Exploding Kittens CLI</h3>
+                    <p>Terminal strategy game in Ncurses — memory-efficient state management.</p>
+                    <div class="chips"><span class="chip">C</span><span class="chip">Ncurses</span><span class="chip">Logic</span></div>
                 </div>
+            </article>
 
-                <div class="project-item"
+            <article class="project tilt" data-cat="hardware"
                      data-title="8086 Microprocessor"
-                     data-image="images/arh.png"
+                     data-image="images/opt/arh.webp"
                      data-tags="Assembly x86, Hardware"
                      data-github="https://github.com/FlaviusMarian27/Microsistem-cu-microprocesor-8086"
                      data-desc="A deep dive into computer architecture. Wrote efficient low-level code respecting hardware constraints to simulate and interact with the 8086 microprocessor environment.">
-
-                    <div class="project-thumb">
-                        <img src="images/arh.png" alt="8086 Assembly">
-                    </div>
-                    <div class="project-info">
-                        <h3>8086 Microprocessor</h3>
-                    </div>
+                <button class="project-hit" aria-label="Open details: 8086 Microprocessor"></button>
+                <div class="project-thumb"><img src="images/opt/arh.webp" alt="" loading="lazy"></div>
+                <div class="project-body">
+                    <span class="project-idx">P/07</span>
+                    <h3>8086 Microprocessor</h3>
+                    <p>Low-level code under real hardware constraints for an 8086 microsystem.</p>
+                    <div class="chips"><span class="chip">Assembly x86</span><span class="chip">Hardware</span></div>
                 </div>
+            </article>
 
-                <div class="project-item"
-                     data-title="Gym Manager App"
-                     data-image="images/LogoGym.png"
+            <article class="project tilt" data-cat="web"
+                     data-title="Gym Manager Web App"
+                     data-image="images/opt/LogoGym.webp"
                      data-tags="HTML, CSS, JS, Node.js, MongoDB"
                      data-github="https://github.com/FlaviusMarian27/GymManagerWeb"
                      data-desc="A complete CRUD system for managing gym memberships. Implemented scalable database schemas and handled asynchronous backend logic while maintaining a clean UI.">
-
-                    <div class="project-thumb">
-                        <img src="images/LogoGym.png" alt="Gym App">
-                    </div>
-                    <div class="project-info">
-                        <h3>Gym Manager Web App</h3>
-                    </div>
+                <button class="project-hit" aria-label="Open details: Gym Manager Web App"></button>
+                <div class="project-thumb"><img src="images/opt/LogoGym.webp" alt="" loading="lazy"></div>
+                <div class="project-body">
+                    <span class="project-idx">P/08</span>
+                    <h3>Gym Manager Web App</h3>
+                    <p>Full CRUD system for gym memberships with async Node.js backend.</p>
+                    <div class="chips"><span class="chip">Node.js</span><span class="chip">MongoDB</span><span class="chip">JS</span></div>
                 </div>
+            </article>
 
-                <div class="project-item"
+            <article class="project tilt" data-cat="systems"
                      data-title="Operating Systems Core"
-                     data-image="images/os.png"
+                     data-image="images/opt/os.webp"
                      data-tags="C, Linux API, Kernel"
                      data-github="https://github.com/FlaviusMarian27/OperatingSystems"
                      data-desc="Developed robust system-level applications focusing on process synchronization, memory management, and multi-process within the Linux environment.">
-
-                    <div class="project-thumb">
-                        <img src="images/os.png" alt="OS Core">
-                    </div>
-                    <div class="project-info">
-                        <h3>Operating Systems Core</h3>
-                    </div>
+                <button class="project-hit" aria-label="Open details: Operating Systems Core"></button>
+                <div class="project-thumb"><img src="images/opt/os.webp" alt="" loading="lazy"></div>
+                <div class="project-body">
+                    <span class="project-idx">P/09</span>
+                    <h3>Operating Systems Core</h3>
+                    <p>System-level apps: process sync, memory management, multi-process on Linux.</p>
+                    <div class="chips"><span class="chip">C</span><span class="chip">Linux API</span><span class="chip">Kernel</span></div>
                 </div>
+            </article>
 
-                <div class="project-item"
+            <article class="project tilt" data-cat="hardware"
                      data-title="SystemC ALU Modules"
-                     data-image="images/ALU.png"
+                     data-image="images/opt/ALU.webp"
                      data-tags="C++, SystemC, Hardware"
                      data-github="https://github.com/FlaviusMarian27/SystemC-ALU-Modules"
                      data-desc="Modeled complex digital logic and Arithmetic Logic Units (ALU). Used SystemC for hardware description to simulate component behavior before physical implementation.">
-
-                    <div class="project-thumb">
-                        <img src="images/ALU.png" alt="SystemC">
-                    </div>
-                    <div class="project-info">
-                        <h3>SystemC ALU Modules</h3>
-                    </div>
+                <button class="project-hit" aria-label="Open details: SystemC ALU Modules"></button>
+                <div class="project-thumb light"><img src="images/opt/ALU.webp" alt="" loading="lazy"></div>
+                <div class="project-body">
+                    <span class="project-idx">P/10</span>
+                    <h3>SystemC ALU Modules</h3>
+                    <p>Digital logic and ALUs modeled in SystemC before physical implementation.</p>
+                    <div class="chips"><span class="chip">C++</span><span class="chip">SystemC</span><span class="chip">Hardware</span></div>
                 </div>
+            </article>
 
+        </div>
+    </section>
+
+    <!-- ============ 06 INTERESTS ============ -->
+    <section id="interests" class="section">
+        <header class="sec-head">
+            <span class="sec-num">06</span>
+            <h2 class="scramble">Fields of interest</h2>
+            <span class="sec-line"></span>
+        </header>
+
+        <p class="section-intro">
+            I am constantly exploring the evolving tech landscape, focusing on the synergy between hardware, low-level software, and connectivity.
+        </p>
+
+        <div class="interest-grid">
+            <div class="interest main spotlight">
+                <span class="interest-badge">main track</span>
+                <i class="fa-solid fa-network-wired"></i>
+                <h3>Networking</h3>
+                <p>Exploring network protocols, socket programming, and infrastructure security — from VLAN design and routing to automating labs with Python.</p>
+            </div>
+            <div class="interest spotlight">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h3>Cybersecurity</h3>
+                <p>Focused on hardware security, secure coding practices, and embedded protection.</p>
+            </div>
+            <div class="interest spotlight">
+                <i class="fa-solid fa-terminal"></i>
+                <h3>Operating Systems</h3>
+                <p>Deepening knowledge of kernel architecture, memory management, and process scheduling.</p>
+            </div>
+            <div class="interest spotlight">
+                <i class="fa-solid fa-cloud"></i>
+                <h3>Cloud &amp; AI</h3>
+                <p>Interested in scaling applications and deploying efficient TinyML models on edge hardware.</p>
+            </div>
+            <div class="interest spotlight">
+                <i class="fa-solid fa-car"></i>
+                <h3>Automotive Systems</h3>
+                <p>Fascinated by ECU development, RTOS, and autonomous driving technologies.</p>
+            </div>
+            <div class="interest spotlight">
+                <i class="fa-solid fa-mobile-screen"></i>
+                <h3>Web &amp; Mobile</h3>
+                <p>Building modern, responsive applications that provide seamless user experiences.</p>
             </div>
         </div>
+    </section>
 
-        <div id="project-modal" class="modal">
-            <div class="modal-content">
-                <span class="close-modal">&times;</span>
+    <!-- ============ 07 CONTACT ============ -->
+    <section id="contact" class="section contact">
+        <header class="sec-head">
+            <span class="sec-num">07</span>
+            <h2 class="scramble">Contact</h2>
+            <span class="sec-line"></span>
+        </header>
 
-                <div class="modal-header">
-                    <img id="modal-img" src="" alt="">
+        <div class="contact-grid">
+            <div>
+                <p class="contact-big">Got a question or a project idea?<br><span class="c-accent">Let's connect.</span></p>
+                <p class="section-intro">
+                    Whether you have a question, a project idea, or just want to say hi, feel free to reach out.
+                    I am responsive on both my personal and academic channels.
+                </p>
+
+                <div class="ping-box">
+                    <div class="win-bar">
+                        <span class="dots"><i></i><i></i><i></i></span>
+                        <span class="win-title">bash — flavius@upt</span>
+                    </div>
+                    <pre class="ping-out" id="ping-out"><span class="c-accent">$</span> ping flavius</pre>
+                    <button class="btn btn-primary ping-btn magnetic" id="ping-btn">
+                        <i class="fa-solid fa-satellite-dish"></i> Send ping
+                    </button>
                 </div>
+            </div>
 
-                <div class="modal-body">
-                    <div id="modal-tags" class="project-tags"></div>
-                    <h3 id="modal-title">Titlu Proiect</h3>
-                    <p id="modal-desc">Descrierea va apărea aici...</p>
-
-                    <a id="modal-github" href="#" target="_blank" class="btn-code">
-                        <i class="fa-brands fa-github"></i> View on GitHub
+            <div class="contact-list">
+                <div class="contact-row">
+                    <a href="mailto:marianflavius27@yahoo.com" class="contact-main">
+                        <span class="k">Personal email</span>
+                        <span class="v">marianflavius27@yahoo.com</span>
                     </a>
+                    <button class="copy" data-copy="marianflavius27@yahoo.com" aria-label="Copy personal email"><i class="fa-regular fa-copy"></i></button>
+                </div>
+                <div class="contact-row">
+                    <a href="mailto:flavius.marian@student.upt.ro" class="contact-main">
+                        <span class="k">Academic email</span>
+                        <span class="v">flavius.marian@student.upt.ro</span>
+                    </a>
+                    <button class="copy" data-copy="flavius.marian@student.upt.ro" aria-label="Copy academic email"><i class="fa-regular fa-copy"></i></button>
+                </div>
+                <div class="contact-row">
+                    <a href="https://linkedin.com/in/flavius-andrei-marian" target="_blank" rel="noopener noreferrer" class="contact-main">
+                        <span class="k">LinkedIn</span>
+                        <span class="v">flavius-andrei-marian</span>
+                    </a>
+                    <span class="arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                </div>
+                <div class="contact-row">
+                    <a href="https://github.com/flaviusmarian27" target="_blank" rel="noopener noreferrer" class="contact-main">
+                        <span class="k">GitHub</span>
+                        <span class="v">FlaviusMarian27</span>
+                    </a>
+                    <span class="arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="interests" class="interests">
-        <div class="container">
-            <h2 class="section-title">Field of Interest</h2>
-
-            <p class="interests-intro">
-                I am constantly exploring the evolving tech landscape, focusing on the synergy between hardware, low-level software, and connectivity.
-            </p>
-
-            <div class="horizontal-scroll-wrapper">
-                <div class="horizontal-scroll-track interest-track scroller">
-
-                    <div class="interest-card">
-                        <div class="icon-box">
-                            <i class="fa-solid fa-car"></i>
-                        </div>
-                        <h3>Automotive Systems</h3>
-                        <p>Fascinated by ECU development, RTOS, and autonomous driving technologies.</p>
-                    </div>
-
-                    <div class="interest-card">
-                        <div class="icon-box">
-                            <i class="fa-solid fa-network-wired"></i>
-                        </div>
-                        <h3>Networking</h3>
-                        <p>Exploring network protocols, socket programming, and infrastructure security.</p>
-                    </div>
-
-                    <div class="interest-card">
-                        <div class="icon-box">
-                            <i class="fa-solid fa-terminal"></i>
-                        </div>
-                        <h3>Operating Systems</h3>
-                        <p>Deepening knowledge of kernel architecture, memory management, and process scheduling.</p>
-                    </div>
-
-                    <div class="interest-card">
-                        <div class="icon-box">
-                            <i class="fa-solid fa-shield-halved"></i>
-                        </div>
-                        <h3>Cybersecurity</h3>
-                        <p>Focused on hardware security, secure coding practices, and embedded protection.</p>
-                    </div>
-
-                    <div class="interest-card">
-                        <div class="icon-box">
-                            <i class="fa-solid fa-cloud"></i>
-                        </div>
-                        <h3>Cloud & AI</h3>
-                        <p>Interested in scaling applications and deploying efficient TinyML models on edge hardware.</p>
-                    </div>
-
-                    <div class="interest-card">
-                        <div class="icon-box">
-                            <i class="fa-solid fa-mobile-screen"></i>
-                        </div>
-                        <h3>Web & Mobile</h3>
-                        <p>Building modern, responsive applications that provide seamless user experiences.</p>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-
-            <p class="contact-intro">
-                Whether you have a question, a project idea, or just want to say hi, feel free to reach out.
-                I am responsive on both my personal and academic channels.
-            </p>
-
-            <div class="contact-wrapper">
-
-                <div class="email-grid">
-
-                    <a href="mailto:marianflavius27@yahoo.com" class="contact-card">
-                        <div class="icon-box">
-                            <i class="fa-solid fa-paper-plane"></i>
-                        </div>
-                        <div class="card-info">
-                            <h4>Personal Email</h4>
-                            <p>marianflavius27@yahoo.com</p>
-                        </div>
-                    </a>
-
-                    <a href="mailto:prenume.nume@student.upt.ro" class="contact-card">
-                        <div class="icon-box">
-                            <i class="fa-solid fa-graduation-cap"></i>
-                        </div>
-                        <div class="card-info">
-                            <h4>Academic Email</h4>
-                            <p>flavius.marian@student.upt.ro</p>
-                        </div>
-                    </a>
-
-                </div>
-
-                <div class="social-connect">
-                    <h3>Or connect via socials</h3>
-                    <div class="social-links">
-                        <a href="https://linkedin.com/in/flavius-andrei-marian" target="_blank" class="social-btn linkedin">
-                            <i class="fa-brands fa-linkedin-in"></i> LinkedIn
-                        </a>
-                        <a href="https://github.com/flaviusmarian27" target="_blank" class="social-btn github">
-                            <i class="fa-brands fa-github"></i> GitHub
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <footer class="footer">
+        <span>&copy; <span id="year"></span> Marian Flavius-Andrei · <span class="c-accent">ttl=64</span></span>
+        <a href="#home" class="to-top">Back to top <i class="fa-solid fa-arrow-up"></i></a>
+    </footer>
 </main>
 
-<footer>
-    <p id="copyright"> &copy; Copyright <span id="year"></span>. All rights reserved.</p>
-</footer>
+<!-- ============ PROJECT MODAL ============ -->
+<div id="project-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal-card">
+        <button class="modal-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+        <div class="modal-img"><img id="modal-img" src="" alt=""></div>
+        <div class="modal-body">
+            <div id="modal-tags" class="chips"></div>
+            <h3 id="modal-title"></h3>
+            <p id="modal-desc"></p>
+            <a id="modal-github" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+                <i class="fa-brands fa-github"></i> View on GitHub
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script src="index.js"></script>
-<script src="scroll-animations.js"></script>
 </body>
 </html>
