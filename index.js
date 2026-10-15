@@ -1,5 +1,5 @@
 // =========================================================
-// Marian Flavius-Andrei — Portfolio (networking edition)
+// Marian Flavius-Andrei - Portfolio (networking edition)
 // =========================================================
 const root = document.documentElement;
 root.classList.add('js');
@@ -57,7 +57,7 @@ boot().then(() => {
 });
 
 // =========================================================
-// 2. FUNDAL — rețea animată pe canvas
+// 2. FUNDAL - rețea animată pe canvas
 // =========================================================
 (function networkBackground() {
     const cvs = $('#net-bg');
@@ -238,7 +238,7 @@ document.addEventListener('transitionend', e => {
 });
 
 // =========================================================
-// 6. TOPOLOGIE — pachete care circulă între noduri
+// 6. TOPOLOGIE - pachete care circulă între noduri
 // =========================================================
 (function topology() {
     const svg = $('#topo');
@@ -312,35 +312,41 @@ document.addEventListener('transitionend', e => {
 // 7. TERMINAL CISCO (se scrie singur)
 // =========================================================
 const termScript = [
-    ['R1#', 'show ip interface brief', [
+    ['Router_Firma#', 'show ip interface brief', [
         'Interface     IP-Address      OK? Status  Protocol',
-        'Gi0/0         203.0.113.2     YES <ok>up</ok>      <ok>up</ok>',
-        'Gi0/1.10      192.168.10.1    YES <ok>up</ok>      <ok>up</ok>',
-        'Gi0/1.20      192.168.20.1    YES <ok>up</ok>      <ok>up</ok>'
+        'Se0/1/0       220.110.0.1     YES <ok>up</ok>      <ok>up</ok>',
+        'Gi0/0.10      192.168.10.1    YES <ok>up</ok>      <ok>up</ok>',
+        'Gi0/0.20      192.168.20.1    YES <ok>up</ok>      <ok>up</ok>',
+        'Gi0/0.30      192.168.30.1    YES <ok>up</ok>      <ok>up</ok>',
+        'Gi0/0.40      192.168.40.1    YES <ok>up</ok>      <ok>up</ok>'
     ]],
     ['SW1#', 'show vlan brief', [
-        '10   SALES        active   Fa0/1-8',
-        '20   HR           active   Fa0/9-16',
-        '30   SERVERS      active   Fa0/17-20',
-        '40   IT           active   Fa0/21-24'
+        '10   IT           active   Fa0/1',
+        '20   HR           active   Fa0/2',
+        '30   GUEST        active',
+        '40   SERVERS      active'
     ]],
-    ['R1#', 'ping 192.168.30.10', [
-        'Type escape sequence to abort.',
-        '<ok>!!!!!</ok>',
-        'Success rate is <ok>100 percent (5/5)</ok>, rtt 1/1/2 ms'
+    ['Router_Firma#', 'show ip route ospf', [
+        'O    10.0.0.0/8 [110/65] via 220.110.0.2, Serial0/1/0'
     ]],
-    ['R1#', 'show ip nat translations', [
-        'Pro  Inside global       Inside local',
-        'tcp  203.0.113.2:1025    192.168.10.11:51000',
-        'tcp  203.0.113.2:1026    192.168.20.14:49152'
+    ['PC1-IT>', 'ping 10.0.0.10', [
+        'Reply from 10.0.0.10: bytes=32 time=2ms TTL=126',
+        'Reply from 10.0.0.10: bytes=32 time=1ms TTL=126',
+        'Packets: Sent = 4, Received = 4, Lost = 0 <ok>(0% loss)</ok>'
     ]],
-    ['R1#', 'show access-lists 110', [
-        'Extended IP access list 110',
-        '  10 <ok>permit</ok> tcp 192.168.10.0 0.0.0.255 host 192.168.30.10 eq 443',
-        '  20 <am>deny</am>   ip 192.168.20.0 0.0.0.255 192.168.30.0 0.0.0.255'
+    ['Router_Firma#', 'show ip nat translations', [
+        'Pro  Inside global      Inside local',
+        'icmp 220.110.0.1:1      192.168.10.2:1'
     ]],
-    ['R1#', 'show ip route | include 0.0.0.0', [
-        'S*   0.0.0.0/0 [1/0] via 203.0.113.1'
+    ['Router_Firma#', 'show access-lists 130', [
+        'Extended IP access list 130',
+        '  10 <am>deny</am>   ip 192.168.30.0 0.0.0.255 192.168.10.0 0.0.0.255',
+        '  20 <am>deny</am>   ip 192.168.30.0 0.0.0.255 192.168.20.0 0.0.0.255',
+        '  30 <ok>permit</ok> tcp 192.168.30.0 0.0.0.255 host 192.168.40.10 eq www',
+        '  40 <ok>permit</ok> udp 192.168.30.0 0.0.0.255 host 192.168.40.10 eq domain'
+    ]],
+    ['PC3-Guest>', 'ping 192.168.10.2', [
+        'Reply from 192.168.30.1: <am>Destination host unreachable.</am>'
     ]]
 ];
 
@@ -403,7 +409,7 @@ async function startRotator() {
 }
 
 // =========================================================
-// 9. OSI — încapsulare animată
+// 9. OSI - încapsulare animată
 // =========================================================
 (function osi() {
     const list = $('#osi');
@@ -563,7 +569,7 @@ document.addEventListener('pointermove', e => {
 });
 
 // =========================================================
-// 13. TIMELINE — linia se „încarcă” la scroll
+// 13. TIMELINE - linia se „încarcă” la scroll
 // =========================================================
 const tl = $('#timeline'), tlBar = $('#tl-progress');
 function updateTimeline() {
@@ -660,7 +666,7 @@ $$('.copy').forEach(btn => btn.addEventListener('click', async () => {
             out.insertAdjacentHTML('beforeend', `64 bytes from flavius: icmp_seq=${i} ttl=64 time=<span class="ok">${rand(0.3, 1.4).toFixed(2)} ms</span>\n`);
         }
         await sleep(reduceMotion ? 0 : 350);
-        out.insertAdjacentHTML('beforeend', '\n--- flavius ping statistics ---\n4 packets transmitted, 4 received, <span class="ok">0% packet loss</span>\n<span class="am">host is up — say hi!</span>');
+        out.insertAdjacentHTML('beforeend', '\n--- flavius ping statistics ---\n4 packets transmitted, 4 received, <span class="ok">0% packet loss</span>\n<span class="am">host is up - say hi!</span>');
         btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Write me an email';
         btn.disabled = false;
         done = true;

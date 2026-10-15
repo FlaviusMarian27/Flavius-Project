@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Marian Flavius-Andrei — Networking &amp; Software</title>
-    <meta name="description" content="Marian Flavius-Andrei — networking-focused software engineering student at Politehnica University of Timișoara. VLANs, routing, NAT, ACLs, GNS3, Packet Tracer and Python automation.">
+    <title>Marian Flavius-Andrei - Networking &amp; Software</title>
+    <meta name="description" content="Marian Flavius-Andrei - networking-focused software engineering student at Politehnica University of Timișoara. VLANs, routing, NAT, ACLs, GNS3, Packet Tracer and Python automation.">
     <link rel="icon" href="images/logoMFA.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -85,8 +85,8 @@
                 </h1>
 
                 <p class="lede">
-                    I build, secure and automate networks — <span class="hl">VLANs</span>, <span class="hl">routing</span>,
-                    <span class="hl">NAT</span> and <span class="hl">ACLs</span> — in Packet Tracer and GNS3, scripted with
+                    I build, secure and automate networks - <span class="hl">VLANs</span>, <span class="hl">routing</span>,
+                    <span class="hl">NAT</span> and <span class="hl">ACLs</span> - in Packet Tracer and GNS3, scripted with
                     <span class="hl-amber">Python</span> and <span class="hl-amber">Bash</span>.
                 </p>
 
@@ -139,8 +139,8 @@
 
                     <!-- etichete interfețe -->
                     <g class="iface-labels">
-                        <text x="270" y="96">Gi0/0 · 203.0.113.2/30</text>
-                        <text x="270" y="178">Gi0/1 · 802.1Q trunk</text>
+                        <text x="270" y="96">Se0/1/0 · 220.110.0.1/30</text>
+                        <text x="270" y="178">Gi0/0 · 802.1Q trunk</text>
                         <text x="122" y="244" text-anchor="end">trunk</text>
                         <text x="398" y="244">trunk</text>
                     </g>
@@ -148,13 +148,13 @@
                     <!-- noduri -->
                     <g class="node cloud" data-node="isp" transform="translate(260 40)">
                         <path d="M-46 14 a16 16 0 0 1 4 -30 a22 22 0 0 1 40 -6 a18 18 0 0 1 34 8 a14 14 0 0 1 10 28 z"/>
-                        <text y="6">ISP</text>
+                        <text y="6">ISP · OSPF</text>
                     </g>
 
                     <g class="node router" data-node="r1" transform="translate(260 134)">
                         <circle r="20"/>
                         <path class="glyph" d="M-9 -4 h18 m-4 -4 l4 4 l-4 4 M9 4 h-18 m4 -4 l-4 4 l4 4"/>
-                        <text class="lbl" x="30" y="4">R1 · edge / NAT</text>
+                        <text class="lbl" x="30" y="4">Router_Firma · NAT</text>
                     </g>
 
                     <g class="node switch" data-node="sw1" transform="translate(260 210)">
@@ -177,19 +177,19 @@
 
                     <g class="node host v10" data-node="pc1" transform="translate(70 350)">
                         <rect x="-16" y="-12" width="32" height="20" rx="3"/><path d="M-6 12 h12"/>
-                        <text class="vlan" y="30">VLAN 10</text>
+                        <text class="vlan" y="30">VLAN 10 · IT</text>
                     </g>
                     <g class="node host v20" data-node="pc2" transform="translate(185 350)">
                         <rect x="-16" y="-12" width="32" height="20" rx="3"/><path d="M-6 12 h12"/>
-                        <text class="vlan" y="30">VLAN 20</text>
+                        <text class="vlan" y="30">VLAN 20 · HR</text>
                     </g>
                     <g class="node host v30" data-node="srv" transform="translate(335 350)">
                         <rect x="-12" y="-14" width="24" height="28" rx="3"/><path d="M-6 -6 h12 M-6 0 h12 M-6 6 h12"/>
-                        <text class="vlan" y="32">VLAN 30 · SRV</text>
+                        <text class="vlan" y="32">VLAN 40 · SRV</text>
                     </g>
                     <g class="node host v40" data-node="pc3" transform="translate(450 350)">
                         <rect x="-16" y="-12" width="32" height="20" rx="3"/><path d="M-6 12 h12"/>
-                        <text class="vlan" y="30">VLAN 40</text>
+                        <text class="vlan" y="30">VLAN 30 · GUEST</text>
                     </g>
 
                     <g id="packets"></g>
@@ -248,7 +248,7 @@
             </div>
             <h3>Enterprise network for a multi-department company</h3>
             <p>
-                A complex GNS3 topology modeled on a real company — every department in its own segment — built and
+                A complex GNS3 topology modeled on a real company - every department in its own segment - built and
                 automated with Python, covering the CCNA core: switching, routing and security.
             </p>
             <ul class="thesis-scope">
@@ -299,13 +299,13 @@
                     <button data-v="10.0.0.0/8">/8</button>
                 </div>
                 <dl class="calc-out" id="calc-out">
-                    <div><dt>Network</dt><dd id="c-net">—</dd></div>
-                    <div><dt>Broadcast</dt><dd id="c-bc">—</dd></div>
-                    <div><dt>First host</dt><dd id="c-first">—</dd></div>
-                    <div><dt>Last host</dt><dd id="c-last">—</dd></div>
-                    <div><dt>Mask</dt><dd id="c-mask">—</dd></div>
-                    <div><dt>Wildcard</dt><dd id="c-wc">—</dd></div>
-                    <div class="wide"><dt>Usable hosts</dt><dd id="c-hosts" class="c-big">—</dd></div>
+                    <div><dt>Network</dt><dd id="c-net">-</dd></div>
+                    <div><dt>Broadcast</dt><dd id="c-bc">-</dd></div>
+                    <div><dt>First host</dt><dd id="c-first">-</dd></div>
+                    <div><dt>Last host</dt><dd id="c-last">-</dd></div>
+                    <div><dt>Mask</dt><dd id="c-mask">-</dd></div>
+                    <div><dt>Wildcard</dt><dd id="c-wc">-</dd></div>
+                    <div class="wide"><dt>Usable hosts</dt><dd id="c-hosts" class="c-big">-</dd></div>
                 </dl>
                 <div class="bits" id="bits" aria-hidden="true"></div>
             </div>
@@ -317,22 +317,22 @@
             <div class="course spotlight">
                 <span class="course-state done">completed</span>
                 <h4>Savnet Summer Academy</h4>
-                <p>CCNA ITN curriculum (Cisco NetAcad) + Linux. VLSM, IPv6, static routing, device security, services.</p>
+                <p>CCNA ITN curriculum (Cisco NetAcad) + Linux. VLSM, IPv6, static routing, device security, services. <span class="c-amber">1st place</span> with the team final project.</p>
             </div>
             <div class="course spotlight">
                 <span class="course-state done">completed</span>
-                <h4>Computer Networks 1 &amp; 2</h4>
-                <p>UPT — protocol stack, addressing, routing and switching fundamentals.</p>
+                <h4>Computer Networks</h4>
+                <p>UPT - protocol stack, addressing, routing and switching fundamentals.</p>
             </div>
             <div class="course spotlight">
                 <span class="course-state done">completed</span>
                 <h4>Complex Services in Computer Networks</h4>
-                <p>UPT — network services and how they're deployed.</p>
+                <p>UPT - network services and how they're deployed. Project: <a href="#projects" class="link">Cisco Enterprise Network Simulation</a>.</p>
             </div>
             <div class="course spotlight">
                 <span class="course-state live">in progress</span>
                 <h4>Network Administration</h4>
-                <p>UPT — GNS3 labs: Cisco switching, VLANs, DNS, web &amp; mail servers, SNMP monitoring, Bash.</p>
+                <p>UPT - GNS3 labs: Cisco switching, VLANs, DNS, web &amp; mail servers, SNMP monitoring, Bash.</p>
             </div>
         </div>
 
@@ -374,7 +374,7 @@
                     <p class="big">
                         I'm a student at
                         <a href="https://www.upt.ro/" target="_blank" rel="noopener noreferrer" class="link">Politehnica University of Timișoara</a>,
-                        at the Faculty of Automation and Computer Engineering — with <span class="hl">networking</span> as my main focus.
+                        at the Faculty of Automation and Computer Engineering - with <span class="hl">networking</span> as my main focus.
                     </p>
                     <p>
                         I am passionate about both <strong>software and hardware</strong>, with experience in low-level programming and
@@ -394,7 +394,7 @@
                     </div>
                     <div class="spec-row">
                         <dt>Main focus</dt>
-                        <dd><span class="hl">Networking</span> — plus Operating Systems, OOP, Databases &amp; Low-level</dd>
+                        <dd><span class="hl">Networking</span> - plus Operating Systems, OOP, Databases &amp; Low-level</dd>
                     </div>
                     <div class="spec-row">
                         <dt>Hobbies</dt>
@@ -433,7 +433,7 @@
                     <span class="tl-now">Present</span>
                 </div>
                 <div class="tl-body spotlight">
-                    <h3>IA-PracticAC <span class="muted">— EU-funded Project, UPT</span></h3>
+                    <h3>IA-PracticAC <span class="muted">- EU-funded Project, UPT</span></h3>
                     <p class="tl-role">Trainee / Program Participant</p>
                     <ul>
                         <li>Got into a competitive EU-funded program covering AI, Cybersecurity, and Cloud/Edge Computing.</li>
@@ -451,14 +451,23 @@
                     <span>Aug 2026</span>
                 </div>
                 <div class="tl-body spotlight">
-                    <h3>Savnet Summer Academy <span class="muted">— Savnet Training Center</span></h3>
+                    <div class="tl-title-row">
+                        <h3>Savnet Summer Academy <span class="muted">- Savnet Training Center</span></h3>
+                        <span class="award"><i class="fa-solid fa-trophy"></i> 1st place · final project</span>
+                    </div>
                     <p class="tl-role">Trainee · <span class="c-accent">networking</span></p>
                     <ul>
-                        <li>Completed a full-time program covering networking (protocol layers, IPv4/IPv6 addressing &amp; subnetting, VLANs, inter-VLAN routing, DHCP, NAT/PAT, ACLs) and Linux (file/process/user management, permissions, pipes, REGEX).</li>
-                        <li>Built and documented network topologies in Packet Tracer/GNS3; automated basic telecom infrastructure tasks with Python.</li>
+                        <li>Completed a full-time program covering the Cisco CCNA ITN curriculum, Linux fundamentals and network automation with Python.</li>
+                        <li>Worked with IPv4 and IPv6 addressing, subnetting, VLANs, inter-VLAN routing, DHCP, NAT/PAT and ACLs in Packet Tracer and GNS3.</li>
+                        <li>Final project in a team of 5: built a network in GNS3, where I was responsible for configuring the routers, switches and routing. Our team, <strong>Salahorii67</strong>, won <span class="c-amber">1st place</span>.</li>
                     </ul>
-                    <div class="chips">
-                        <span class="chip">Packet Tracer</span><span class="chip">GNS3</span><span class="chip">Cisco IOS</span><span class="chip">Linux</span><span class="chip">Python</span>
+                    <div class="tl-foot">
+                        <div class="chips">
+                            <span class="chip">Packet Tracer</span><span class="chip">GNS3</span><span class="chip">Cisco IOS</span><span class="chip">Linux</span><span class="chip">Python</span>
+                        </div>
+                        <a href="https://lnkd.in/p/dSHYsRWU" target="_blank" rel="noopener noreferrer" class="post-link">
+                            <i class="fa-brands fa-linkedin-in"></i> Official Savnet post <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
                     </div>
                 </div>
             </li>
@@ -536,7 +545,61 @@
         <div class="projects-grid">
 
             <article class="project tilt net-project" data-cat="networking"
-                     data-title="Network Labs — Packet Tracer &amp; GNS3"
+                     data-title="Cisco Enterprise Network Simulation"
+                     data-image=""
+                     data-tags="Cisco Packet Tracer, VLANs, 802.1Q, Router-on-a-Stick, DHCP Relay, DNS, HTTP, OSPF, NAT/PAT, Extended ACLs"
+                     data-github="https://github.com/FlaviusMarian27/Cisco-Enterprise-Network-Simulation"
+                     data-desc="Complete company network built in Cisco Packet Tracer for the Complex Services in Computer Networks course (UPT). Two Cisco 2960 switches split the LAN into 4 department VLANs (IT, HR, GUEST, SERVERS) with 802.1Q trunks, and a Cisco 1941 router handles inter-VLAN routing as a router-on-a-stick. An internal server provides DHCP (through ip helper-address relay), DNS and HTTP for www.firma.local. The company router connects to the ISP over a serial WAN link, learns the Internet route through OSPF and uses NAT overload (PAT) to get the private VLANs online. Extended ACLs isolate HR from IT and lock the Guest network down to HTTP and DNS on the internal server, plus Internet access. Every phase is documented step by step with the commands and the verification tests.">
+                <button class="project-hit" aria-label="Open details: Cisco Enterprise Network Simulation"></button>
+                <div class="project-thumb net-thumb" aria-hidden="true">
+                    <svg viewBox="0 0 640 240" class="ent-topo">
+                        <g class="mini-links">
+                            <path d="M58 120 L132 120"/>
+                            <path d="M318 120 L404 78"/>
+                            <path d="M430 92 L430 156"/>
+                            <path d="M456 72 L548 46"/><path d="M456 80 L548 112"/>
+                            <path d="M456 166 L548 160"/><path d="M456 174 L548 210"/>
+                        </g>
+                        <path class="serial" d="M168 120 L218 120 L228 104 L240 136 L252 104 L262 120 L282 120"/>
+                        <g class="mini-nodes">
+                            <rect x="30" y="102" width="22" height="36" rx="3"/>
+                            <circle cx="150" cy="120" r="17"/><circle cx="300" cy="120" r="17"/>
+                            <rect x="404" y="64" width="52" height="24" rx="5"/><rect x="404" y="158" width="52" height="24" rx="5"/>
+                            <rect class="h-guest" x="550" y="36" width="30" height="20" rx="3"/>
+                            <rect class="h-srv" x="554" y="96" width="22" height="32" rx="3"/>
+                            <rect class="h-it" x="550" y="150" width="30" height="20" rx="3"/>
+                            <rect class="h-hr" x="550" y="200" width="30" height="20" rx="3"/>
+                        </g>
+                        <g class="mini-lbl">
+                            <text x="41" y="156" text-anchor="middle">Server-Extern</text>
+                            <text x="41" y="168" text-anchor="middle">10.0.0.10</text>
+                            <text x="150" y="152" text-anchor="middle">Router_ISP</text>
+                            <text x="225" y="84" text-anchor="middle" class="am">Serial WAN · OSPF</text>
+                            <text x="225" y="96" text-anchor="middle">220.110.0.0/30</text>
+                            <text x="300" y="152" text-anchor="middle">Router_Firma</text>
+                            <text x="300" y="164" text-anchor="middle" class="ac">NAT · ACL</text>
+                            <text x="430" y="56" text-anchor="middle">SW2</text>
+                            <text x="430" y="198" text-anchor="middle">SW1</text>
+                            <text x="440" y="128">trunk</text>
+                            <text x="590" y="50">GUEST</text>
+                            <text x="584" y="116">SERVERS</text>
+                            <text x="590" y="164">IT</text>
+                            <text x="590" y="214">HR</text>
+                        </g>
+                        <circle class="mini-pkt p1" r="4.5"><animateMotion dur="3.6s" repeatCount="indefinite" path="M550 160 L456 170 L430 160 L430 88 L404 78 L318 120 L262 120 L252 104 L240 136 L228 104 L218 120 L168 120 L132 120 L58 120"/></circle>
+                        <circle class="mini-pkt p2" r="4.5"><animateMotion dur="2.8s" repeatCount="indefinite" path="M550 46 L456 72 L404 78 L318 120 L404 78 L456 80 L554 112"/></circle>
+                    </svg>
+                </div>
+                <div class="project-body">
+                    <span class="project-idx">P/00 · <span class="c-accent">networking</span> · SCRC @ UPT</span>
+                    <h3>Cisco Enterprise Network Simulation</h3>
+                    <p>A full company network in Packet Tracer: 4 department VLANs, router-on-a-stick, DHCP relay, DNS &amp; HTTP, OSPF to the ISP, PAT and extended ACLs that isolate HR and Guest.</p>
+                    <div class="chips"><span class="chip">VLANs</span><span class="chip">Router-on-a-Stick</span><span class="chip">DHCP</span><span class="chip">OSPF</span><span class="chip">NAT/PAT</span><span class="chip">ACLs</span></div>
+                </div>
+            </article>
+
+            <article class="project tilt" data-cat="networking"
+                     data-title="Network Labs - Packet Tracer &amp; GNS3"
                      data-image=""
                      data-tags="Cisco IOS, VLSM, OSPF, VLANs, NAT/PAT, ACLs, IPv6"
                      data-github="https://github.com/flaviusmarian27"
@@ -558,9 +621,9 @@
                     </svg>
                 </div>
                 <div class="project-body">
-                    <span class="project-idx">P/00 · <span class="c-accent">networking</span></span>
+                    <span class="project-idx">P/01 · <span class="c-accent">networking</span></span>
                     <h3>Network Labs</h3>
-                    <p>Documented Packet Tracer &amp; GNS3 labs — VLSM, OSPF, VLANs, NAT/PAT, ACLs, IPv6.</p>
+                    <p>Documented Packet Tracer &amp; GNS3 labs - VLSM, OSPF, VLANs, NAT/PAT, ACLs, IPv6.</p>
                     <div class="chips"><span class="chip">Cisco IOS</span><span class="chip">OSPF</span><span class="chip">NAT/PAT</span><span class="chip">ACLs</span></div>
                 </div>
             </article>
@@ -574,9 +637,9 @@
                 <button class="project-hit" aria-label="Open details: System Monitor"></button>
                 <div class="project-thumb"><img src="images/opt/SM.webp" alt="" loading="lazy"></div>
                 <div class="project-body">
-                    <span class="project-idx">P/01</span>
+                    <span class="project-idx">P/02</span>
                     <h3>System Monitor</h3>
-                    <p>A high-performance Linux monitoring dashboard — C backend for real-time hardware data, PyQt6 frontend.</p>
+                    <p>A high-performance Linux monitoring dashboard - C backend for real-time hardware data, PyQt6 frontend.</p>
                     <div class="chips"><span class="chip">C</span><span class="chip">Python</span></div>
                 </div>
             </article>
@@ -590,7 +653,7 @@
                 <button class="project-hit" aria-label="Open details: Clarity Gym"></button>
                 <div class="project-thumb"><img src="images/opt/CG.webp" alt="" loading="lazy"></div>
                 <div class="project-body">
-                    <span class="project-idx">P/02</span>
+                    <span class="project-idx">P/03</span>
                     <h3>Clarity Gym</h3>
                     <p>A modern platform for managing a fitness room and connecting clients with personal trainers.</p>
                     <div class="chips"><span class="chip">Vue</span><span class="chip">Js</span><span class="chip">Go</span><span class="chip">PostgreSQL</span></div>
@@ -606,7 +669,7 @@
                 <button class="project-hit" aria-label="Open details: MP3/MP4 for Windows"></button>
                 <div class="project-thumb"><img src="images/opt/windowsmp3mp4.webp" alt="" loading="lazy"></div>
                 <div class="project-body">
-                    <span class="project-idx">P/03</span>
+                    <span class="project-idx">P/04</span>
                     <h3>MP3/MP4 for Windows</h3>
                     <p>Ad-free Python GUI app to download YouTube videos as MP3/MP4.</p>
                     <div class="chips"><span class="chip">Python</span><span class="chip">Batchfile</span></div>
@@ -622,7 +685,7 @@
                 <button class="project-hit" aria-label="Open details: MP3/MP4 for Linux"></button>
                 <div class="project-thumb"><img src="images/opt/linuxmp3mp4.webp" alt="" loading="lazy"></div>
                 <div class="project-body">
-                    <span class="project-idx">P/04</span>
+                    <span class="project-idx">P/05</span>
                     <h3>MP3/MP4 for Linux</h3>
                     <p>The same ad-free downloader, built for Linux.</p>
                     <div class="chips"><span class="chip">Python</span><span class="chip">Shell</span></div>
@@ -638,7 +701,7 @@
                 <button class="project-hit" aria-label="Open details: TicTacToe SFML"></button>
                 <div class="project-thumb"><img src="images/opt/icon.webp" alt="" loading="lazy"></div>
                 <div class="project-body">
-                    <span class="project-idx">P/05</span>
+                    <span class="project-idx">P/06</span>
                     <h3>TicTacToe SFML</h3>
                     <p>The classic game in SFML, built around clean OOP and real-time rendering.</p>
                     <div class="chips"><span class="chip">C++</span><span class="chip">SFML</span><span class="chip">OOP</span></div>
@@ -654,9 +717,9 @@
                 <button class="project-hit" aria-label="Open details: Exploding Kittens CLI"></button>
                 <div class="project-thumb"><img src="images/opt/ek.webp" alt="" loading="lazy"></div>
                 <div class="project-body">
-                    <span class="project-idx">P/06</span>
+                    <span class="project-idx">P/07</span>
                     <h3>Exploding Kittens CLI</h3>
-                    <p>Terminal strategy game in Ncurses — memory-efficient state management.</p>
+                    <p>Terminal strategy game in Ncurses - memory-efficient state management.</p>
                     <div class="chips"><span class="chip">C</span><span class="chip">Ncurses</span><span class="chip">Logic</span></div>
                 </div>
             </article>
@@ -670,7 +733,7 @@
                 <button class="project-hit" aria-label="Open details: 8086 Microprocessor"></button>
                 <div class="project-thumb"><img src="images/opt/arh.webp" alt="" loading="lazy"></div>
                 <div class="project-body">
-                    <span class="project-idx">P/07</span>
+                    <span class="project-idx">P/08</span>
                     <h3>8086 Microprocessor</h3>
                     <p>Low-level code under real hardware constraints for an 8086 microsystem.</p>
                     <div class="chips"><span class="chip">Assembly x86</span><span class="chip">Hardware</span></div>
@@ -686,7 +749,7 @@
                 <button class="project-hit" aria-label="Open details: Gym Manager Web App"></button>
                 <div class="project-thumb"><img src="images/opt/LogoGym.webp" alt="" loading="lazy"></div>
                 <div class="project-body">
-                    <span class="project-idx">P/08</span>
+                    <span class="project-idx">P/09</span>
                     <h3>Gym Manager Web App</h3>
                     <p>Full CRUD system for gym memberships with async Node.js backend.</p>
                     <div class="chips"><span class="chip">Node.js</span><span class="chip">MongoDB</span><span class="chip">JS</span></div>
@@ -702,7 +765,7 @@
                 <button class="project-hit" aria-label="Open details: Operating Systems Core"></button>
                 <div class="project-thumb"><img src="images/opt/os.webp" alt="" loading="lazy"></div>
                 <div class="project-body">
-                    <span class="project-idx">P/09</span>
+                    <span class="project-idx">P/10</span>
                     <h3>Operating Systems Core</h3>
                     <p>System-level apps: process sync, memory management, multi-process on Linux.</p>
                     <div class="chips"><span class="chip">C</span><span class="chip">Linux API</span><span class="chip">Kernel</span></div>
@@ -718,7 +781,7 @@
                 <button class="project-hit" aria-label="Open details: SystemC ALU Modules"></button>
                 <div class="project-thumb light"><img src="images/opt/ALU.webp" alt="" loading="lazy"></div>
                 <div class="project-body">
-                    <span class="project-idx">P/10</span>
+                    <span class="project-idx">P/11</span>
                     <h3>SystemC ALU Modules</h3>
                     <p>Digital logic and ALUs modeled in SystemC before physical implementation.</p>
                     <div class="chips"><span class="chip">C++</span><span class="chip">SystemC</span><span class="chip">Hardware</span></div>
@@ -745,7 +808,7 @@
                 <span class="interest-badge">main track</span>
                 <i class="fa-solid fa-network-wired"></i>
                 <h3>Networking</h3>
-                <p>Exploring network protocols, socket programming, and infrastructure security — from VLAN design and routing to automating labs with Python.</p>
+                <p>Exploring network protocols, socket programming, and infrastructure security - from VLAN design and routing to automating labs with Python.</p>
             </div>
             <div class="interest spotlight">
                 <i class="fa-solid fa-shield-halved"></i>
@@ -794,7 +857,7 @@
                 <div class="ping-box">
                     <div class="win-bar">
                         <span class="dots"><i></i><i></i><i></i></span>
-                        <span class="win-title">bash — flavius@upt</span>
+                        <span class="win-title">bash - flavius@upt</span>
                     </div>
                     <pre class="ping-out" id="ping-out"><span class="c-accent">$</span> ping flavius</pre>
                     <button class="btn btn-primary ping-btn magnetic" id="ping-btn">

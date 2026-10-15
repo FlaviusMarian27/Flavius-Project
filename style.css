@@ -1454,3 +1454,47 @@ main {
     .js .reveal, .hero-text > *, .topo-card, .hero-meta, .hero-title .word { opacity: 1 !important; transform: none !important; }
     #net-bg, .boot { display: none; }
 }
+
+/* --- premiu Savnet --- */
+.tl-title-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.award {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 999px;
+    color: var(--bg-2);
+    background: linear-gradient(90deg, var(--amber), #fde68a, var(--amber));
+    background-size: 200% 100%;
+    box-shadow: 0 6px 22px -8px rgba(251,191,36,.8);
+    animation: award-shine 3s linear infinite;
+    white-space: nowrap;
+}
+.award i { animation: trophy 2.4s var(--spring) infinite; }
+@keyframes award-shine { to { background-position: -200% 0; } }
+@keyframes trophy { 0%, 70%, 100% { transform: rotate(0); } 80% { transform: rotate(-14deg) scale(1.15); } 90% { transform: rotate(10deg); } }
+.tl-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.post-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    padding: 7px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--line-strong);
+    color: var(--text);
+    position: relative; z-index: 2;
+    transition: border-color .2s, color .2s, background .2s, transform .3s var(--spring);
+}
+.post-link .fa-arrow-up-right-from-square { font-size: 10px; color: var(--muted); }
+.post-link:hover { border-color: #0a66c2; background: rgba(10,102,194,.15); transform: translateY(-2px); }
+
+/* --- topologie proiect SCRC --- */
+.ent-topo .serial { fill: none; stroke: var(--amber); stroke-width: 1.8; stroke-dasharray: 5 4; animation: flow 1.2s linear infinite; }
+.ent-topo .mini-lbl text { font-family: var(--font-mono); font-size: 9.5px; fill: var(--muted); }
+.ent-topo .mini-lbl .am { fill: var(--amber); }
+.ent-topo .mini-lbl .ac { fill: var(--accent); }
+.ent-topo .mini-nodes .h-it    { stroke: var(--accent); }
+.ent-topo .mini-nodes .h-hr    { stroke: var(--amber); }
+.ent-topo .mini-nodes .h-guest { stroke: #4ade80; }
+.ent-topo .mini-nodes .h-srv   { stroke: #a78bfa; }
