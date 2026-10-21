@@ -210,9 +210,9 @@ const revealMap = [
     ['.calc-panel', ''], ['.sub-title', 'from-left'], ['.course', ''], ['.lab', ''],
     ['.portrait', 'zoom'], ['.about-text', ''], ['.spec', ''], ['.tl-item', ''],
     ['.panel:not(.osi-panel):not(.calc-panel)', ''], ['.filters', ''], ['.project', ''],
-    ['.interest', ''], ['.contact-big', 'from-left'], ['.ping-box', ''], ['.contact-row', '']
+    ['.cert', 'zoom'], ['.interest', ''], ['.contact-big', 'from-left'], ['.ping-box', ''], ['.contact-row', '']
 ];
-const staggered = ['.course', '.lab', '.project', '.interest', '.contact-row', '.tl-item'];
+const staggered = ['.cert', '.course', '.lab', '.project', '.interest', '.contact-row', '.tl-item'];
 
 const revealObserver = new IntersectionObserver(entries => {
     entries.forEach(en => {
@@ -671,4 +671,56 @@ $$('.copy').forEach(btn => btn.addEventListener('click', async () => {
         btn.disabled = false;
         done = true;
     });
+})();
+
+// =========================================================
+// 17. CERTIFICĂRI — valabilitate + lightbox
+// =========================================================
+(function certs() {
+    const DAY = 864e5;
+    $$('.cert[data-issued]').forEach(card => {
+        const start = new Date(card.dataset.issued).getTime();
+        const end = new Date(card.dataset.expires).getTime();
+        const now = Date.now();
+        const pct = Math.min(100, Math.max(0, ((now - start) / (end - start)) * 100));
+        const daysLeft = Math.ceil((end - now) / DAY);
+        const fill = $('.cv-fill', card);
+        const left = $('.cv-left', card);
+        const status = $('.cert-status', card);
+
+        if (daysLeft <= 0) {
+            left.textContent = 'expired';
+            status.classList.add('expired');
+            status.innerHTML = 'expired';
+        } else {
+            left.textContent = `valid · ${daysLeft} days left`;
+        }
+        // bara se umple când cardul apare pe ecran
+        new IntersectionObserver(([en], obs) => {
+            if (en.isIntersecting) { fill.style.width = `${Math.max(pct, 2)}%`; obs.disconnect(); }
+        }, { threshold: 0.4 }).observe(card);
+    });
+
+    const lb = $('#lightbox'), lbImg = $('#lightbox-img');
+    if (!lb) return;
+    let last = null;
+    const open = btn => {
+        last = btn;
+        const img = $('img', btn);
+        lbImg.src = btn.dataset.full;
+        lbImg.alt = img ? img.alt : '';
+        lb.hidden = false;
+        document.body.style.overflow = 'hidden';
+        requestAnimationFrame(() => lb.classList.add('open'));
+        $('.lb-close', lb).focus();
+    };
+    const close = () => {
+        lb.classList.remove('open');
+        document.body.style.overflow = '';
+        setTimeout(() => { lb.hidden = true; }, 300);
+        if (last) last.focus();
+    };
+    $$('.cert-img').forEach(b => b.addEventListener('click', () => open(b)));
+    lb.addEventListener('click', close);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !lb.hidden) close(); });
 })();
