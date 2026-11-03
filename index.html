@@ -627,12 +627,13 @@
             <button class="filter" data-filter="networking">Networking</button>
             <button class="filter" data-filter="systems">Systems</button>
             <button class="filter" data-filter="web">Web</button>
+            <button class="filter" data-filter="mobile">Mobile</button>
             <button class="filter" data-filter="hardware">Hardware</button>
             <button class="filter" data-filter="games">Games</button>
             <button class="filter" data-filter="tools">Tools</button>
         </div>
 
-        <div class="projects-grid">
+        <div class="projects-grid" id="projects-grid">
 
             <article class="project tilt net-project" data-cat="networking"
                      data-title="Cisco Enterprise Network Simulation"
@@ -718,6 +719,38 @@
                 </div>
             </article>
 
+            <article class="project tilt" data-cat="mobile"
+                     data-title="Rovelo - AI walking city guide"
+                     data-image="images/opt/rovelo.webp"
+                     data-tags="React Native, Expo, Spring Boot, Java, PostgreSQL, JWT, OpenStreetMap, AI agent, Figma"
+                     data-github="https://github.com/FlaviusMarian27/Rovelo"
+                     data-desc="Solo mobile project for the Mobile Applications Design and Analysis course (PAAM, UPT). Rovelo is an AI-powered walking city guide: you pick how much time you have and what interests you, and an AI agent builds a walking route from OpenStreetMap data. You navigate live and the agent replans the route if you run late, and you can photograph a building to get its story. Cross-platform app in React Native with Expo, backed by a Spring Boot REST API with JWT auth and PostgreSQL; the AI model is called from the server so the API key never reaches the phone. UI prototype designed in Figma and use case diagram done, implementation in progress.">
+                <button class="project-hit" aria-label="Open details: Rovelo"></button>
+                <div class="project-thumb"><img src="images/opt/rovelo.webp" alt="" loading="lazy"></div>
+                <div class="project-body">
+                    <span class="project-idx">P/02 · <span class="c-accent">mobile</span> · PAAM @ UPT <span class="wip">in progress</span></span>
+                    <h3>Rovelo</h3>
+                    <p>AI walking city guide that plans your route from OpenStreetMap data and replans it live if you run late.</p>
+                    <div class="chips"><span class="chip">React Native</span><span class="chip">Expo</span><span class="chip">Spring Boot</span><span class="chip">PostgreSQL</span></div>
+                </div>
+            </article>
+
+            <article class="project tilt" data-cat="systems web"
+                     data-title="Laundry Booking - event-driven dorm app"
+                     data-image="images/opt/laundry.webp"
+                     data-tags="Java, Spring Boot, Apache Kafka, PostgreSQL, MCP, Python, React, Docker"
+                     data-github="https://github.com/FlaviusMarian27/Laundry-booking"
+                     data-desc="Team project (4 people) for the Concurrent and Event-Driven Programming course (PCBE, UPT). A dorm laundry-room booking app built on an event-driven architecture: students book and cancel slots on washing machines and dryers, report faults and get notifications, while no-shows are detected automatically. Java + Spring Boot microservices communicate through Apache Kafka topics (bookings, devices, feedback, proposals); core-service is the single writer to PostgreSQL and the other services build their own read copies from the events. A daily Python AI agent reads faults and no-shows through a Java MCP server and proposes maintenance or penalties, which the administrator approves or rejects. React web client, everything containerized with Docker Compose. Currently in design / early implementation.">
+                <button class="project-hit" aria-label="Open details: Laundry Booking"></button>
+                <div class="project-thumb"><img src="images/opt/laundry.webp" alt="" loading="lazy"></div>
+                <div class="project-body">
+                    <span class="project-idx">P/03 · team · PCBE @ UPT <span class="wip">in progress</span></span>
+                    <h3>Laundry Booking</h3>
+                    <p>Dorm laundry booking on an event-driven architecture: Spring Boot services over Kafka and an AI agent that proposes maintenance.</p>
+                    <div class="chips"><span class="chip">Java</span><span class="chip">Spring Boot</span><span class="chip">Kafka</span><span class="chip">Docker</span></div>
+                </div>
+            </article>
+
             <article class="project tilt" data-cat="systems"
                      data-title="System Monitor"
                      data-image="images/opt/SM.webp"
@@ -727,7 +760,7 @@
                 <button class="project-hit" aria-label="Open details: System Monitor"></button>
                 <div class="project-thumb"><img src="images/opt/SM.webp" alt="" loading="lazy"></div>
                 <div class="project-body">
-                    <span class="project-idx">P/02</span>
+                    <span class="project-idx">P/04</span>
                     <h3>System Monitor</h3>
                     <p>A high-performance Linux monitoring dashboard - C backend for real-time hardware data, PyQt6 frontend.</p>
                     <div class="chips"><span class="chip">C</span><span class="chip">Python</span></div>
@@ -743,7 +776,7 @@
                 <button class="project-hit" aria-label="Open details: Clarity Gym"></button>
                 <div class="project-thumb"><img src="images/opt/CG.webp" alt="" loading="lazy"></div>
                 <div class="project-body">
-                    <span class="project-idx">P/03</span>
+                    <span class="project-idx">P/05</span>
                     <h3>Clarity Gym</h3>
                     <p>A modern platform for managing a fitness room and connecting clients with personal trainers.</p>
                     <div class="chips"><span class="chip">Vue</span><span class="chip">Js</span><span class="chip">Go</span><span class="chip">PostgreSQL</span></div>
@@ -759,7 +792,7 @@
                 <button class="project-hit" aria-label="Open details: MP3/MP4 for Windows"></button>
                 <div class="project-thumb"><img src="images/opt/windowsmp3mp4.webp" alt="" loading="lazy"></div>
                 <div class="project-body">
-                    <span class="project-idx">P/04</span>
+                    <span class="project-idx">P/06</span>
                     <h3>MP3/MP4 for Windows</h3>
                     <p>Ad-free Python GUI app to download YouTube videos as MP3/MP4.</p>
                     <div class="chips"><span class="chip">Python</span><span class="chip">Batchfile</span></div>
@@ -775,7 +808,7 @@
                 <button class="project-hit" aria-label="Open details: MP3/MP4 for Linux"></button>
                 <div class="project-thumb"><img src="images/opt/linuxmp3mp4.webp" alt="" loading="lazy"></div>
                 <div class="project-body">
-                    <span class="project-idx">P/05</span>
+                    <span class="project-idx">P/07</span>
                     <h3>MP3/MP4 for Linux</h3>
                     <p>The same ad-free downloader, built for Linux.</p>
                     <div class="chips"><span class="chip">Python</span><span class="chip">Shell</span></div>
@@ -791,7 +824,7 @@
                 <button class="project-hit" aria-label="Open details: TicTacToe SFML"></button>
                 <div class="project-thumb"><img src="images/opt/icon.webp" alt="" loading="lazy"></div>
                 <div class="project-body">
-                    <span class="project-idx">P/06</span>
+                    <span class="project-idx">P/08</span>
                     <h3>TicTacToe SFML</h3>
                     <p>The classic game in SFML, built around clean OOP and real-time rendering.</p>
                     <div class="chips"><span class="chip">C++</span><span class="chip">SFML</span><span class="chip">OOP</span></div>
@@ -807,7 +840,7 @@
                 <button class="project-hit" aria-label="Open details: Exploding Kittens CLI"></button>
                 <div class="project-thumb"><img src="images/opt/ek.webp" alt="" loading="lazy"></div>
                 <div class="project-body">
-                    <span class="project-idx">P/07</span>
+                    <span class="project-idx">P/09</span>
                     <h3>Exploding Kittens CLI</h3>
                     <p>Terminal strategy game in Ncurses - memory-efficient state management.</p>
                     <div class="chips"><span class="chip">C</span><span class="chip">Ncurses</span><span class="chip">Logic</span></div>
@@ -823,7 +856,7 @@
                 <button class="project-hit" aria-label="Open details: 8086 Microprocessor"></button>
                 <div class="project-thumb"><img src="images/opt/arh.webp" alt="" loading="lazy"></div>
                 <div class="project-body">
-                    <span class="project-idx">P/08</span>
+                    <span class="project-idx">P/10</span>
                     <h3>8086 Microprocessor</h3>
                     <p>Low-level code under real hardware constraints for an 8086 microsystem.</p>
                     <div class="chips"><span class="chip">Assembly x86</span><span class="chip">Hardware</span></div>
@@ -839,7 +872,7 @@
                 <button class="project-hit" aria-label="Open details: Gym Manager Web App"></button>
                 <div class="project-thumb"><img src="images/opt/LogoGym.webp" alt="" loading="lazy"></div>
                 <div class="project-body">
-                    <span class="project-idx">P/09</span>
+                    <span class="project-idx">P/11</span>
                     <h3>Gym Manager Web App</h3>
                     <p>Full CRUD system for gym memberships with async Node.js backend.</p>
                     <div class="chips"><span class="chip">Node.js</span><span class="chip">MongoDB</span><span class="chip">JS</span></div>
@@ -855,7 +888,7 @@
                 <button class="project-hit" aria-label="Open details: Operating Systems Core"></button>
                 <div class="project-thumb"><img src="images/opt/os.webp" alt="" loading="lazy"></div>
                 <div class="project-body">
-                    <span class="project-idx">P/10</span>
+                    <span class="project-idx">P/12</span>
                     <h3>Operating Systems Core</h3>
                     <p>System-level apps: process sync, memory management, multi-process on Linux.</p>
                     <div class="chips"><span class="chip">C</span><span class="chip">Linux API</span><span class="chip">Kernel</span></div>
@@ -871,13 +904,20 @@
                 <button class="project-hit" aria-label="Open details: SystemC ALU Modules"></button>
                 <div class="project-thumb light"><img src="images/opt/ALU.webp" alt="" loading="lazy"></div>
                 <div class="project-body">
-                    <span class="project-idx">P/11</span>
+                    <span class="project-idx">P/13</span>
                     <h3>SystemC ALU Modules</h3>
                     <p>Digital logic and ALUs modeled in SystemC before physical implementation.</p>
                     <div class="chips"><span class="chip">C++</span><span class="chip">SystemC</span><span class="chip">Hardware</span></div>
                 </div>
             </article>
 
+        </div>
+
+        <div class="proj-more" id="proj-more">
+            <span class="proj-count" id="proj-count"></span>
+            <button class="btn btn-ghost proj-toggle" id="proj-toggle" aria-expanded="false" aria-controls="projects-grid">
+                <span class="pt-label">Show all projects</span> <i class="fa-solid fa-chevron-down"></i>
+            </button>
         </div>
     </section>
 

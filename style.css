@@ -1685,3 +1685,59 @@ main {
 .cert-side .cert-img img { transform: perspective(800px) rotateX(8deg); transform-origin: 50% 0; }
 .cert-side .cert-img:hover img { transform: perspective(800px) rotateX(0) scale(1.02); }
 .cert-side .cert-zoom { bottom: 12px; }
+
+/* =========================================================
+   PROIECTE — expand / collapse + filtre cu număr
+   ========================================================= */
+.project.collapsed { display: none; }
+.filter { display: inline-flex; align-items: center; gap: 7px; }
+.f-count {
+    font-size: 10.5px;
+    min-width: 18px;
+    padding: 1px 5px;
+    border-radius: 6px;
+    background: rgba(148,163,184,.14);
+    color: var(--muted);
+    text-align: center;
+    transition: background .3s, color .3s;
+}
+.filter.active .f-count { background: rgba(15,23,42,.25); color: var(--bg-2); }
+
+.wip {
+    display: inline-block;
+    margin-left: 6px;
+    font-size: 10px;
+    padding: 1px 7px;
+    border-radius: 6px;
+    color: var(--amber);
+    border: 1px solid rgba(251,191,36,.35);
+    background: var(--amber-soft);
+    vertical-align: 1px;
+}
+
+.proj-more {
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+    margin-top: 28px;
+    position: relative;
+}
+.proj-more::before {
+    content: "";
+    position: absolute; left: 0; right: 0; top: 50%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--line-strong), transparent);
+    z-index: -1;
+    transform: translateY(14px);
+}
+.proj-more.off { display: none; }
+.proj-count { font-family: var(--font-mono); font-size: 12px; color: var(--muted); }
+.proj-toggle { background: var(--bg-2); }
+.proj-toggle i { transition: transform .4s var(--spring); }
+.proj-toggle.open i { transform: rotate(180deg); }
+.proj-toggle:hover i { transform: translateY(2px); }
+.proj-toggle.open:hover i { transform: rotate(180deg) translateY(2px); }
+
+@media (max-width: 640px) {
+    .filters { display: flex; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; max-width: 100%; }
+    .filters::-webkit-scrollbar { display: none; }
+    .filter { flex-shrink: 0; }
+}

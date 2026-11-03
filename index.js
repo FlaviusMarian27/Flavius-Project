@@ -506,29 +506,103 @@ async function startRotator() {
 const filters = $$('.filter');
 const glider = $('#filter-glider');
 const projects = $$('.project');
+const grid = $('#projects-grid');
+const moreBox = $('#proj-more');
+const toggleBtn = $('#proj-toggle');
+const countEl = $('#proj-count');
+const ROWS = 2;                 // câte rânduri se văd înainte de „Show all”
+let currentFilter = 'all';
+let expanded = false;
+
+const cats = p => p.dataset.cat.split(' ');
+const matches = (p, f) => f === 'all' || cats(p).includes(f);
+
+// număr de proiecte pe fiecare buton de filtru
+filters.forEach(btn => {
+    const n = projects.filter(p => matches(p, btn.dataset.filter)).length;
+    btn.insertAdjacentHTML('beforeend', `<span class="f-count">${n}</span>`);
+});
 
 function moveGlider(btn) {
     glider.style.width = `${btn.offsetWidth}px`;
     glider.style.height = `${btn.offsetHeight}px`;
     glider.style.transform = `translate(${btn.offsetLeft}px, ${btn.offsetTop}px)`;
 }
+
+const gridCols = () => getComputedStyle(grid).gridTemplateColumns.split(' ').filter(Boolean).length;
+
+// arată / ascunde proiectele în funcție de filtru + limită de rânduri
+function layoutProjects(animate = false) {
+    const cols = gridCols();
+    const limit = cols === 1 ? 4 : cols * ROWS;   // pe telefon: 4 carduri
+    let used = 0, shown = 0, total = 0;
+    const newlyShown = [];
+
+    projects.forEach(p => {
+        const inFilter = matches(p, currentFilter);
+        if (!inFilter) { p.classList.add('hidden'); p.classList.remove('collapsed'); return; }
+        total++;
+        const span = p.classList.contains('net-project') && cols > 1 ? 2 : 1;
+        const fits = used + span <= limit;
+        const visible = expanded || fits;
+        if (fits) used += span;
+        const wasHidden = p.classList.contains('hidden') || p.classList.contains('collapsed');
+        p.classList.remove('hidden');
+        p.classList.toggle('collapsed', !visible);
+        if (visible) {
+            shown++;
+            p.classList.add('visible');
+            if (animate && wasHidden) newlyShown.push(p);
+        }
+    });
+
+    newlyShown.forEach((p, i) => {
+        p.classList.remove('pop');
+        p.style.animationDelay = reduceMotion ? '0s' : `${i * 0.06}s`;
+        void p.offsetWidth;
+        p.classList.add('pop');
+    });
+
+    const hiddenCount = total - shown;
+    const needsToggle = expanded || hiddenCount > 0;
+    moreBox.classList.toggle('off', !needsToggle);
+    countEl.textContent = `Showing ${shown} of ${total}`;
+    $('.pt-label', toggleBtn).textContent = expanded ? 'Show less' : `Show all projects (+${hiddenCount})`;
+    toggleBtn.setAttribute('aria-expanded', expanded);
+    toggleBtn.classList.toggle('open', expanded);
+}
+
 filters.forEach(btn => btn.addEventListener('click', () => {
     filters.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     moveGlider(btn);
-    const f = btn.dataset.filter;
-    projects.forEach(p => {
-        const show = f === 'all' || p.dataset.cat === f;
-        p.classList.toggle('hidden', !show);
-        p.classList.remove('pop');
-        if (show) { void p.offsetWidth; p.classList.add('pop', 'visible'); }
-    });
+    currentFilter = btn.dataset.filter;
+    expanded = false;
+    projects.forEach(p => p.classList.add('hidden'));   // ca să re-anime cele afișate
+    layoutProjects(true);
 }));
-const placeGlider = () => moveGlider($('.filter.active'));
-addEventListener('resize', placeGlider);
-addEventListener('load', placeGlider);
-document.fonts && document.fonts.ready.then(placeGlider);
-placeGlider();
+
+toggleBtn.addEventListener('click', () => {
+    expanded = !expanded;
+    layoutProjects(true);
+    if (!expanded) {
+        const top = $('#projects').getBoundingClientRect().top;
+        if (top < 0) $('#projects').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
+    }
+});
+
+let lastCols = 0;
+const onResize = () => {
+    moveGlider($('.filter.active'));
+    const c = gridCols();
+    if (c !== lastCols) { lastCols = c; layoutProjects(false); }
+};
+addEventListener('resize', onResize);
+addEventListener('load', () => moveGlider($('.filter.active')));
+document.fonts && document.fonts.ready.then(() => moveGlider($('.filter.active')));
+moveGlider($('.filter.active'));
+lastCols = gridCols();
+layoutProjects(false);
 
 // =========================================================
 // 12. TILT 3D + SPOTLIGHT + MAGNETIC
