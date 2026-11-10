@@ -501,108 +501,128 @@ async function startRotator() {
 })();
 
 // =========================================================
-// 11. FILTRE PROIECTE (cu glider animat)
+// 11. FILTRE + „SHOW ALL” - o singură funcție, folosită de Projects și Certifications
 // =========================================================
-const filters = $$('.filter');
-const glider = $('#filter-glider');
-const projects = $$('.project');
-const grid = $('#projects-grid');
-const moreBox = $('#proj-more');
-const toggleBtn = $('#proj-toggle');
-const countEl = $('#proj-count');
-const ROWS = 2;                 // câte rânduri se văd înainte de „Show all”
-let currentFilter = 'all';
-let expanded = false;
+// opts:
+//   section   - secțiunea care conține .filters, grila și butonul Show all
+//   items     - cardurile (fiecare are data-cat="a b ...")
+//   grid, glider, moreBox, countEl, toggleBtn - elementele din secțiune
+//   rows      - câte rânduri se văd înainte de „Show all”
+//   phoneLimit- câte carduri se văd pe telefon (o coloană); implicit = rows
+//   span      - (card, cols) => câte coloane ocupă un card; implicit 1
+//   noun      - textul din buton: „Show all <noun> (+N)”
+function filterGrid(opts) {
+    const { section, items, grid, glider, moreBox, countEl, toggleBtn, rows, noun } = opts;
+    const span = opts.span || (() => 1);
+    const filters = $$('.filter', section);
+    const label = $('.pt-label', toggleBtn);
+    let currentFilter = 'all';
+    let expanded = false;
 
-const cats = p => p.dataset.cat.split(' ');
-const matches = (p, f) => f === 'all' || cats(p).includes(f);
+    const cats = el => el.dataset.cat.split(' ');
+    const matches = (el, f) => f === 'all' || cats(el).includes(f);
 
-// număr de proiecte pe fiecare buton de filtru
-filters.forEach(btn => {
-    const n = projects.filter(p => matches(p, btn.dataset.filter)).length;
-    btn.insertAdjacentHTML('beforeend', `<span class="f-count">${n}</span>`);
-});
+    // număr de carduri pe fiecare buton de filtru
+    filters.forEach(btn => {
+        const n = items.filter(el => matches(el, btn.dataset.filter)).length;
+        btn.insertAdjacentHTML('beforeend', `<span class="f-count">${n}</span>`);
+    });
 
-function moveGlider(btn) {
-    glider.style.width = `${btn.offsetWidth}px`;
-    glider.style.height = `${btn.offsetHeight}px`;
-    glider.style.transform = `translate(${btn.offsetLeft}px, ${btn.offsetTop}px)`;
-}
+    function moveGlider(btn) {
+        glider.style.width = `${btn.offsetWidth}px`;
+        glider.style.height = `${btn.offsetHeight}px`;
+        glider.style.transform = `translate(${btn.offsetLeft}px, ${btn.offsetTop}px)`;
+    }
 
-const gridCols = () => getComputedStyle(grid).gridTemplateColumns.split(' ').filter(Boolean).length;
+    const gridCols = () => getComputedStyle(grid).gridTemplateColumns.split(' ').filter(Boolean).length;
 
-// arată / ascunde proiectele în funcție de filtru + limită de rânduri
-function layoutProjects(animate = false) {
-    const cols = gridCols();
-    const limit = cols === 1 ? 4 : cols * ROWS;   // pe telefon: 4 carduri
-    let used = 0, shown = 0, total = 0;
-    const newlyShown = [];
+    // arată / ascunde cardurile în funcție de filtru + limită de rânduri
+    function layout(animate = false) {
+        const cols = gridCols();
+        const limit = cols === 1 ? (opts.phoneLimit || rows) : cols * rows;
+        let used = 0, shown = 0, total = 0;
+        const newlyShown = [];
 
-    projects.forEach(p => {
-        const inFilter = matches(p, currentFilter);
-        if (!inFilter) { p.classList.add('hidden'); p.classList.remove('collapsed'); return; }
-        total++;
-        const span = p.classList.contains('net-project') && cols > 1 ? 2 : 1;
-        const fits = used + span <= limit;
-        const visible = expanded || fits;
-        if (fits) used += span;
-        const wasHidden = p.classList.contains('hidden') || p.classList.contains('collapsed');
-        p.classList.remove('hidden');
-        p.classList.toggle('collapsed', !visible);
-        if (visible) {
-            shown++;
-            p.classList.add('visible');
-            if (animate && wasHidden) newlyShown.push(p);
+        items.forEach(el => {
+            const inFilter = matches(el, currentFilter);
+            if (!inFilter) { el.classList.add('hidden'); el.classList.remove('collapsed'); return; }
+            total++;
+            const s = span(el, cols);
+            const fits = used + s <= limit;
+            const visible = expanded || fits;
+            if (fits) used += s;
+            const wasHidden = el.classList.contains('hidden') || el.classList.contains('collapsed');
+            el.classList.remove('hidden');
+            el.classList.toggle('collapsed', !visible);
+            if (visible) {
+                shown++;
+                el.classList.add('visible');
+                if (animate && wasHidden) newlyShown.push(el);
+            }
+        });
+
+        newlyShown.forEach((el, i) => {
+            el.classList.remove('pop');
+            el.style.animationDelay = reduceMotion ? '0s' : `${i * 0.06}s`;
+            void el.offsetWidth;
+            el.classList.add('pop');
+        });
+
+        const hiddenCount = total - shown;
+        const needsToggle = expanded || hiddenCount > 0;
+        moreBox.classList.toggle('off', !needsToggle);
+        countEl.textContent = `Showing ${shown} of ${total}`;
+        label.textContent = expanded ? 'Show less' : `Show all ${noun} (+${hiddenCount})`;
+        toggleBtn.setAttribute('aria-expanded', expanded);
+        toggleBtn.classList.toggle('open', expanded);
+    }
+
+    filters.forEach(btn => btn.addEventListener('click', () => {
+        filters.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        moveGlider(btn);
+        currentFilter = btn.dataset.filter;
+        expanded = false;
+        items.forEach(el => el.classList.add('hidden'));   // ca să re-anime cele afișate
+        layout(true);
+    }));
+
+    toggleBtn.addEventListener('click', () => {
+        expanded = !expanded;
+        layout(true);
+        if (!expanded) {
+            const top = section.getBoundingClientRect().top;
+            if (top < 0) section.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
         }
     });
 
-    newlyShown.forEach((p, i) => {
-        p.classList.remove('pop');
-        p.style.animationDelay = reduceMotion ? '0s' : `${i * 0.06}s`;
-        void p.offsetWidth;
-        p.classList.add('pop');
+    const activeBtn = () => $('.filter.active', section);
+    let lastCols = 0;
+    addEventListener('resize', () => {
+        moveGlider(activeBtn());
+        const c = gridCols();
+        if (c !== lastCols) { lastCols = c; layout(false); }
     });
-
-    const hiddenCount = total - shown;
-    const needsToggle = expanded || hiddenCount > 0;
-    moreBox.classList.toggle('off', !needsToggle);
-    countEl.textContent = `Showing ${shown} of ${total}`;
-    $('.pt-label', toggleBtn).textContent = expanded ? 'Show less' : `Show all projects (+${hiddenCount})`;
-    toggleBtn.setAttribute('aria-expanded', expanded);
-    toggleBtn.classList.toggle('open', expanded);
+    addEventListener('load', () => moveGlider(activeBtn()));
+    document.fonts && document.fonts.ready.then(() => moveGlider(activeBtn()));
+    moveGlider(activeBtn());
+    lastCols = gridCols();
+    layout(false);
 }
 
-filters.forEach(btn => btn.addEventListener('click', () => {
-    filters.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    moveGlider(btn);
-    currentFilter = btn.dataset.filter;
-    expanded = false;
-    projects.forEach(p => p.classList.add('hidden'));   // ca să re-anime cele afișate
-    layoutProjects(true);
-}));
-
-toggleBtn.addEventListener('click', () => {
-    expanded = !expanded;
-    layoutProjects(true);
-    if (!expanded) {
-        const top = $('#projects').getBoundingClientRect().top;
-        if (top < 0) $('#projects').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
-    }
+filterGrid({
+    section: $('#projects'),
+    items: $$('.project'),
+    grid: $('#projects-grid'),
+    glider: $('#filter-glider'),
+    moreBox: $('#proj-more'),
+    countEl: $('#proj-count'),
+    toggleBtn: $('#proj-toggle'),
+    rows: 2,
+    phoneLimit: 4,
+    span: (p, cols) => p.classList.contains('net-project') && cols > 1 ? 2 : 1,
+    noun: 'projects'
 });
-
-let lastCols = 0;
-const onResize = () => {
-    moveGlider($('.filter.active'));
-    const c = gridCols();
-    if (c !== lastCols) { lastCols = c; layoutProjects(false); }
-};
-addEventListener('resize', onResize);
-addEventListener('load', () => moveGlider($('.filter.active')));
-document.fonts && document.fonts.ready.then(() => moveGlider($('.filter.active')));
-moveGlider($('.filter.active'));
-lastCols = gridCols();
-layoutProjects(false);
 
 // =========================================================
 // 12. TILT 3D + SPOTLIGHT + MAGNETIC
@@ -701,7 +721,7 @@ function closeModal() {
     setTimeout(() => { modal.hidden = true; }, 300);
     if (lastFocus) lastFocus.focus();
 }
-projects.forEach(p => $('.project-hit', p).addEventListener('click', () => openModal(p)));
+$$('.project').forEach(p => $('.project-hit', p).addEventListener('click', () => openModal(p)));
 modalClose.addEventListener('click', closeModal);
 modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && !modal.hidden) closeModal(); });
@@ -752,7 +772,28 @@ $$('.copy').forEach(btn => btn.addEventListener('click', async () => {
 // =========================================================
 (function certs() {
     const DAY = 864e5;
-    $$('.cert[data-issued]').forEach(card => {
+
+    // cele mai noi primele: ordonăm după data-issued, oricum ar fi scrise în HTML
+    const certGrid = $('#cert-grid');
+    if (certGrid) {
+        const cards = $$('.cert', certGrid);
+        cards.sort((a, b) => (b.dataset.issued || '').localeCompare(a.dataset.issued || ''))
+             .forEach(c => certGrid.appendChild(c));
+        filterGrid({
+            section: $('#certifications'),
+            items: cards,
+            grid: certGrid,
+            glider: $('#cert-glider'),
+            moreBox: $('#cert-more'),
+            countEl: $('#cert-count'),
+            toggleBtn: $('#cert-toggle'),
+            rows: 1,
+            noun: 'certifications'
+        });
+    }
+
+    // bara de valabilitate: doar pe certificatele cu data-expires
+    $$('.cert[data-expires]').forEach(card => {
         const start = new Date(card.dataset.issued).getTime();
         const end = new Date(card.dataset.expires).getTime();
         const now = Date.now();

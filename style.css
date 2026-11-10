@@ -719,6 +719,7 @@ main {
 .thesis-scope li:hover { transform: translateY(-3px); background: var(--amber-soft); }
 
 .net-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 22px; }
+.net-grid > * { min-width: 0; }   /* altfel panoul calculatorului iese cu 1px pe telefon */
 
 /* OSI */
 .osi { display: flex; flex-direction: column; gap: 6px; position: relative; }
@@ -1502,8 +1503,9 @@ main {
 /* =========================================================
    04 CERTIFICATIONS
    ========================================================= */
-.cert-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 20px; align-items: stretch; }
+.cert-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: stretch; }
 
+/* un singur tip de card, compact și vertical, pentru toate certificatele */
 .cert {
     border: 1px solid var(--line);
     border-radius: var(--radius);
@@ -1513,35 +1515,32 @@ main {
     transition: transform .4s var(--ease), border-color .3s, box-shadow .4s;
 }
 .cert:hover { transform: translateY(-4px); border-color: rgba(56,189,248,.35); box-shadow: 0 30px 60px -30px rgba(56,189,248,.4); }
-.cert-main {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
-    border-color: rgba(56,189,248,.3);
-    background:
-        radial-gradient(500px 260px at 100% 0%, rgba(56,189,248,.10), transparent 70%),
-        var(--glass);
-}
+.cert.hidden, .cert.collapsed { display: none; }
+.cert.pop { animation: pop .5s var(--ease) both; }
 
 .cert-img {
     position: relative;
     display: block;
-    padding: 22px;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    padding: 18px 18px 0;
     background:
         linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 24px 24px,
         linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0 / 24px 24px,
         var(--bg-2);
-    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
     cursor: zoom-in;
     overflow: hidden;
 }
 .cert-img img {
-    width: 100%; height: auto;
-    border-radius: 8px;
+    width: 100%; height: 100%;
+    object-fit: cover; object-position: top;
+    border-radius: 8px 8px 0 0;
     box-shadow: 0 20px 40px -18px rgba(0,0,0,.8);
-    transform: perspective(800px) rotateY(-6deg) rotateX(3deg);
+    transform-origin: 50% 0;
     transition: transform .6s var(--ease);
 }
-.cert-img:hover img { transform: perspective(800px) rotateY(0) rotateX(0) scale(1.03); }
+.cert-img:hover img { transform: scale(1.03); }
 .cert-img::after {        /* sheen */
     content: "";
     position: absolute; inset: 0;
@@ -1552,7 +1551,7 @@ main {
 }
 @keyframes cert-sheen { 0%, 60% { transform: translateX(-100%); } 100% { transform: translateX(100%); } }
 .cert-zoom {
-    position: absolute; left: 50%; bottom: 14px;
+    position: absolute; left: 50%; bottom: 12px;
     transform: translate(-50%, 8px);
     font-family: var(--font-mono);
     font-size: 11.5px;
@@ -1567,29 +1566,7 @@ main {
 }
 .cert-img:hover .cert-zoom, .cert-img:focus-visible .cert-zoom { opacity: 1; transform: translate(-50%, 0); }
 
-.cert-icon {
-    height: 120px;
-    display: grid; place-items: center;
-    border-bottom: 1px solid var(--line);
-    background:
-        radial-gradient(240px 120px at 50% 0%, rgba(251,191,36,.14), transparent 70%),
-        linear-gradient(var(--line) 1px, transparent 1px) 0 0 / 24px 24px,
-        linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0 / 24px 24px,
-        var(--bg-2);
-}
-.cert-icon i {
-    font-size: 26px;
-    width: 64px; height: 64px;
-    display: grid; place-items: center;
-    border-radius: 16px;
-    color: var(--bg-2);
-    background: var(--amber);
-    box-shadow: 0 10px 30px -10px rgba(251,191,36,.8);
-    transition: transform .5s var(--spring);
-}
-.cert:hover .cert-icon i { transform: rotate(-10deg) scale(1.08); }
-
-.cert-body { padding: 24px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.cert-body { padding: 20px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
 .cert-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
 .cert-issuer { font-family: var(--font-mono); font-size: 12px; color: var(--muted); display: inline-flex; align-items: center; gap: 8px; }
 .cert-issuer i { color: var(--accent); }
@@ -1607,7 +1584,7 @@ main {
 .cert-status.done::before { content: "✓"; }
 .cert-status.expired { color: #f87171; background: rgba(248,113,113,.1); border-color: rgba(248,113,113,.3); }
 
-.cert-body h3 { font-family: var(--font-display); font-size: 21px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.25; }
+.cert-body h3 { font-family: var(--font-display); font-size: 19px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.3; }
 .cert-abbr {
     font-family: var(--font-mono);
     font-size: 12px;
@@ -1616,19 +1593,31 @@ main {
     border-radius: 6px;
     color: var(--bg-2);
     background: var(--accent);
-    vertical-align: 3px;
+    vertical-align: 2px;
     margin-left: 4px;
 }
 .cert-body p { color: var(--muted); font-size: 14.5px; line-height: 1.55; }
 
-.cert-meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
-.cert:not(.cert-main) .cert-meta { grid-template-columns: repeat(2, 1fr); }
+/* locul 1 Savnet: badge auriu, static */
+.cert-award {
+    align-self: flex-start;
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 999px;
+    color: var(--bg-2);
+    background: linear-gradient(90deg, var(--amber), #fde68a);
+}
+
+.cert-meta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
 .cert-meta > div { padding: 9px 12px; border-radius: 10px; background: rgba(30,41,59,.5); min-width: 0; }
 .cert-meta .cert-id { grid-column: 1 / -1; }
 .cert-meta dt { font-family: var(--font-mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
 .cert-meta dd { font-family: var(--font-display); font-weight: 500; font-size: 15px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-.cert-meta code { font-family: var(--font-mono); font-size: 14px; color: var(--amber); letter-spacing: .04em; }
-.copy.mini { width: 30px; height: 30px; border-radius: 8px; }
+.cert-meta code { font-family: var(--font-mono); font-size: 14px; color: var(--amber); letter-spacing: .04em; overflow-wrap: anywhere; }
+.copy.mini { width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0; }
 
 .cert-validity { display: flex; flex-direction: column; gap: 6px; }
 .cv-bar { height: 6px; border-radius: 6px; background: var(--surface); overflow: hidden; }
@@ -1642,7 +1631,8 @@ main {
 .cv-labels { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10.5px; color: var(--muted); }
 .cv-left { color: var(--accent); }
 
-.cert-verify { align-self: flex-start; margin-top: 4px; }
+/* butonul stă jos, aliniat pe același rând între carduri */
+.cert-verify { align-self: flex-start; margin-top: auto; }
 
 /* lightbox */
 .lightbox {
@@ -1671,20 +1661,15 @@ main {
 .lb-close { position: fixed; top: 18px; right: 18px; }
 
 @media (max-width: 1180px) {
-    .cert-grid { grid-template-columns: 1fr; }
+    .cert-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 760px) {
-    .cert-main { grid-template-columns: 1fr; }
-    .cert-img { border-right: 0; border-bottom: 1px solid var(--line); }
-    .cert-meta { grid-template-columns: repeat(2, 1fr); }
     .cert-zoom { opacity: 1; transform: translate(-50%, 0); }
 }
+@media (max-width: 640px) {
+    .cert-grid { grid-template-columns: minmax(0, 1fr); }
+}
 .js .cert.reveal.visible:hover { transform: translateY(-4px); }
-/* card Savnet cu poză sus */
-.cert-side .cert-img { border-right: 0; border-bottom: 1px solid var(--line); padding: 20px 20px 0; max-height: 230px; }
-.cert-side .cert-img img { transform: perspective(800px) rotateX(8deg); transform-origin: 50% 0; }
-.cert-side .cert-img:hover img { transform: perspective(800px) rotateX(0) scale(1.02); }
-.cert-side .cert-zoom { bottom: 12px; }
 
 /* =========================================================
    PROIECTE — expand / collapse + filtre cu număr
