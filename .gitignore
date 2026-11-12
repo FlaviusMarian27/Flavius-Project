@@ -1,0 +1,8 @@
+# IDE
+.idea/
+
+# local working files, not part of the site
+PROMPT.md
+docs/reference.png
+preview-teme.html
+CLAUDE.md
