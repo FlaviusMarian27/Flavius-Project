@@ -717,6 +717,7 @@ main {
 }
 .thesis-scope li i { color: var(--amber); width: 18px; text-align: center; }
 .thesis-scope li:hover { transform: translateY(-3px); background: var(--amber-soft); }
+.thesis-actions { margin-top: 24px; }
 
 .net-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 22px; }
 .net-grid > * { min-width: 0; }   /* altfel panoul calculatorului iese cu 1px pe telefon */
